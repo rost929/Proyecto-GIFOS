@@ -1,0 +1,43 @@
+.trendingGIFOS {
+  position: relative;
+  background-color: #F3F5F8;
+}
+
+.boxTrendingGIFOS {
+  width: 88%;
+  text-align: center;
+  padding-top: 65px;
+  margin-left: 5.6%;
+}
+
+#tituloTrendingGIFOS {
+  font-family: 'ProximaNova-Bold';
+  color: #572EE5;
+  font-size: 25px;
+}
+
+.info {
+  margin-top: 9px;
+  font-family: 'ProximaNova-Regular';
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.boxGIFOS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: scroll;
+}
+
+.cardGIF,
+.gif {
+  width: 243px;
+  height: 187px;
+}
+
+.cardGIF {
+  margin-top: 32px;
+  margin-left: 22px;
+}
+/*# sourceMappingURL=Trending.css.map */

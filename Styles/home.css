@@ -1,12 +1,10 @@
 .home {
   position: relative;
   width: 100%;
-  height: 1000px;
 }
 
 .boxMensajeInicio {
   width: 76.3%;
-  height: 108px;
   margin-left: 12%;
 }
 
@@ -34,7 +32,7 @@
 
 .boxBuscador {
   position: absolute;
-  top: 25.5%;
+  top: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,10 +60,76 @@
   padding-left: 1.5px;
 }
 
+.boxTrending {
+  margin-top: 52px;
+  margin-bottom: 102px;
+  width: 62.9%;
+  text-align: center;
+  margin-left: 19.7%;
+  color: #572EE5;
+}
+
+#tituloTrending {
+  font-family: ProximaNova-Bold;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.infoTrending {
+  font-family: ProximaNova-Regular;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+  .boxImgHome {
+    margin-top: 30px;
+  }
+  #imgHome {
+    width: 72.8%;
+    height: 190px;
+  }
+  .boxBuscador {
+    top: 63%;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .boxTrending {
+    margin-top: 15%;
+  }
+}
+
 @media (min-width: 768.1px) {
   .boxMensajeInicio {
     margin-top: 75px;
-    margin-left: 25%;
+  }
+  #mensajeInicio {
+    width: 64.9%;
+    height: 108px;
+    font-size: 40px;
+    line-height: 50px;
+    padding-left: 20%;
+  }
+  .boxImgHome {
+    margin-top: 50px;
+  }
+  #imgHome {
+    width: 72.8%;
+    height: 190px;
+  }
+  .boxBuscador {
+    top: 70%;
+    width: 38.3%;
+    margin-left: 30%;
+  }
+  .boxTrending {
+    margin-top: 73px;
+  }
+}
+
+@media (min-width: 768.1px) and (max-width: 1200px) {
+  .boxMensajeInicio {
+    margin-top: 75px;
   }
   #mensajeInicio {
     width: 64.9%;
@@ -81,9 +145,33 @@
     height: 190px;
   }
   .boxBuscador {
-    top: 34.8%;
-    width: 38.3%;
-    margin-left: 30%;
+    top: 73%;
+    width: 58%;
+    margin-left: 20%;
+  }
+  #buscador {
+    width: 92%;
+  }
+  .boxTrending {
+    margin-top: 73px;
   }
 }
+
+@media (min-width: 1200px) {
+  .boxBuscador {
+    top: 73%;
+    width: 40%;
+    margin-left: 30%;
+  }
+  #buscador {
+    width: 92%;
+  }
+}
+
+/*
+@media (min-width: 768.1px) and (max-width: 1200px) {}
+
+@media (min-width: 768.1px) and (max-width: 1024px) {}
+
+@media (min-width: 768.1px) and (max-width: 869px) {}*/
 /*# sourceMappingURL=home.css.map */
