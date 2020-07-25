@@ -14,20 +14,32 @@
   color: #572EE5;
   line-height: 36px;
   font-size: 30px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 #mensajeInicio #gifosWord {
   color: #00F3BB;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
 }
 
 .boxImgHome {
   margin-top: 27px;
   text-align: center;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
 }
 
 #imgHome {
   width: 72.8%;
   height: 130px;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
 }
 
 .boxBuscador {

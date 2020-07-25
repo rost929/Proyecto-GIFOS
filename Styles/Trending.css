@@ -1,7 +1,7 @@
 .trendingGIFOS {
   position: relative;
   background-color: #F3F5F8;
-  height: 410px;
+  height: 600px;
 }
 
 .boxTrendingGIFOS {
@@ -24,6 +24,12 @@
   line-height: 23px;
 }
 
+.carrusel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .boxGIFOS {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,12 +39,61 @@
 
 .cardGIF,
 .gif {
-  width: 243px;
-  height: 187px;
+  width: 337px;
+  height: 255px;
 }
 
 .cardGIF {
   margin-top: 32px;
   margin-left: 22px;
+}
+
+.btnAtras,
+.btnSiguiente {
+  visibility: hidden;
+}
+
+@media (min-width: 780.1px) {
+  .btnAtras {
+    visibility: visible;
+  }
+  .boxBtnAtras {
+    visibility: visible;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #572EE5;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 94px;
+    margin-right: 25px;
+  }
+  .btnSiguiente {
+    visibility: visible;
+  }
+  .boxBtnSiguiente {
+    visibility: visible;
+    width: 25px;
+    height: 15px;
+    border: 1px solid #572EE5;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 25px;
+    margin-right: 85px;
+  }
+  .boxBtnAtras:hover,
+  .boxBtnSiguiente:hover {
+    background: #572EE5;
+  }
+  .btnAtras:hover,
+  .btnSiguiente:hover {
+    fill: white;
+  }
+  .boxGIFOS {
+    overflow: hidden;
+  }
 }
 /*# sourceMappingURL=Trending.css.map */

@@ -17,17 +17,21 @@
     font-size: 30px;
     #gifosWord {
         color: #00F3BB;
+        order: 0;
     }
+    order: 1;
 }
 
 .boxImgHome {
     margin-top: 27px;
     text-align: center;
+    order: 0;
 }
 
 #imgHome {
     width: 72.8%;
     height: 130px;
+    order: 0;
 }
 
 .boxBuscador {

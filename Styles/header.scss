@@ -26,6 +26,15 @@
     background: #572EE5;
 }
 
+.imgBurger,
+.imgClose {
+    position: absolute;
+}
+
+.imgClose {
+    visibility: hidden;
+}
+
 @media (max-width: 768px) {
     header {
         position: relative;
@@ -59,66 +68,15 @@
         width: 30px;
         height: 30px;
         position: absolute;
-        top: 50px;
+        top: 45px;
         left: 89.1%;
         cursor: pointer;
         opacity: 0;
         z-index: 1;
     }
-    .linea {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        position: absolute;
-        width: 15px;
-        height: 2.4px;
-        margin: 5px;
-        left: 89.1%;
-        top: 0.5em;
-        background: #572EE5;
-        border-radius: 3px;
-        -webkit-transform-origin: 4px 0px;
-        transform-origin: 4px 0px;
-        z-index: 0;
-        -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-        transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-    }
-    .linea1 {
-        top: 50px;
-    }
-    .linea2 {
-        top: 56px;
-    }
-    .linea3 {
-        top: 62px;
-    }
-    .linea:first-child {
-        -webkit-transform-origin: 0% 0%;
-        transform-origin: 0% 0%;
-    }
-    .linea:nth-last-child(2) {
-        -webkit-transform-origin: 0% 100%;
-        transform-origin: 0% 100%;
-    }
-    .hamburguesa:checked~.linea {
-        opacity: 1;
-        -webkit-transform: rotate(45deg) translate(-2px, -1px);
-        transform: rotate(45deg) translate(-2px, -1px);
-        background: #572EE5;
-    }
-    .hamburguesa:checked~.linea:nth-last-child(3) {
-        opacity: 0;
-        -webkit-transform: rotate(0deg) scale(0.2, 0.2);
-        transform: rotate(0deg) scale(0.2, 0.2);
-    }
-    .hamburguesa:checked~.linea:nth-last-child(2) {
-        -webkit-transform: rotate(-45deg) translate(0, -1px);
-        transform: rotate(-45deg) translate(0, -1px);
-    }
     .navegacion {
         position: absolute;
+        text-align: center;
         width: 100%;
         background: transparent;
         -webkit-transform-origin: 0% 0%;
@@ -135,6 +93,8 @@
         font-size: 0;
     }
     .hamburguesa:checked~.nav .navegacion {
+        height: 484px;
+        position: static;
         -webkit-transform: translate(0, 0);
         transform: translate(0, 0);
         background: #572EE5 100%;
@@ -142,17 +102,32 @@
         transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
         transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-        opacity: 90%;
+        opacity: 95%;
     }
     .hamburguesa:checked~.nav .navegacion a {
         color: white;
-        font-size: 16px;
+        font-size: 15px;
         padding-top: 16px;
         padding-bottom: 9px;
-        padding-left: 16px;
-        line-height: 28px;
-        font-family: 'IBM Plex Mono', monospace;
+        line-height: 30px;
+        font-family: 'ProximaNova-Bold';
         font-weight: 300;
+        border-bottom: 1px solid white;
+        //opacity: 0.5;
+    }
+    .imgBurger {
+        top: 55px;
+        left: 91%;
+    }
+    .imgClose {
+        top: 55px;
+        left: 91%;
+    }
+    .hamburguesa:checked~.imgBurger {
+        visibility: hidden;
+    }
+    .hamburguesa:checked~.imgClose {
+        visibility: visible;
     }
 }
 
@@ -235,6 +210,9 @@
         padding-top: 18px;
         width: 16px;
         height: 16px;
+    }
+    .imgBurger {
+        z-index: -1;
     }
 }
 

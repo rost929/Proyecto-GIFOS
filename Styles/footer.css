@@ -46,14 +46,32 @@ footer {
 @media (min-width: 768.1px) {
   footer {
     position: relative;
-    height: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100px;
   }
   .textoCompartir {
-    margin-top: 20px;
+    margin-left: 156px;
+    margin-right: 0;
+    margin-top: 49.5px;
     font-family: 'ProximaNova-Regular';
     font-size: 13px;
     line-height: 18px;
-    width: 10%;
+  }
+  .boxIconosRedes {
+    margin-top: 49.5px;
+    margin-left: 18px;
+    margin-right: 0;
+  }
+  .textoDerechos {
+    margin-top: 49.5px;
+    margin-left: 650px;
+    font-size: 14px;
+    font-family: 'ProximaNova-Regular';
+  }
+  .iconoTwitter {
+    fill: #572EE5;
   }
 }
 /*# sourceMappingURL=footer.css.map */
