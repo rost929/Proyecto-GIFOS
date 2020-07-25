@@ -1,0 +1,136 @@
+.boxBtnFavorite {
+  position: absolute;
+  background-color: white;
+  border-radius: 6px;
+  opacity: 0.7;
+  width: 32px;
+  height: 32px;
+  top: 10px;
+  left: 203px;
+  text-align: center;
+  z-index: 3;
+}
+
+.btnFavoriteGif {
+  border-radius: 6px;
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+
+.imgFavorite {
+  border: none;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 4px;
+}
+
+.boxBtnFavorite:hover {
+  background: white;
+  opacity: 1;
+}
+
+.boxBtnFavorite:hover .imgFavoriteActive {
+  visibility: visible;
+}
+
+.boxBtnFavorite:hover .imgFavorite {
+  visibility: hidden;
+}
+
+.imgFavoriteActive {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  visibility: hidden;
+  width: 18px;
+  height: 18px;
+}
+
+.boxBtnDownload {
+  position: absolute;
+  background-color: white;
+  border-radius: 6px;
+  opacity: 0.7;
+  width: 32px;
+  height: 32px;
+  top: 10px;
+  left: 243px;
+  text-align: center;
+  z-index: 3;
+}
+
+.boxBtnDownload:hover {
+  background: white;
+  opacity: 1;
+}
+
+.btnDownloadGif {
+  border-radius: 6px;
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+
+.imgDownload {
+  border: none;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 4px;
+}
+
+.boxBtnMaximize {
+  position: absolute;
+  background-color: white;
+  border-radius: 6px;
+  opacity: 0.7;
+  width: 32px;
+  height: 32px;
+  top: 10px;
+  left: 283px;
+  text-align: center;
+  z-index: 3;
+}
+
+.boxBtnMaximize:hover {
+  background: white;
+  opacity: 1;
+}
+
+.btnMaximizeGif {
+  border-radius: 6px;
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+
+.imgMaximize {
+  border: none;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 4px;
+}
+
+.userGif {
+  position: absolute;
+  top: 188px;
+  left: 13px;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: 'ProximaNova-Regular';
+  color: white;
+}
+
+.tituloGif {
+  position: absolute;
+  top: 212px;
+  left: 13px;
+  font-size: 16px;
+  font-family: 'ProximaNova-Bold';
+  font-size: 15px;
+  color: white;
+}
+/*# sourceMappingURL=IconStyles.css.map */

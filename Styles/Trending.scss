@@ -38,9 +38,18 @@
 .gif {
     width: 337px;
     height: 255px;
+    z-index: 4;
 }
 
+
+/*
+.gif:hover {
+    //pacity: 0.2;
+    //background-color: #572EE5;
+}*/
+
 .cardGIF {
+    position: relative;
     margin-top: 32px;
     margin-left: 22px;
 }
@@ -83,11 +92,12 @@
     }
     .boxBtnAtras:hover,
     .boxBtnSiguiente:hover {
+        opacity: 1;
         background: #572EE5;
-    }
-    .btnAtras:hover,
-    .btnSiguiente:hover {
-        fill: white;
+        //background: #572EE5;
+        .btnSiguiente {
+            fill: sienna;
+        }
     }
     .boxGIFOS {
         overflow: hidden;
