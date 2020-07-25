@@ -1,34 +1,252 @@
-.boxImgFavorito {
-  margin-top: 11px;
-  text-align: center;
+@media (min-width: 320px) and (max-width: 425px) {
+  .boxImgFavorito {
+    margin-top: 11px;
+    text-align: center;
+  }
+  .titleFavoritos {
+    font-family: 'ProximaNova-Bold';
+    color: #572EE5;
+    padding-top: 8px;
+    font-size: 25px;
+  }
+  .boxCardsFavoritas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 36px;
+    margin-left: 3%;
+    text-align: center;
+  }
+  .cardGifFavorito,
+  .gifFavorito {
+    min-width: 130px;
+    min-height: 100px;
+    width: 40%;
+    height: 120px;
+  }
+  .cardGifFavorito {
+    margin-left: 11px;
+    margin-right: 11px;
+    margin-bottom: 25px;
+  }
+  .boxBtnVerMas {
+    text-align: center;
+    margin-top: 78px;
+    margin-bottom: 79px;
+  }
+  .btnVerMas {
+    text-transform: uppercase;
+    font-family: 'ProximaNova-Bold';
+    font-size: 13px;
+    color: #572EE5;
+    border-radius: 25px;
+    border: 1px solid #572EE5;
+    background: white;
+    width: 127px;
+    height: 50px;
+  }
 }
 
-.titleFavoritos {
-  font-family: 'ProximaNova-Bold';
-  color: #572EE5;
-  padding-top: 8px;
-  font-size: 25px;
+@media (min-width: 425.1px) and (max-width: 768px) {
+  .boxImgFavorito {
+    margin-top: 11px;
+    text-align: center;
+  }
+  .titleFavoritos {
+    font-family: 'ProximaNova-Bold';
+    color: #572EE5;
+    padding-top: 8px;
+    font-size: 25px;
+  }
+  .boxCardsFavoritas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 36px;
+    margin-left: 10.8%;
+  }
+  .cardGifFavorito,
+  .gifFavorito {
+    min-width: 160px;
+    min-height: 120px;
+    width: 156px;
+    height: 120px;
+  }
+  .cardGifFavorito {
+    margin-left: 11px;
+    margin-right: 11px;
+    margin-bottom: 25px;
+  }
+  .boxBtnVerMas {
+    text-align: center;
+    margin-top: 78px;
+    margin-bottom: 79px;
+  }
+  .btnVerMas {
+    text-transform: uppercase;
+    font-family: 'ProximaNova-Bold';
+    font-size: 13px;
+    color: #572EE5;
+    border-radius: 25px;
+    border: 1px solid #572EE5;
+    background: white;
+    width: 127px;
+    height: 50px;
+  }
 }
 
-.boxCardsFavoritas {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-left: 8%;
-  margin-top: 36px;
+@media (min-width: 768.1px) and (max-width: 1024px) {
+  .boxImgFavorito {
+    margin-top: 11px;
+    text-align: center;
+  }
+  .titleFavoritos {
+    font-family: 'ProximaNova-Bold';
+    color: #572EE5;
+    padding-top: 8px;
+    font-size: 25px;
+  }
+  .boxCardsFavoritas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 36px;
+    margin-left: 10.8%;
+  }
+  .cardGifFavorito,
+  .gifFavorito {
+    min-width: 160px;
+    min-height: 120px;
+    width: 156px;
+    height: 120px;
+  }
+  .cardGifFavorito {
+    margin-left: 11px;
+    margin-right: 11px;
+    margin-bottom: 25px;
+  }
+  .boxBtnVerMas {
+    text-align: center;
+    margin-top: 78px;
+    margin-bottom: 79px;
+  }
+  .btnVerMas {
+    text-transform: uppercase;
+    font-family: 'ProximaNova-Bold';
+    font-size: 13px;
+    color: #572EE5;
+    border-radius: 25px;
+    border: 1px solid #572EE5;
+    background: white;
+    width: 127px;
+    height: 50px;
+  }
 }
 
-.cardGifFavorito,
-.gifFavorito {
-  width: 260px;
-  height: 230px;
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .boxImgFavorito {
+    margin-top: 11px;
+    text-align: center;
+  }
+  .titleFavoritos {
+    font-family: 'ProximaNova-Bold';
+    color: #572EE5;
+    padding-top: 8px;
+    font-size: 25px;
+  }
+  .boxCardsFavoritas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-left: 7%;
+    margin-top: 36px;
+  }
+  .cardGifFavorito,
+  .gifFavorito {
+    max-width: 230px;
+    max-height: 230px;
+    width: 260px;
+    height: 230px;
+  }
+  .cardGifFavorito {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 35px;
+  }
+  .boxBtnVerMas {
+    text-align: center;
+    margin-top: 78px;
+    margin-bottom: 79px;
+  }
+  .btnVerMas {
+    text-transform: uppercase;
+    font-family: 'ProximaNova-Bold';
+    font-size: 13px;
+    color: #572EE5;
+    border-radius: 25px;
+    border: 1px solid #572EE5;
+    background: white;
+    width: 127px;
+    height: 50px;
+  }
 }
 
-.cardGifFavorito {
-  margin-left: 19.5px;
-  margin-right: 19.5px;
-  margin-bottom: 35px;
+@media (min-width: 1200px) {
+  .boxImgFavorito {
+    margin-top: 11px;
+    text-align: center;
+  }
+  .titleFavoritos {
+    font-family: 'ProximaNova-Bold';
+    color: #572EE5;
+    padding-top: 8px;
+    font-size: 25px;
+  }
+  .boxCardsFavoritas {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-left: 7%;
+    margin-top: 36px;
+    text-align: center;
+  }
+  .cardGifFavorito,
+  .gifFavorito {
+    max-width: 260px;
+    max-height: 230px;
+    width: 260px;
+    height: 230px;
+  }
+  .cardGifFavorito {
+    margin-left: 19.5px;
+    margin-right: 19.5px;
+    margin-bottom: 35px;
+  }
+  .boxBtnVerMas {
+    text-align: center;
+    margin-top: 78px;
+    margin-bottom: 79px;
+  }
+  .btnVerMas {
+    text-transform: uppercase;
+    font-family: 'ProximaNova-Bold';
+    font-size: 13px;
+    color: #572EE5;
+    border-radius: 25px;
+    border: 1px solid #572EE5;
+    background: white;
+    width: 127px;
+    height: 50px;
+  }
 }
 /*# sourceMappingURL=favoritos-style.css.map */
