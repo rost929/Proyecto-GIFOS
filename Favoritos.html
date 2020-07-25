@@ -10,19 +10,20 @@
     <link rel="stylesheet" href="./Styles/Trending.css">
     <link rel="stylesheet" href="./Styles/footer.css">
     <link rel="stylesheet" href="./Styles/IconStyles.css">
+    <link rel="stylesheet" href="./Styles/favoritos-style.css">
     <script src="https://kit.fontawesome.com/801ab9999d.js " crossorigin="anonymous "></script>
 </head>
 
 <body>
     <span class="barraSuperior"></span>
     <header>
-        <img id="logo" src="./assets/logo-mobile.svg">
+        <a id="anchorInicio" href="Index.html"> <img id="logo" src="./assets/logo-mobile.svg"></a>
         <input type="checkbox" class="hamburguesa">
         <img src="./assets/burger.svg" alt="Icono Burger" class="imgBurger">
         <img src="./assets/close.svg" alt="Icono Close" class="imgClose">
         <nav rol=navegacion class="nav">
             <ul class="navegacion">
-                <li><a href="#modoNocturno">Modo Nocturno</a></li>
+                <li><a href="">Modo Nocturno</a></li>
                 <li><a href="Favoritos.html">Favoritos</a></li>
                 <li><a href="#misGifos">Mis GIFOS</a></li>
                 <li>
@@ -36,21 +37,37 @@
     </header>
 
     <section class="home">
-        <div class="boxMensajeInicio">
-            <h1 id="mensajeInicio">
-                Inspírate, busca, guarda, y crea los mejores <span id="gifosWord">GIFOS</span>
-            </h1>
+        <div class="boxImgFavorito">
+            <img src="./assets/icon-favoritos.svg" alt="favoritos" class="imgFavorito">
+            <h2 class="titleFavoritos">Favoritos</h2>
         </div>
-        <div class="boxImgHome">
-            <img src="./assets/ilustra_header.svg" alt="Imagen de Inicio" id="imgHome">
+        <div class="boxCardsFavoritas">
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV1.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV2.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV3.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV4.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV5.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV6.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV7.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
+            <div class="cardGifFavorito">
+                <img src="./assets/GFV8.gif" alt="GIF FAVORITO" class="gifFavorito">
+            </div>
         </div>
-        <div class="boxBuscador">
-            <input type="text" id="buscador" placeholder="Busca GIFOS y más"> <img src="./assets/icon-search.svg" alt="Buscar" id="imgLupa">
-        </div>
-        <div class="boxTrending">
-            <h3 id="tituloTrending">Trending:</h3>
-            <p class="info infoTrending">Reactions, Entertaiment, Sports, Stickers, Artists</p>
-        </div>
+
     </section>
 
     <section class="trendingGIFOS">

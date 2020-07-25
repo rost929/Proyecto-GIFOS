@@ -1,0 +1,30 @@
+.boxImgFavorito {
+    margin-top: 11px;
+    text-align: center;
+}
+
+.titleFavoritos {
+    font-family: 'ProximaNova-Bold';
+    color: #572EE5;
+    padding-top: 8px;
+    font-size: 25px;
+}
+
+.boxCardsFavoritas {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 8%;
+    margin-top: 36px;
+}
+
+.cardGifFavorito,
+.gifFavorito {
+    width: 260px;
+    height: 230px;
+}
+
+.cardGifFavorito {
+    margin-left: 19.5px;
+    margin-right: 19.5px;
+    margin-bottom: 35px;
+}
