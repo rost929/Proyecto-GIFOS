@@ -1,9 +1,9 @@
 @media (min-width: 320px) and (max-width: 425px) {
-  .boxImgFavorito {
+  .boxImgGifos {
     margin-top: 11px;
     text-align: center;
   }
-  .titleFavoritos {
+  .titleGifos {
     font-family: 'ProximaNova-Bold';
     color: #572EE5;
     padding-top: 8px;
@@ -19,14 +19,14 @@
     margin-left: 3%;
     text-align: center;
   }
-  .cardGifFavorito,
-  .gifFavorito {
+  .cardGifo,
+  .gifo {
     min-width: 130px;
     min-height: 100px;
     width: 40%;
     height: 120px;
   }
-  .cardGifFavorito {
+  .cardGifo {
     margin-left: 11px;
     margin-right: 11px;
     margin-bottom: 25px;
@@ -50,11 +50,11 @@
 }
 
 @media (min-width: 425.1px) and (max-width: 768px) {
-  .boxImgFavorito {
+  .boxImgGifos {
     margin-top: 11px;
     text-align: center;
   }
-  .titleFavoritos {
+  .titleGifos {
     font-family: 'ProximaNova-Bold';
     color: #572EE5;
     padding-top: 8px;
@@ -69,14 +69,14 @@
     margin-top: 36px;
     margin-left: 10.8%;
   }
-  .cardGifFavorito,
-  .gifFavorito {
+  .cardGifo,
+  .gifo {
     min-width: 160px;
     min-height: 120px;
     width: 156px;
     height: 120px;
   }
-  .cardGifFavorito {
+  .cardGifo {
     margin-left: 11px;
     margin-right: 11px;
     margin-bottom: 25px;
@@ -100,11 +100,11 @@
 }
 
 @media (min-width: 768.1px) and (max-width: 1024px) {
-  .boxImgFavorito {
+  .boxImgGifos {
     margin-top: 11px;
     text-align: center;
   }
-  .titleFavoritos {
+  .titleGifos {
     font-family: 'ProximaNova-Bold';
     color: #572EE5;
     padding-top: 8px;
@@ -119,14 +119,14 @@
     margin-top: 36px;
     margin-left: 10.8%;
   }
-  .cardGifFavorito,
-  .gifFavorito {
+  .cardGifo,
+  .gifo {
     min-width: 160px;
     min-height: 120px;
     width: 156px;
     height: 120px;
   }
-  .cardGifFavorito {
+  .cardGifo {
     margin-left: 11px;
     margin-right: 11px;
     margin-bottom: 25px;
@@ -150,11 +150,11 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
-  .boxImgFavorito {
+  .boxImgGifos {
     margin-top: 11px;
     text-align: center;
   }
-  .titleFavoritos {
+  .titleGifos {
     font-family: 'ProximaNova-Bold';
     color: #572EE5;
     padding-top: 8px;
@@ -169,14 +169,14 @@
     margin-left: 7%;
     margin-top: 36px;
   }
-  .cardGifFavorito,
-  .gifFavorito {
+  .cardGifo,
+  .gifo {
     max-width: 230px;
     max-height: 230px;
     width: 260px;
     height: 230px;
   }
-  .cardGifFavorito {
+  .cardGifo {
     margin-left: 12px;
     margin-right: 12px;
     margin-bottom: 35px;
@@ -200,11 +200,11 @@
 }
 
 @media (min-width: 1200px) {
-  .boxImgFavorito {
+  .boxImgGifos {
     margin-top: 11px;
     text-align: center;
   }
-  .titleFavoritos {
+  .titleGifos {
     font-family: 'ProximaNova-Bold';
     color: #572EE5;
     padding-top: 8px;
@@ -220,14 +220,14 @@
     margin-top: 36px;
     text-align: center;
   }
-  .cardGifFavorito,
-  .gifFavorito {
+  .cardGifo,
+  .gifo {
     max-width: 260px;
     max-height: 230px;
     width: 260px;
     height: 230px;
   }
-  .cardGifFavorito {
+  .cardGifo {
     margin-left: 19.5px;
     margin-right: 19.5px;
     margin-bottom: 35px;
