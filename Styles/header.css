@@ -34,6 +34,27 @@
   visibility: hidden;
 }
 
+.boxBtnMas {
+  position: relative;
+}
+
+#anchorCrearGif {
+  width: 55px;
+  height: 55px;
+}
+
+.boxBtnMas:hover {
+  background: #572EE5;
+}
+
+.imagenMas {
+  position: absolute;
+  top: 0;
+  left: 35%;
+  width: 55px;
+  height: 55px;
+}
+
 @media (max-width: 768px) {
   header {
     position: relative;
@@ -194,8 +215,7 @@
     color: #060A24 56%;
   }
   .navegacion a:hover {
-    text-decoration: line-through;
-    color: #00F3BB;
+    color: #9CAFC3;
   }
   .boxBtnMas {
     width: 54px;
