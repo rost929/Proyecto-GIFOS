@@ -68,6 +68,16 @@
   text-align: center;
 }
 
+.btnBuscar {
+  width: 30px;
+  height: 30px;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-image: url(../assets/icon-search.svg);
+  border: none;
+  background-color: white;
+}
+
 #imgLupa {
   padding-left: 1.5px;
 }
