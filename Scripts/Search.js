@@ -1,31 +1,40 @@
 /**
  * Imports
  */
-import api from './API.js';
+//import api from './API.js';
+import { searchData, getGifDetail } from './API.js';
+
+
 
 /*
 Consts
 */
-const endpoint = "https://api.giphy.com/v1/gifs/search?"
-const word = "funny";
-const API_Key = "&api_key=cpG5KiG4E7yqmP5WTNd8nnWkzDfvFUWW";
-//const btnElement = document.querySelector('.btnProbar');
+const endpointSearch = "https://api.giphy.com/v1/gifs/search?"
+const btnElementSearch = document.querySelector(".btnBuscar");
+let word = document.getElementById('buscador');
+const limit = 12;
+const operacion = 1;
 
-function getRandomGifs() {
-    fetch(endpoint + API_Key + "&q=" + word)
-
-    .then(response => {
-            return response
-        }).then(miJson => {
-            console.log(miJson.json());
+/**
+ * 
+ */
+function getGifsByWord() {
+    //gifsFounded = '';
+    //const { searchData } = api;
+    const title = word.value;
+    searchData(endpointSearch, word.value, limit)
+        .then(response => {
+            console.log(response.data)
+            word.value = "";
+            const gifsArray = response.data;
+            getGifDetail(gifsArray, title, operacion);
         })
-        .catch(err => {
-            console.log(err);
+        .catch((error) => {
+            console.log(error)
         });
 }
 
+btnElementSearch.addEventListener('click', getGifsByWord);
 
-//btnElement.addEventListener('click', getRandomGifs);
 
-
-// fetch("api.giphy.com/v1/gifs/search?&api_key=cpG5KiG4E7yqmP5WTNd8nnWkzDfvFUWW&q=funny")
+// fetch("api.giphy.com/v1/gifs/search?&api_key=cpG5KiG4E7yqmP5WTNd8nnWkzDfvFUWW&q=funny");

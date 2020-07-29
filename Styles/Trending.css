@@ -37,16 +37,20 @@
   overflow: scroll;
 }
 
+/*
 .cardGIF,
 .gif {
-  width: 337px;
-  height: 255px;
-  z-index: 4;
+    // width: 337px;
+    //height: 255px;
+    //z-index: 4;
+}*/
+.gifo:hover {
+  opacity: 0.2;
+  background-image: #572EE5;
 }
 
-.gif:hover {
-  opacity: 0.2;
-  background-color: #572EE5;
+.gifo:hover .carGifo {
+  background: #572EE5;
 }
 
 .cardGIF {
@@ -100,5 +104,9 @@
   .boxBtnSiguiente:hover .btnSiguiente {
     fill: sienna;
   }
+  /*
+    .boxGIFOS {
+        // overflow: hidden;
+    }*/
 }
 /*# sourceMappingURL=Trending.css.map */

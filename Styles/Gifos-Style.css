@@ -10,7 +10,9 @@
     font-size: 25px;
     text-shadow: black 0.1em 0.1em 0.2em;
   }
-  .boxCardsFavoritas {
+  .boxCardsFavoritas,
+  .boxCardsBusquedas,
+  .boxCardsMisGifs {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -62,7 +64,9 @@
     font-size: 25px;
     text-shadow: black 0.1em 0.1em 0.2em;
   }
-  .boxCardsFavoritas {
+  .boxCardsFavoritas,
+  .boxCardsBusquedas,
+  .boxCardsMisGifs {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -113,7 +117,9 @@
     font-size: 25px;
     text-shadow: black 0.1em 0.1em 0.2em;
   }
-  .boxCardsFavoritas {
+  .boxCardsFavoritas,
+  .boxCardsBusquedas,
+  .boxCardsMisGifs {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -163,7 +169,9 @@
     padding-top: 8px;
     font-size: 25px;
   }
-  .boxCardsFavoritas {
+  .boxCardsFavoritas,
+  .boxCardsBusquedas,
+  .boxCardsMisGifs {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -213,7 +221,9 @@
     padding-top: 8px;
     font-size: 25px;
   }
-  .boxCardsFavoritas {
+  .boxCardsFavoritas,
+  .boxCardsBusquedas,
+  .boxCardsMisGifs {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -229,6 +239,7 @@
     max-height: 230px;
     width: 260px;
     height: 230px;
+    z-index: -1;
   }
   .cardGifo {
     margin-left: 19.5px;
