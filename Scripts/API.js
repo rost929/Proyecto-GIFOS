@@ -74,10 +74,10 @@ export default api;
  * @returns {Promise}
  */
 
-export const searchData = ((URL, word, limit = 12) => {
+export const searchData = ((URL, word, limit = 12, offset) => {
     const myLimit = limit ? `&limit=${limit}` : '';
     return new Promise((resolve, reject) => {
-        fetch(`${URL}&api_key=${API_Key}&q=${word}${myLimit}`)
+        fetch(`${URL}&api_key=${API_Key}&q=${word}${myLimit}&offset=${offset}`)
             .then((response) => resolve(response.json()))
             .catch((error) => reject(error))
     });
@@ -102,8 +102,9 @@ export const getGifDetail = (gifs, wordTitle, operacion) => {
             containerCardsTrending.innerHTML = allCardsMarkupTrend(gif);
             imagesArray.push(images.original.url);
         }
-    })
-    console.log(imagesArray);
+    });
+    //(operacion == 1) ? containerBoxParent.innerHTML = createMoreGifsButton(): "Funciona";
+    // console.log(imagesArray);
 };
 
 /**
@@ -115,7 +116,10 @@ export const getGifDetail = (gifs, wordTitle, operacion) => {
 
 const allCardsMarkupSearch = (gif) => {
     const { title, username, images } = gif;
-    gifsFounded += cardMarkup(title, username, images.original.url);
+    let user, titleGif = "";
+    username == "" ? user = "Anonymous" : user = username;
+    title == "" ? titleGif = "Nameless" : titleGif = title;
+    gifsFounded += cardMarkup(titleGif, user, images.original.url);
     return gifsFounded;
 };
 
@@ -128,7 +132,10 @@ const allCardsMarkupSearch = (gif) => {
 
 const allCardsMarkupTrend = (gif) => {
     const { title, username, images } = gif;
-    trendingGifs += cardMarkup(title, username, images.original.url);
+    let user, titleGif = "";
+    username == "" ? user = "Anonymous" : user = username;
+    title == "" ? titleGif = "Nameless" : titleGif = title;
+    trendingGifs += cardMarkup(titleGif, user, images.downsized.url);
     return trendingGifs;
 };
 
@@ -139,9 +146,9 @@ const allCardsMarkupTrend = (gif) => {
  * @returns {String}
  */
 
-const cardMarkup = ((title, username, img) => {
+const cardMarkup = (title, username, img) => {
     return (
-        `<div class="cardGIF">
+        `<div class="cardGifo">
     <div class="boxBtnFavorite">
         <button class=" btn btnFavoriteGif"> <img src="./assets/icon-fav-hover.svg" alt="favorito" class="imgFavorite"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActive"></button>
     </div>
@@ -156,4 +163,14 @@ const cardMarkup = ((title, username, img) => {
     <img class="gifo" src=${img} alt="Gif trending">  
     </div>`
     );
-});
+};
+
+/**
+ * @method createMoreGifsButton
+ * @description Create an element button
+ * @param {} 
+ * @returns {String}
+ */
+export const createMoreGifsButton = () => {
+    return (`<button class="btnShowMore">ver mas</button>`);
+}

@@ -66,6 +66,7 @@
   border: none;
   font-family: ProximaNova-Regular;
   text-align: center;
+  font-size: 16px;
 }
 
 .btnBuscar {
@@ -483,6 +484,7 @@
   text-align: center;
   padding-top: 65px;
   margin-left: 5.6%;
+  margin-bottom: 53px;
 }
 
 #tituloTrendingGIFOS {
@@ -699,16 +701,23 @@ footer {
     height: 120px;
   }
   .cardGifo {
+    position: relative;
     margin-left: 11px;
     margin-right: 11px;
     margin-bottom: 25px;
   }
-  .boxBtnVerMas {
+  .cardGifo:hover {
+    background-color: #572EE5;
+  }
+  .cardGifo:hover > .gifo {
+    opacity: 60%;
+  }
+  .boxBtnShowMore {
     text-align: center;
     margin-top: 78px;
     margin-bottom: 79px;
   }
-  .btnVerMas {
+  .btnShowMore {
     text-transform: uppercase;
     font-family: 'ProximaNova-Bold';
     font-size: 13px;
@@ -752,16 +761,23 @@ footer {
     height: 120px;
   }
   .cardGifo {
+    position: relative;
     margin-left: 11px;
     margin-right: 11px;
     margin-bottom: 25px;
   }
-  .boxBtnVerMas {
+  .cardGifo:hover {
+    background-color: #572EE5;
+  }
+  .cardGifo:hover > .gifo {
+    opacity: 60%;
+  }
+  .boxBtnShowMore {
     text-align: center;
     margin-top: 78px;
     margin-bottom: 79px;
   }
-  .btnVerMas {
+  .btnShowMore {
     text-transform: uppercase;
     font-family: 'ProximaNova-Bold';
     font-size: 13px;
@@ -805,16 +821,30 @@ footer {
     height: 120px;
   }
   .cardGifo {
+    position: relative;
     margin-left: 11px;
     margin-right: 11px;
     margin-bottom: 25px;
   }
-  .boxBtnVerMas {
+  .cardGifo:hover {
+    background-color: #572EE5;
+  }
+  .cardGifo:hover .boxBtnFavorite,
+  .cardGifo:hover .boxBtnDownload,
+  .cardGifo:hover .boxBtnMaximize,
+  .cardGifo:hover .userGif,
+  .cardGifo:hover .tituloGif {
+    visibility: visible;
+  }
+  .cardGifo:hover > .gifo {
+    opacity: 60%;
+  }
+  .boxBtnShowMore {
     text-align: center;
     margin-top: 78px;
     margin-bottom: 79px;
   }
-  .btnVerMas {
+  .btnShowMore {
     text-transform: uppercase;
     font-family: 'ProximaNova-Bold';
     font-size: 13px;
@@ -824,6 +854,10 @@ footer {
     background: white;
     width: 127px;
     height: 50px;
+  }
+  .btnShowMore:hover {
+    color: white;
+    background-color: #572EE5;
   }
 }
 
@@ -857,16 +891,30 @@ footer {
     height: 230px;
   }
   .cardGifo {
+    position: relative;
     margin-left: 12px;
     margin-right: 12px;
     margin-bottom: 35px;
   }
-  .boxBtnVerMas {
+  .cardGifo:hover {
+    background-color: #572EE5;
+  }
+  .cardGifo:hover .boxBtnFavorite,
+  .cardGifo:hover .boxBtnDownload,
+  .cardGifo:hover .boxBtnMaximize,
+  .cardGifo:hover .userGif,
+  .cardGifo:hover .tituloGif {
+    visibility: visible;
+  }
+  .cardGifo:hover > .gifo {
+    opacity: 60%;
+  }
+  .boxBtnShowMore {
     text-align: center;
     margin-top: 78px;
     margin-bottom: 79px;
   }
-  .btnVerMas {
+  .btnShowMore {
     text-transform: uppercase;
     font-family: 'ProximaNova-Bold';
     font-size: 13px;
@@ -876,6 +924,10 @@ footer {
     background: white;
     width: 127px;
     height: 50px;
+  }
+  .btnShowMore:hover {
+    color: white;
+    background-color: #572EE5;
   }
 }
 
@@ -908,19 +960,33 @@ footer {
     max-height: 230px;
     width: 260px;
     height: 230px;
-    z-index: -1;
+    z-index: 2;
   }
   .cardGifo {
+    position: relative;
     margin-left: 19.5px;
     margin-right: 19.5px;
     margin-bottom: 35px;
   }
-  .boxBtnVerMas {
+  .cardGifo:hover {
+    background-color: #572EE5;
+  }
+  .cardGifo:hover .boxBtnFavorite,
+  .cardGifo:hover .boxBtnDownload,
+  .cardGifo:hover .boxBtnMaximize,
+  .cardGifo:hover .userGif,
+  .cardGifo:hover .tituloGif {
+    visibility: visible;
+  }
+  .cardGifo:hover > .gifo {
+    opacity: 60%;
+  }
+  .boxBtnShowMore {
     text-align: center;
     margin-top: 78px;
     margin-bottom: 79px;
   }
-  .btnVerMas {
+  .btnShowMore {
     text-transform: uppercase;
     font-family: 'ProximaNova-Bold';
     font-size: 13px;
@@ -930,6 +996,20 @@ footer {
     background: white;
     width: 127px;
     height: 50px;
+  }
+  .btnShowMore:hover {
+    color: white;
+    background-color: #572EE5;
+  }
+}
+
+@media (max-width: 768px) {
+  .boxBtnFavorite,
+  .boxBtnDownload,
+  .boxBtnMaximize,
+  .tituloGif,
+  .userGif {
+    visibility: hidden;
   }
 }
 
@@ -943,7 +1023,8 @@ footer {
   top: 10px;
   left: 140px;
   text-align: center;
-  z-index: 3;
+  z-index: 2;
+  visibility: hidden;
 }
 
 .btnFavoriteGif {
@@ -993,7 +1074,8 @@ footer {
   top: 10px;
   left: 180px;
   text-align: center;
-  z-index: 3;
+  z-index: 2;
+  visibility: hidden;
 }
 
 .boxBtnDownload:hover {
@@ -1026,7 +1108,8 @@ footer {
   top: 10px;
   left: 220px;
   text-align: center;
-  z-index: 3;
+  z-index: 2;
+  visibility: hidden;
 }
 
 .boxBtnMaximize:hover {
@@ -1058,6 +1141,8 @@ footer {
   font-family: 'ProximaNova-Regular';
   color: white;
   text-shadow: 2px 2px 2px black;
+  visibility: hidden;
+  z-index: 3;
 }
 
 .tituloGif {
@@ -1069,6 +1154,8 @@ footer {
   font-size: 15px;
   color: white;
   text-shadow: 2px 2px 2px black;
+  visibility: hidden;
+  z-index: 3;
 }
 
 /*
