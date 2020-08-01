@@ -1,26 +1,31 @@
 /**
  * Imports
  */
-//import api from './API.js';
 import { searchData, getGifDetail } from './API.js';
-
-
 
 /*
 Consts
 */
 const endpointSearch = "https://api.giphy.com/v1/gifs/search?"
 const btnElementSearch = document.querySelector(".btnBuscar");
-let word = document.getElementById('buscador');
 const limit = 12;
 const operacion = 1;
 
+// Variables
+let word = document.getElementById('buscador');
+
 /**
- * 
+ * functions
  */
+
+/**
+ * @method getGifsByWord
+ * @description get a list of Gifs founded by a word
+ * @param {} 
+ * @returns {}
+ */
+
 function getGifsByWord() {
-    //gifsFounded = '';
-    //const { searchData } = api;
     const title = word.value;
     searchData(endpointSearch, word.value, limit)
         .then(response => {
@@ -34,7 +39,7 @@ function getGifsByWord() {
         });
 }
 
+/**
+ * Events
+ */
 btnElementSearch.addEventListener('click', getGifsByWord);
-
-
-// fetch("api.giphy.com/v1/gifs/search?&api_key=cpG5KiG4E7yqmP5WTNd8nnWkzDfvFUWW&q=funny");

@@ -5,12 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gifos Favoritos</title>
-    <link rel="stylesheet" href="./Styles/header.css">
-    <link rel="stylesheet" href="./Styles/home.css">
-    <link rel="stylesheet" href="./Styles/Trending.css">
-    <link rel="stylesheet" href="./Styles/footer.css">
-    <link rel="stylesheet" href="./Styles/IconStyles.css">
-    <link rel="stylesheet" href="./Styles/Gifos-Style.css">
+    <link rel="stylesheet" href="./Styles/Styles.css">
+    <link rel="stylesheet" href="./Fonts/icomoon/style-fonts.css">
     <script src="https://kit.fontawesome.com/801ab9999d.js " crossorigin="anonymous "></script>
 </head>
 
@@ -23,12 +19,12 @@
         <img src="./assets/close.svg" alt="Icono Close" class="imgClose">
         <nav rol=navegacion class="nav">
             <ul class="navegacion">
-                <li><a href="">Modo Nocturno</a></li>
-                <li><a href="Favoritos.html">Favoritos</a></li>
-                <li><a href="MisGifs.html">Mis GIFOS</a></li>
+                <li><a class="anchorMenu" href="">Modo Nocturno</a></li>
+                <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
+                <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
                 <li>
                     <div class="boxBtnMas">
-                        <a id="anchorCrearGif" href="Creacion.html"><img class="imagenMas" src="./assets/button-crear-gifo.svg" alt="Crear Gifo"></a>
+                        <a id="anchorCrearGif" href="Creacion.html"><i class="icon-button-crear-gifo"></i></a>
                     </div>
                 </li>
             </ul>
@@ -79,13 +75,13 @@
         </div>
         <div class="carrusel">
             <div class="boxBtnAtras">
-                <img src="./assets/button-left.svg" alt="Atras" class="btnAtras">
+                <button class="btnAtras"><i class="icon-button-left"></i></button>
             </div>
             <div class="boxGIFOS">
 
             </div>
             <div class="boxBtnSiguiente">
-                <img src="./assets/button-right.svg" alt="Atras" class="btnSiguiente">
+                <button class="btnSiguiente"> <i class="icon-button-right"></i> </button>
             </div>
 
         </div>
@@ -104,5 +100,6 @@
 
 </body>
 <script type="module" src="./Scripts/TrendingGifos.js"></script>
+<script type="module" src="Scripts/TrendingGifos.js"></script>
 
 </html>

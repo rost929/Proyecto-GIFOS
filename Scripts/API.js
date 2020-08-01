@@ -10,11 +10,21 @@ const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 /*
 Variables
 */
+
 let trendingGifs = '';
 let gifsFounded = '';
 
+/**
+ * Objects
+ */
 
 const api = {
+    /**
+     * @method searchData
+     * @description Make a request 
+     * @param {String, String} 
+     * @returns {Promise}
+     */
     searchData: ((URL, word) => {
         return new Promise((resolve, reject) => {
             fetch(`${URL}&api_key=${API_Key}&q=${word}`)
@@ -22,6 +32,12 @@ const api = {
                 .catch((error) => reject(error))
         });
     }),
+    /**
+     * @method searchData
+     * @description Make a request   
+     * @param {String, String, Integer} 
+     * @returns {Promise}
+     */
     searchData: ((URL, word, limit) => {
         return new Promise((resolve, reject) => {
             fetch(`${URL}&api_key=${API_Key}&q=${word}&limit=${limit}`)
@@ -29,6 +45,12 @@ const api = {
                 .catch((error) => reject(error))
         });
     }),
+    /**
+     * @method searchData
+     * @description Make a request   
+     * @param {String, Integer} 
+     * @returns {Promise}
+     */
     trendingData: ((URL, limit = 12) => {
         const myLimit2 = limit ? `&limit=${limit}` : '';
         return new Promise((resolve, reject) => {
@@ -41,6 +63,17 @@ const api = {
 
 export default api;
 
+/**
+ * Functions
+ */
+
+/**
+ * @method searchData
+ * @description Make a request  
+ * @param {String, String, String} 
+ * @returns {Promise}
+ */
+
 export const searchData = ((URL, word, limit = 12) => {
     const myLimit = limit ? `&limit=${limit}` : '';
     return new Promise((resolve, reject) => {
@@ -50,44 +83,61 @@ export const searchData = ((URL, word, limit = 12) => {
     });
 });
 
-
 /**
  * @method getGifDetail
- * @description Funcion para iterar el array obtenido del JSON
+ * @description Iterates the gif array and make a call to allCardsMarkup
  * @param {array} 
  * @returns {}
  */
 
 export const getGifDetail = (gifs, wordTitle, operacion) => {
     gifsFounded = '';
+    let imagesArray = [];
     gifs.forEach((gif) => {
         const { title, username, images } = gif;
         if (operacion === 1) {
             containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
             containerCardsSearch.innerHTML = allCardsMarkupSearch(gif);
-            //titleMarkup(gif);
         } else {
             containerCardsTrending.innerHTML = allCardsMarkupTrend(gif);
+            imagesArray.push(images.original.url);
         }
-
     })
+    console.log(imagesArray);
 };
+
+/**
+ * @method allCardsMarkupSearch
+ * @description Execute the calling to cardMarkup and concatenate the results as string 
+ * @param {String} gif dnksndkds 
+ * @returns {String} 
+ */
 
 const allCardsMarkupSearch = (gif) => {
     const { title, username, images } = gif;
-    gifsFounded += cardMarkup(title, username, images.downsized.url);
+    gifsFounded += cardMarkup(title, username, images.original.url);
     return gifsFounded;
 };
 
+/**
+ * @method allCardsMarkupSearch
+ * @description Execute the calling to cardMarkup and concatenate the results as string 
+ * @param {Object} 
+ * @returns {String}
+ */
+
 const allCardsMarkupTrend = (gif) => {
     const { title, username, images } = gif;
-    trendingGifs += cardMarkup(title, username, images.downsized.url);
+    trendingGifs += cardMarkup(title, username, images.original.url);
     return trendingGifs;
 };
 
-const titleMarkup = (title) => {
-
-}
+/**
+ * @method cardMarkup
+ * @description Write the card gif  
+ * @param {Object} 
+ * @returns {String}
+ */
 
 const cardMarkup = ((title, username, img) => {
     return (
