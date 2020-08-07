@@ -42,8 +42,30 @@
             <img src="./assets/ilustra_header.svg" alt="Imagen de Inicio" id="imgHome">
         </div>
         <div class="boxBuscador">
-            <input type="text" id="buscador" placeholder="Busca GIFOS y más">
-            <button class="btnBuscar"></button>
+            <div class="boxGlobalSearch">
+                <i class="icon-icon-search"></i>
+                <input type="text" id="buscador" placeholder="Busca GIFOS y más">
+                <button class="btnBuscar"></button>
+            </div>
+            <span class="separator"></span>
+            <div class="boxSuggestions">
+                <ul class="listSuggestions">
+                    <!--
+                    <li class="itemSuggestion"><i class="icon-icon-search subIcon"></i>
+                        <div class="boxSuggestion"><label for="buscador" class="suggestion">Happy</label></div>
+                    </li>
+                    <li class="itemSuggestion"><i class="icon-icon-search subIcon"></i>
+                        <div class="boxSuggestion"><label for="buscador" class="suggestion">Happy</label></div>
+                    </li>
+                    <li class="itemSuggestion"><i class="icon-icon-search subIcon"></i>
+                        <div class="boxSuggestion"><label for="buscador" class="suggestion">Happy</label></div>
+                    </li>
+                    <li class="itemSuggestion"><i class="icon-icon-search subIcon"></i>
+                        <div class="boxSuggestion"><label for="buscador" class="suggestion">Happy</label></div>
+                    </li>
+                   
+                </ul> -->
+            </div>
             <!--  <img src="./assets/icon-search.svg" alt="Buscar" id="imgLupa">
        -->
         </div>
@@ -67,9 +89,6 @@
             </div>
             <div class="boxBtnShowMore"></div>
         </div>
-
-
-
         <div class="boxTrending">
             <h3 id="tituloTrending">Trending:</h3>
             <p class="info infoTrending">Reactions, Entertaiment, Sports, Stickers, Artists</p>
@@ -87,7 +106,7 @@
                 </button>
             </div>
             <div class="boxGIFOS">
-                <!-- <div class="cardGIF">
+                <!-- <div class="cardGifo">
                     <div class="boxBtnFavorite">
                         <button class=" btn btnFavoriteGif"> <img src="./assets/icon-fav-hover.svg" alt="favorito" class="imgFavorite"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActive"></button>
                     </div>
@@ -125,8 +144,9 @@
 
 </body>
 
-<script type="module" src="./Scripts/TrendingGifos.js"></script>
+<script type="module" src="./Scripts/Index.js"></script>
 <script type="module" src="./Scripts/Search.js"></script>
+<script type="module" src="./Scripts/Suggestions.js"></script>
 <script type="module" src="Scripts/TrendingGifos.js"></script>
 
 </html>

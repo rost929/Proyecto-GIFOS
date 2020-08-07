@@ -35,9 +35,8 @@
 }
 
 .boxBuscador {
-    // position: absolute;
+    position: relative;
     top: 65%;
-    display: flex;
     margin-left: 5%;
     text-align: center;
     border: solid #572EE5;
@@ -47,19 +46,66 @@
     align-items: center;
 }
 
+.boxGlobalSearch {
+    display: flex;
+}
+
+.icon-icon-search {
+    width: 20px;
+    height: 20px;
+    font-size: 25px;
+    margin-top: 7.6px;
+    margin-bottom: 7.6px;
+    margin-left: 23.6px;
+    margin-right: 16px;
+    margin-top: 12px;
+    color: #9CAFC3;
+    //visibility: hidden;
+}
+
+.separator {
+    position: absolute;
+    width: 94%;
+    top: 50px;
+    left: 3%;
+    opacity: 0.5;
+    border: 1px solid #9CAFC3;
+    //visibility: hidden;
+}
+
+.boxSuggestions {
+    margin-top: 20px;
+    display: flex;
+}
+
+.listSuggestions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.itemSuggestion {
+    display: flex;
+    align-items: center;
+}
+
 #buscador {
     height: 40px;
     border-radius: 20px;
-    width: 87%;
+    width: 84%;
     border: none;
-    font-family: ProximaNova-Regular;
-    text-align: center;
-    font-size: 16px;
+    font-family: 'ProximaNova-Regular';
+    text-align: left;
+    font-size: 18px;
+    outline: transparent;
 }
 
 .btnBuscar {
     width: 30px;
     height: 30px;
+    margin-top: 9px;
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-image: url(../assets/icon-search.svg);
@@ -69,6 +115,14 @@
 
 #imgLupa {
     padding-left: 1.5px;
+}
+
+.suggestion {
+    font-family: 'ProximaNova-Regular';
+    font-size: 16px;
+    color: #9CAFC3;
+    height: 20px;
+    width: 50px;
 }
 
 .boxBusquedas {
@@ -178,7 +232,7 @@
         margin-left: 20%;
     }
     #buscador {
-        width: 92%;
+        width: 81%;
     }
     .boxTrending {
         margin-top: 73px
@@ -192,7 +246,7 @@
         margin-left: 30%;
     }
     #buscador {
-        width: 92%;
+        width: 81%;
     }
 }
 

@@ -1,12 +1,13 @@
 /**
  * Imports
  */
-import { searchData, getGifDetail, createMoreGifsButton } from './API.js';
-
+import { searchData, getGifDetail, createMoreGifsButton, suggestData } from './API.js';
+import { iterateSuggestedArray } from "./Suggestions.js";
 /*
 Consts
 */
-const endpointSearch = "https://api.giphy.com/v1/gifs/search?"
+const endpointSearch = "https://api.giphy.com/v1/gifs/search?";
+const endpointSuggestions = "https://api.giphy.com/v1/gifs/search/tags?";
 const btnElementSearch = document.querySelector(".btnBuscar");
 const containerBoxParent = document.querySelector('.boxBtnShowMore');
 
@@ -52,9 +53,18 @@ function getElementShowMore() {
     btnElementShowMore.addEventListener('click', function() { getGifsByWord(1) });
 }
 
-
-
 /**
  * Events
  */
 btnElementSearch.addEventListener('click', function() { getGifsByWord(2) });
+
+//search
+word.oninput = () => {
+    suggestData(endpointSuggestions, word.value)
+        .then(response => {
+            //console.log(response.data);
+            iterateSuggestedArray(response.data);
+        }).catch((error) => {
+            console.log(error)
+        });;
+}
