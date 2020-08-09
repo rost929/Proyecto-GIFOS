@@ -207,7 +207,6 @@ const downloadGifo = (imageURL, /** @type {HTMLAnchorElement} */ elementAnchorDo
         fetch(myRequest)
             .then((response) => response.blob())
             .then(function(myBlob) {
-                //    console.log(new Date());
                 const objectURL = URL.createObjectURL(myBlob);
                 elementAnchorDown.href = objectURL;
                 elementAnchorDown.download = "Gifo.gif";
