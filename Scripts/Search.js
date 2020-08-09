@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import { searchData, getGifDetail, createMoreGifsButton, suggestData } from './API.js';
+import { searchData, prepareGifsFromSearch, createMoreGifsButton, suggestData } from './API.js';
 import { iterateSuggestedArray } from "./Suggestions.js";
 /*
 Consts
@@ -33,10 +33,8 @@ function getGifsByWord(idEvent) {
     const title = word.value;
     searchData(endpointSearch, word.value, limit, offset)
         .then(response => {
-            console.log(response.data);
-            //word.value = "";
             const gifsArray = response.data;
-            getGifDetail(gifsArray, title);
+            prepareGifsFromSearch(gifsArray, title);
             containerBoxParent.innerHTML = createMoreGifsButton();
             getElementShowMore();
         })

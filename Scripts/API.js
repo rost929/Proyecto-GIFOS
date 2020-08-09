@@ -2,16 +2,18 @@
 Consts
 */
 const API_Key = "cpG5KiG4E7yqmP5WTNd8nnWkzDfvFUWW";
+const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
-const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
+
 
 /*
 Variables
 */
 let trendingGifs = '';
-let gifsFounded = '';
+let gifsFound = '';
 let arrayGifsTrending = [];
+let arrayGifsFound = [];
 let arrayDownloadButtons = [];
 
 /**
@@ -66,20 +68,22 @@ export const suggestData = ((URL, word) => {
 });
 
 /**
- * @method getGifDetail
+ * @method prepareGifsFromSearch
  * @description Iterates the gif array and make a call to allCardsMarkup
  * @param {array} 
  * @returns {}
  */
 
-export const getGifDetail = (gifs, wordTitle = "") => {
-    gifsFounded = '';
-    //let imagesArray = [];
-    gifs.forEach((gif, index) => {
-        index += 12;
-        containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
-        containerCardsSearch.innerHTML = allCardsMarkupSearch(gif, index);
-    });
+export const prepareGifsFromSearch = (gifs, wordTitle = "") => {
+    arrayDownloadButtons = [];
+    arrayGifsFound = validateEmptyFields(gifs);
+    const cards = arrayGifsFound.map((gif, index) => allCardsMarkupSearch(gif, index + 12));
+    containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
+    containerCardsSearch.innerHTML = cards.join("\n");
+    arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
+    console.log(arrayDownloadButtons);
+    // debugger;
+    assignDownloadEvent(arrayDownloadButtons);
 };
 
 /**
@@ -90,49 +94,27 @@ export const getGifDetail = (gifs, wordTitle = "") => {
  */
 
 const allCardsMarkupSearch = (gif, index) => {
-    const { title, username, images } = gif;
-    let user, titleGif = "";
-    username == "" ? user = "Anonymous" : user = username;
-    title == "" ? titleGif = "Nameless" : titleGif = title;
-    gifsFounded += cardMarkup(titleGif, user, images.original.url, index);
-    return gifsFounded;
+    gifsFound = '';
+    gifsFound += cardMarkup(gif.title, gif.user, gif.gif, index);
+    return gifsFound;
 };
 
 /**
- * @method getGifTrendingDetail
+ * @method prepareTrendingGifDetails
  * @description Iterates the gif array and make a call to allCardsMarkup
  * @param {array} 
  * @returns {}
  */
 
-export const getGifTrendingDetail = (gifs) => {
+export const prepareTrendingGifDetails = (gifs) => {
     //trendingGifs = '';
     arrayDownloadButtons = [];
     arrayGifsTrending = validateEmptyFields(gifs);
     const cards = arrayGifsTrending.map((gif, index) => allCardsMarkupTrend(gif, index));
     containerCardsTrending.innerHTML = cards.join("\n");
     arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + index) });
-    assignDownloadEvent(arrayDownloadButtons);
+    assignDownloadEvent(arrayDownloadButtons, 1);
 };
-
-/**
- * @method validateEmptyFields
- * @description validates if exists empty fields in user and title attributes
- * @param {array} arrayToValid 
- * @return {array} 
- */
-function validateEmptyFields(arrayToValid) {
-    let validatedArray = []
-    validatedArray = arrayToValid.map((gif) => {
-        const { title, username, images } = gif;
-        let user, titleGif;
-        username == "" ? user = "Anonymous" : user = username;
-        title == "" ? titleGif = "Nameless" : titleGif = title;
-        return { user: user, title: titleGif, gif: images.downsized.url };
-    });
-    return validatedArray;
-}
-
 
 /**
  * @method allCardsMarkupTrend
@@ -185,20 +167,53 @@ export const createMoreGifsButton = () => {
 }
 
 /**
+ * @method validateEmptyFields
+ * @description validates if exists empty fields in user and title attributes
+ * @param {array} arrayToValid 
+ * @return {array} 
+ */
+function validateEmptyFields(arrayToValid) {
+    let validatedArray = []
+    validatedArray = arrayToValid.map((gif) => {
+        const { title, username, images } = gif;
+        let user, titleGif;
+        username == "" ? user = "Anonymous" : user = username;
+        title == "" ? titleGif = "Nameless" : titleGif = title;
+        return { user: user, title: titleGif, gif: images.downsized.url };
+    });
+    return validatedArray;
+}
+
+/**
  * @method assignDownloadEvent
  * @description Asigns an event to element button 
- * @param {} 
+ * @param {array} 
  * @returns {}
  */
-const assignDownloadEvent = (arrayDownloadButtons) => {
-    arrayDownloadButtons.forEach((element, index) => {
-        let imgURL = arrayGifsTrending[index].gif;
-        element.addEventListener("click", function() {
-            // console.log("clickeado");
-            downloadGifo(imgURL, element);
+const assignDownloadEvent = (arrayDownloadButtons, operation) => {
+    if (operation == 1) {
+        arrayDownloadButtons.forEach((element, index) => {
+            let imgURL = arrayGifsTrending[index].gif;
+            element.addEventListener("click", function() {
+                downloadGifo(imgURL, element);
+            });
         });
-    });
+    } else {
+        arrayDownloadButtons.forEach((element, index) => {
+            let imgURL = arrayGifsFound[index].gif;
+            element.addEventListener("click", function() {
+                downloadGifo(imgURL, element);
+            });
+        });
+    }
 }
+
+/**
+ * @method downloadGifo
+ * @description Makes a request to download a gif
+ * @param {String, HTMLAnchorElement} 
+ * @returns {}
+ */
 
 const downloadGifo = (imageURL, /** @type {HTMLAnchorElement} */ elementAnchorDown) => {
     // const newAnchor = document.createElement("a");

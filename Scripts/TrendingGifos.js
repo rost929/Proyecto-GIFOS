@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import { getGifTrendingDetail, trendingData } from "./API.js";
+import { prepareTrendingGifDetails, trendingData } from "./API.js";
 
 /*
 Consts
@@ -49,7 +49,7 @@ function getTrendingGifs() {
         .then(response => {
             //console.log(response.data)
             const gifsArray = response.data;
-            getGifTrendingDetail(gifsArray);
+            prepareTrendingGifDetails(gifsArray);
         })
         .catch((error) => {
             console.log(error)
