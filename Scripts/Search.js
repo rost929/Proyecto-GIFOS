@@ -34,13 +34,11 @@ function getGifsByWord(idEvent) {
     searchData(endpointSearch, word.value, limit, offset)
         .then(response => {
             console.log(response.data);
-            // console.log("offset=", offset);
             //word.value = "";
             const gifsArray = response.data;
-            getGifDetail(gifsArray, title, operacion);
+            getGifDetail(gifsArray, title);
             containerBoxParent.innerHTML = createMoreGifsButton();
             getElementShowMore();
-            //offset += 12;
         })
         .catch((error) => {
             console.log(error)
@@ -53,16 +51,11 @@ function getElementShowMore() {
     btnElementShowMore.addEventListener('click', function() { getGifsByWord(1) });
 }
 
-/**
- * Events
- */
 btnElementSearch.addEventListener('click', function() { getGifsByWord(2) });
 
-//search
 word.oninput = () => {
     suggestData(endpointSuggestions, word.value)
         .then(response => {
-            //console.log(response.data);
             iterateSuggestedArray(response.data);
         }).catch((error) => {
             console.log(error)

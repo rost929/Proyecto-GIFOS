@@ -1,8 +1,7 @@
 /**
  * Imports
  */
-import api from './API.js';
-import { getGifDetail } from "./API.js";
+import { getGifTrendingDetail, trendingData } from "./API.js";
 
 /*
 Consts
@@ -15,7 +14,6 @@ const limit = 12;
 /**
  * Functions
  */
-
 
 /**
  * @method desplazarALaDerecha
@@ -47,12 +45,11 @@ function desplazarALaIzquierda() {
  */
 
 function getTrendingGifs() {
-    const { trendingData } = api;
     trendingData(endpointTrending, limit)
         .then(response => {
-            console.log(response.data)
+            //console.log(response.data)
             const gifsArray = response.data;
-            getGifDetail(gifsArray);
+            getGifTrendingDetail(gifsArray);
         })
         .catch((error) => {
             console.log(error)
@@ -65,5 +62,5 @@ getTrendingGifs();
  * Events
  */
 
-buttonSiguiente.addEventListener("click", desplazarALaDerecha);
-buttonAtras.addEventListener('click', desplazarALaIzquierda);
+buttonSiguiente.addEventListener("mousedown", desplazarALaDerecha);
+buttonAtras.addEventListener('mousedown', desplazarALaIzquierda);
