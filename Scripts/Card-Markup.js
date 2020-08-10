@@ -26,7 +26,9 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     const cards = arrayGifsFound.map((gif, index) => allCardsMarkup(gif, index + 12));
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
-    arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
+    arrayDownloadButtons = gifs.map((gif, index) => {
+        return document.getElementById('btnDow' + (index + 12))
+    });
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
 };
 
@@ -41,7 +43,9 @@ export const prepareTrendingGifCards = (gifs) => {
     arrayGifsTrending = validateEmptyFields(gifs);
     const cards = arrayGifsTrending.map((gif, index) => allCardsMarkup(gif, index));
     containerCardsTrending.innerHTML = cards.join("\n");
-    arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + index) });
+    arrayDownloadButtons = gifs.map((gif, index) => {
+        return document.getElementById('btnDow' + index)
+    });
     assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
 };
 
