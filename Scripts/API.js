@@ -1,15 +1,10 @@
-/*
-Consts
-*/
-const API_Key = "cpG5KiG4E7yqmP5WTNd8nnWkzDfvFUWW";
+//Consts
 const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
 
 
-/*
-Variables
-*/
+//Variables
 let trendingGifs = '';
 let gifsFound = '';
 let arrayGifsTrending = [];
@@ -19,53 +14,6 @@ let arrayDownloadButtons = [];
 /**
  * Functions
  */
-
-/**
- * @method searchData
- * @description Make a request   
- * @param {String, Integer} 
- * @returns {Promise}
- */
-export const trendingData = ((URL, limit = 12) => {
-    const myLimit2 = limit ? `&limit=${limit}` : '';
-    return new Promise((resolve, reject) => {
-        fetch(`${URL}&api_key=${API_Key}&limit=${myLimit2}`)
-            .then((response) => resolve(response.json()))
-            .catch((error) => reject(error))
-    });
-});
-
-/**
- * @method searchData
- * @description Make a request  
- * @param {String, String, Integer, Integer} 
- * @returns {Promise}
- */
-
-export const searchData = ((URL, word, limit = 12, offset) => {
-    const myLimit = limit ? `&limit=${limit}` : '';
-    return new Promise((resolve, reject) => {
-        fetch(`${URL}&api_key=${API_Key}&q=${word}${myLimit}&offset=${offset}`)
-            .then((response) => resolve(response.json()))
-            .catch((error) => reject(error))
-    });
-});
-
-/**
- * @method suggestData
- * @description Make a request  
- * @param {String, String, Integer} 
- * @returns {Promise}
- */
-
-export const suggestData = ((URL, word) => {
-    // const myLimit = limit ? `&limit=${limit}` : '';
-    return new Promise((resolve, reject) => {
-        fetch(`${URL}&api_key=${API_Key}&q=${word}`)
-            .then((response) => resolve(response.json()))
-            .catch((error) => reject(error))
-    });
-});
 
 /**
  * @method prepareGifsFromSearch

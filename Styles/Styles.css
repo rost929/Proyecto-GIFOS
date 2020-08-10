@@ -82,10 +82,10 @@
   left: 3%;
   opacity: 0.5;
   border: 1px solid #9CAFC3;
+  visibility: hidden;
 }
 
 .boxSuggestions {
-  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,9 +175,21 @@
   font-family: ProximaNova-Bold;
   font-size: 18px;
   line-height: 25px;
+  margin-bottom: 7px;
+}
+
+.boxWordsTrending {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  margin-left: 25%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .infoTrending {
+  margin-left: 10px;
   font-family: ProximaNova-Regular;
   font-size: 18px;
   line-height: 25px;

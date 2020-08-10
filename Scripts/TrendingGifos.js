@@ -1,15 +1,12 @@
-/**
- * Imports
- */
-import { prepareTrendingGifDetails, trendingData } from "./API.js";
+//imports
+import { trendingData } from "./Requests.js";
+import { prepareTrendingGifDetails } from "./API.js";
+import { endpointTrending, limit } from "./Constants.js";
 
-/*
-Consts
-*/
-const endpointTrending = "https://api.giphy.com/v1/gifs/trending?";
+//consts
 const buttonSiguiente = document.querySelector(".btnSiguiente");
 const buttonAtras = document.querySelector(".btnAtras");
-const limit = 12;
+
 
 /**
  * Functions

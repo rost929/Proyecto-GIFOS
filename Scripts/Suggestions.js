@@ -1,11 +1,18 @@
 //Consts
 const containerSuggestedList = document.querySelector('.listSuggestions');
+const seperatorElement = document.querySelector(".separator");
+const boxSuggestionsElement = document.querySelector(".boxSuggestions");
+
 
 //Variables
 let suggestedList = '';
 
-
 //Functions
+
+const getTermstrending = () => {
+
+}
+
 
 /**
  * @method iterateSuggestedArray
@@ -16,11 +23,15 @@ let suggestedList = '';
 export const iterateSuggestedArray = (suggestedWords) => {
     suggestedList = "";
     if (suggestedWords.length > 0) {
+        boxSuggestionsElement.style.cssText = "margin-top: 20px";
+        seperatorElement.style.visibility = "visible";
         suggestedWords.forEach((word) => {
             containerSuggestedList.innerHTML = allSuggestedWordsMarkup(word);
         });
     } else {
         containerSuggestedList.innerHTML = "";
+        seperatorElement.style.visibility = "hidden";
+        boxSuggestionsElement.style.cssText = "margin-top: 0";
     }
 
 }

@@ -1,18 +1,17 @@
 /**
  * Imports
  */
-import { searchData, prepareGifsFromSearch, createMoreGifsButton, suggestData } from './API.js';
+import { searchData, suggestData } from "./Requests.js";
+import { prepareGifsFromSearch, createMoreGifsButton } from './API.js';
 import { iterateSuggestedArray } from "./Suggestions.js";
+import { endpointSearch, endpointSuggestions, limit } from "./Constants.js";
+
 /*
 Consts
 */
-const endpointSearch = "https://api.giphy.com/v1/gifs/search?";
-const endpointSuggestions = "https://api.giphy.com/v1/gifs/search/tags?";
+
 const btnElementSearch = document.querySelector(".btnBuscar");
 const containerBoxParent = document.querySelector('.boxBtnShowMore');
-
-const limit = 12;
-const operacion = 1;
 
 // Variables
 let word = document.getElementById('buscador');
