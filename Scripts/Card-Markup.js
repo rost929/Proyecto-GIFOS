@@ -5,10 +5,8 @@ const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
 
-
 //Variables
-let trendingGifs = '';
-let gifsFound = '';
+let gifCardsHTML = '';
 let arrayGifsTrending = [];
 let arrayGifsFound = [];
 let arrayDownloadButtons = [];
@@ -17,20 +15,34 @@ let arrayDownloadButtons = [];
  * Functions
  */
 /**
- * @method prepareGifsFromSearch
+ * @method prepareGifCardsBySearch
  * @description Iterates the gif array and make a call to allCardsMarkup
  * @param {array} 
  * @returns {}
  */
 
-export const prepareGifsFromSearch = (gifs, wordTitle = "") => {
-    arrayDownloadButtons = [];
+export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     arrayGifsFound = validateEmptyFields(gifs);
-    const cards = arrayGifsFound.map((gif, index) => allCardsMarkupSearch(gif, index + 12));
+    const cards = arrayGifsFound.map((gif, index) => allCardsMarkup(gif, index + 12));
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
     arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
+};
+
+/**
+ * @method prepareTrendingGifCards
+ * @description Iterates the gif array and make a call to allCardsMarkup
+ * @param {array} 
+ * @returns {}
+ */
+
+export const prepareTrendingGifCards = (gifs) => {
+    arrayGifsTrending = validateEmptyFields(gifs);
+    const cards = arrayGifsTrending.map((gif, index) => allCardsMarkup(gif, index));
+    containerCardsTrending.innerHTML = cards.join("\n");
+    arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + index) });
+    assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
 };
 
 /**
@@ -40,41 +52,10 @@ export const prepareGifsFromSearch = (gifs, wordTitle = "") => {
  * @returns {String} 
  */
 
-const allCardsMarkupSearch = (gif, index) => {
-    gifsFound = '';
-    gifsFound += cardMarkup(gif.title, gif.user, gif.gif, index);
-    return gifsFound;
+const allCardsMarkup = (gif, index) => {
+    gifCardsHTML = cardMarkup(gif.title, gif.user, gif.gif, index);
+    return gifCardsHTML;
 };
-
-/**
- * @method prepareTrendingGifDetails
- * @description Iterates the gif array and make a call to allCardsMarkup
- * @param {array} 
- * @returns {}
- */
-
-export const prepareTrendingGifDetails = (gifs) => {
-    arrayDownloadButtons = [];
-    arrayGifsTrending = validateEmptyFields(gifs);
-    const cards = arrayGifsTrending.map((gif, index) => allCardsMarkupTrend(gif, index));
-    containerCardsTrending.innerHTML = cards.join("\n");
-    arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + index) });
-    assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
-};
-
-/**
- * @method allCardsMarkupTrend
- * @description Execute the calling to cardMarkup and concatenate the results as string 
- * @param {Object, integer} 
- * @returns {String}
- */
-
-const allCardsMarkupTrend = (gif, index) => {
-    trendingGifs = '';
-    trendingGifs += cardMarkup(gif.title, gif.user, gif.gif, index);
-    return trendingGifs;
-};
-
 
 /**
  * @method cardMarkup
@@ -101,8 +82,6 @@ const cardMarkup = (title, username, img, index) => {
     </div>`
     );
 };
-
-
 
 /**
  * @method validateEmptyFields

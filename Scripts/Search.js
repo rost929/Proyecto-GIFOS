@@ -2,7 +2,7 @@
  * Imports
  */
 import { searchData, suggestData } from "./Requests.js";
-import { prepareGifsFromSearch } from './API.js';
+import { prepareGifCardsBySearch } from './Card-Markup.js';
 import { iterateSuggestedArray } from "./Suggestions.js";
 import { endpointSearch, endpointSuggestions, limit } from "./Constants.js";
 
@@ -33,7 +33,7 @@ function getGifsByWord(idEvent) {
     searchData(endpointSearch, word.value, limit, offset)
         .then(response => {
             const gifsArray = response.data;
-            prepareGifsFromSearch(gifsArray, title);
+            prepareGifCardsBySearch(gifsArray, title);
             containerBoxParent.innerHTML = createMoreGifsButton();
             getElementShowMore();
         })
@@ -44,7 +44,7 @@ function getGifsByWord(idEvent) {
 
 /**
  * @method createMoreGifsButton
- * @description Create an element button
+ * @description Create an element button "Show More"
  * @param {} 
  * @returns {String}
  */
@@ -55,6 +55,10 @@ const getElementShowMore = () => {
     const btnElementShowMore = document.querySelector('.btnShowMore');
     btnElementShowMore.addEventListener('click', function() { getGifsByWord(1) });
 }
+
+/**
+ * Events
+ */
 
 btnElementSearch.addEventListener('click', function() { getGifsByWord(2) });
 

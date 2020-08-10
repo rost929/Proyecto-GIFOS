@@ -1,6 +1,6 @@
 //imports
 import { trendingData } from "./Requests.js";
-import { prepareTrendingGifDetails } from "./API.js";
+import { prepareTrendingGifCards } from "./Card-Markup.js";
 import { endpointTrending, limit } from "./Constants.js";
 
 //consts
@@ -46,7 +46,7 @@ function getTrendingGifs() {
         .then(response => {
             //console.log(response.data)
             const gifsArray = response.data;
-            prepareTrendingGifDetails(gifsArray);
+            prepareTrendingGifCards(gifsArray);
         })
         .catch((error) => {
             console.log(error)
