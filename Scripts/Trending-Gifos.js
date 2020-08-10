@@ -44,7 +44,6 @@ function desplazarALaIzquierda() {
 function getTrendingGifs() {
     trendingData(endpointTrending, limit)
         .then(response => {
-            //console.log(response.data)
             const gifsArray = response.data;
             prepareTrendingGifCards(gifsArray);
         })
@@ -55,9 +54,7 @@ function getTrendingGifs() {
 
 getTrendingGifs();
 
-/**
- * Events
- */
+// Events
 
 buttonSiguiente.addEventListener("mousedown", desplazarALaDerecha);
 buttonAtras.addEventListener('mousedown', desplazarALaIzquierda);

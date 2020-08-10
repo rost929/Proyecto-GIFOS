@@ -27,7 +27,7 @@ let offset = 0;
  * @returns {}
  */
 
-function getGifsByWord(idEvent) {
+export function getGifsByWord(idEvent) {
     (idEvent == 1) ? offset += 12: offset = 0;
     const title = word.value;
     searchData(endpointSearch, word.value, limit, offset)

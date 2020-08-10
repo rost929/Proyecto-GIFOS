@@ -1,23 +1,21 @@
 import { suggestTermsData } from "./Requests.js";
 import { enpointTermsTrending } from "./Constants.js";
+import { getGifsByWord } from "./Search.js";
 
 //Consts
 const containerSuggestedList = document.querySelector('.listSuggestions');
-const seperatorElement = document.querySelector(".separator");
-const boxSuggestionsElement = document.querySelector(".boxSuggestions");
-
-
-//Variables
-let suggestedList = '';
+const conatinerTrendingTerms = document.querySelector('.boxWordsTrending');
+const seperatorElement = document.querySelector('.separator');
+const boxSuggestionsElement = document.querySelector('.boxSuggestions');
+const inputSearchElement = document.querySelector('#buscador');
 
 //Functions
 
 const getTermstrending = () => {
     suggestTermsData(enpointTermsTrending)
         .then(response => {
-            const termssArray = response.data;
-            console.log(termssArray);
-            // prepareGifsFromSearch(termssArray, title);
+            const termsArray = response.data.slice(0, 5);
+            prepareTrendingTermsElements(termsArray);
         })
         .catch((error) => {
             console.log(error)
@@ -26,6 +24,29 @@ const getTermstrending = () => {
 
 getTermstrending();
 
+const prepareTrendingTermsElements = (arrayTerms) => {
+    let arrayTermsElements = []
+    const terms = arrayTerms.map((term, index) => trendingTermsMarkup(term, index)); //allCardsMarkup(gif, index));
+    conatinerTrendingTerms.innerHTML = terms.join(" , ");
+    arrayTermsElements = arrayTerms.map((term, index) => {
+        return document.getElementById('trendingTerm' + index)
+    });
+    assignEventsTrendingTerms(arrayTermsElements, arrayTerms);
+}
+
+const assignEventsTrendingTerms = (arrayElements, arrayTerms) => {
+    arrayElements.map((term, index) => {
+        term.addEventListener("click", function() {
+            getAnchorValue(arrayTerms[index]);
+        });
+    });
+}
+
+const getAnchorValue = (word) => {
+    inputSearchElement.value = "";
+    inputSearchElement.value = word;
+    getGifsByWord(word)
+}
 
 /**
  * @method iterateSuggestedArray
@@ -34,13 +55,12 @@ getTermstrending();
  * @returns {}
  */
 export const iterateSuggestedArray = (suggestedWords) => {
-    suggestedList = "";
+    // suggestedList = "";
     if (suggestedWords.length > 0) {
         boxSuggestionsElement.style.cssText = "margin-top: 20px";
         seperatorElement.style.visibility = "visible";
-        suggestedWords.forEach((word) => {
-            containerSuggestedList.innerHTML = allSuggestedWordsMarkup(word);
-        });
+        const suggestions = suggestedWords.map((word) => SuggestedWordsMarkup(word.name));
+        containerSuggestedList.innerHTML = suggestions.join("");
     } else {
         containerSuggestedList.innerHTML = "";
         seperatorElement.style.visibility = "hidden";
@@ -49,9 +69,8 @@ export const iterateSuggestedArray = (suggestedWords) => {
 
 }
 
-const allSuggestedWordsMarkup = (word) => {
-    suggestedList += SuggestedWordsMarkup(word.name);
-    return suggestedList;
+const trendingTermsMarkup = (trendingTerm, index) => {
+    return `<a class="infoTrending" id="trendingTerm${index}">${trendingTerm}</a>`
 }
 
 const SuggestedWordsMarkup = (suggestedWord) => {

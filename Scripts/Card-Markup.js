@@ -26,7 +26,6 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
     arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
-    console.log(arrayDownloadButtons);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
 };
 
