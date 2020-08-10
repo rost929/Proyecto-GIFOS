@@ -6,7 +6,6 @@ const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
 
 //Variables
-let gifCardsHTML = '';
 let arrayGifsTrending = [];
 let arrayGifsFound = [];
 let arrayDownloadButtons = [];
@@ -48,7 +47,6 @@ export const prepareTrendingGifCards = (gifs) => {
 
     assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
 };
-
 
 /**
  * @method cardMarkup
