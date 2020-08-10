@@ -2,7 +2,7 @@
  * Imports
  */
 import { searchData, suggestData } from "./Requests.js";
-import { prepareGifsFromSearch, createMoreGifsButton } from './API.js';
+import { prepareGifsFromSearch } from './API.js';
 import { iterateSuggestedArray } from "./Suggestions.js";
 import { endpointSearch, endpointSuggestions, limit } from "./Constants.js";
 
@@ -42,8 +42,16 @@ function getGifsByWord(idEvent) {
         });
 }
 
+/**
+ * @method createMoreGifsButton
+ * @description Create an element button
+ * @param {} 
+ * @returns {String}
+ */
+const createMoreGifsButton = () => { return (`<button class="btnShowMore">ver mas</button>`); }
 
-function getElementShowMore() {
+
+const getElementShowMore = () => {
     const btnElementShowMore = document.querySelector('.btnShowMore');
     btnElementShowMore.addEventListener('click', function() { getGifsByWord(1) });
 }

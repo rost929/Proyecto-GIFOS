@@ -1,3 +1,5 @@
+import { assignDownloadEvent } from "./Download.js";
+
 //Consts
 const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
@@ -14,7 +16,6 @@ let arrayDownloadButtons = [];
 /**
  * Functions
  */
-
 /**
  * @method prepareGifsFromSearch
  * @description Iterates the gif array and make a call to allCardsMarkup
@@ -29,9 +30,7 @@ export const prepareGifsFromSearch = (gifs, wordTitle = "") => {
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
     arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
-    console.log(arrayDownloadButtons);
-    // debugger;
-    assignDownloadEvent(arrayDownloadButtons);
+    assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
 };
 
 /**
@@ -55,13 +54,12 @@ const allCardsMarkupSearch = (gif, index) => {
  */
 
 export const prepareTrendingGifDetails = (gifs) => {
-    //trendingGifs = '';
     arrayDownloadButtons = [];
     arrayGifsTrending = validateEmptyFields(gifs);
     const cards = arrayGifsTrending.map((gif, index) => allCardsMarkupTrend(gif, index));
     containerCardsTrending.innerHTML = cards.join("\n");
     arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + index) });
-    assignDownloadEvent(arrayDownloadButtons, 1);
+    assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
 };
 
 /**
@@ -104,15 +102,7 @@ const cardMarkup = (title, username, img, index) => {
     );
 };
 
-/**
- * @method createMoreGifsButton
- * @description Create an element button
- * @param {} 
- * @returns {String}
- */
-export const createMoreGifsButton = () => {
-    return (`<button class="btnShowMore">ver mas</button>`);
-}
+
 
 /**
  * @method validateEmptyFields
@@ -130,52 +120,4 @@ function validateEmptyFields(arrayToValid) {
         return { user: user, title: titleGif, gif: images.downsized.url };
     });
     return validatedArray;
-}
-
-/**
- * @method assignDownloadEvent
- * @description Asigns an event to element button 
- * @param {array} 
- * @returns {}
- */
-const assignDownloadEvent = (arrayDownloadButtons, operation) => {
-    if (operation == 1) {
-        arrayDownloadButtons.forEach((element, index) => {
-            let imgURL = arrayGifsTrending[index].gif;
-            element.addEventListener("click", function() {
-                downloadGifo(imgURL, element);
-            });
-        });
-    } else {
-        arrayDownloadButtons.forEach((element, index) => {
-            let imgURL = arrayGifsFound[index].gif;
-            element.addEventListener("click", function() {
-                downloadGifo(imgURL, element);
-            });
-        });
-    }
-}
-
-/**
- * @method downloadGifo
- * @description Makes a request to download a gif
- * @param {String, HTMLAnchorElement} 
- * @returns {}
- */
-
-const downloadGifo = (imageURL, /** @type {HTMLAnchorElement} */ elementAnchorDown) => {
-    // const newAnchor = document.createElement("a");
-    const myRequest = new Request(imageURL);
-    if (!elementAnchorDown.getAttribute("href")) {
-        fetch(myRequest)
-            .then((response) => response.blob())
-            .then(function(myBlob) {
-                const objectURL = URL.createObjectURL(myBlob);
-                elementAnchorDown.href = objectURL;
-                elementAnchorDown.download = "Gifo.gif";
-                elementAnchorDown.click();
-            }).catch((error) =>
-                console.log(error)
-            );
-    }
 }

@@ -1,3 +1,6 @@
+import { suggestTermsData } from "./Requests.js";
+import { enpointTermsTrending } from "./Constants.js";
+
 //Consts
 const containerSuggestedList = document.querySelector('.listSuggestions');
 const seperatorElement = document.querySelector(".separator");
@@ -10,8 +13,18 @@ let suggestedList = '';
 //Functions
 
 const getTermstrending = () => {
-
+    suggestTermsData(enpointTermsTrending)
+        .then(response => {
+            const termssArray = response.data;
+            console.log(termssArray);
+            // prepareGifsFromSearch(termssArray, title);
+        })
+        .catch((error) => {
+            console.log(error)
+        });
 }
+
+getTermstrending();
 
 
 /**
