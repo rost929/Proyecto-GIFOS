@@ -23,12 +23,11 @@ let arrayDownloadButtons = [];
 
 export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     arrayGifsFound = validateEmptyFields(gifs);
-    const cards = arrayGifsFound.map((gif, index) => allCardsMarkup(gif, index + 12));
+    const cards = arrayGifsFound.map((gif, index) => cardMarkup(gif.title, gif.user, gif.gif, index + 12)); //allCardsMarkup(gif, index + 12));
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
-    arrayDownloadButtons = gifs.map((gif, index) => {
-        return document.getElementById('btnDow' + (index + 12))
-    });
+    arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
+    console.log(arrayDownloadButtons);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
 };
 
@@ -41,25 +40,15 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
 
 export const prepareTrendingGifCards = (gifs) => {
     arrayGifsTrending = validateEmptyFields(gifs);
-    const cards = arrayGifsTrending.map((gif, index) => allCardsMarkup(gif, index));
+    const cards = arrayGifsTrending.map((gif, index) => cardMarkup(gif.title, gif.user, gif.gif, index)); //allCardsMarkup(gif, index));
     containerCardsTrending.innerHTML = cards.join("\n");
     arrayDownloadButtons = gifs.map((gif, index) => {
         return document.getElementById('btnDow' + index)
     });
+
     assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
 };
 
-/**
- * @method allCardsMarkupSearch
- * @description Execute the calling to cardMarkup and concatenate the results as string 
- * @param {String} gif dnksndkds 
- * @returns {String} 
- */
-
-const allCardsMarkup = (gif, index) => {
-    gifCardsHTML = cardMarkup(gif.title, gif.user, gif.gif, index);
-    return gifCardsHTML;
-};
 
 /**
  * @method cardMarkup
@@ -102,5 +91,6 @@ function validateEmptyFields(arrayToValid) {
         title == "" ? titleGif = "Nameless" : titleGif = title;
         return { user: user, title: titleGif, gif: images.downsized.url };
     });
-    return validatedArray;
+    const existingGifsArray = validatedArray.filter(gif => !!(gif.gif));
+    return existingGifsArray;
 }
