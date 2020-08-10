@@ -11,6 +11,12 @@ const inputSearchElement = document.querySelector('#buscador');
 
 //Functions
 
+/**
+ * @method getTermstrending
+ * @description Make request to get the trending terms and start the process of creation
+ * @param {} 
+ * @returns {}
+ */
 const getTermstrending = () => {
     suggestTermsData(enpointTermsTrending)
         .then(response => {
@@ -24,8 +30,14 @@ const getTermstrending = () => {
 
 getTermstrending();
 
+/**
+ * @method prepareTrendingTermsElements
+ * @description Prepares the building of the terms and the assignment of events for each term 
+ * @param {Array} 
+ * @returns {}
+ */
 const prepareTrendingTermsElements = (arrayTerms) => {
-    let arrayTermsElements = []
+    let arrayTermsElements = [];
     const terms = arrayTerms.map((term, index) => trendingTermsMarkup(term, index)); //allCardsMarkup(gif, index));
     conatinerTrendingTerms.innerHTML = terms.join(" , ");
     arrayTermsElements = arrayTerms.map((term, index) => {
@@ -34,19 +46,7 @@ const prepareTrendingTermsElements = (arrayTerms) => {
     assignEventsTrendingTerms(arrayTermsElements, arrayTerms);
 }
 
-const assignEventsTrendingTerms = (arrayElements, arrayTerms) => {
-    arrayElements.map((term, index) => {
-        term.addEventListener("click", function() {
-            getAnchorValue(arrayTerms[index]);
-        });
-    });
-}
 
-const getAnchorValue = (word) => {
-    inputSearchElement.value = "";
-    inputSearchElement.value = word;
-    getGifsByWord(word)
-}
 
 /**
  * @method iterateSuggestedArray
@@ -55,26 +55,78 @@ const getAnchorValue = (word) => {
  * @returns {}
  */
 export const iterateSuggestedArray = (suggestedWords) => {
-    // suggestedList = "";
     if (suggestedWords.length > 0) {
-        boxSuggestionsElement.style.cssText = "margin-top: 20px";
-        seperatorElement.style.visibility = "visible";
-        const suggestions = suggestedWords.map((word) => SuggestedWordsMarkup(word.name));
+        let arraySuggestionsElements = [];
+        showSuggestionBar();
+        const suggestions = suggestedWords.map((word, index) => suggestedWordMarkup(word.name, index));
         containerSuggestedList.innerHTML = suggestions.join("");
+        arraySuggestionsElements = suggestedWords.map((term, index) => {
+            return document.getElementById('suggestion' + index)
+        });
+        const words = suggestedWords.map(word => { return word.name });
+        assignEventsTrendingTerms(arraySuggestionsElements, words);
     } else {
-        containerSuggestedList.innerHTML = "";
-        seperatorElement.style.visibility = "hidden";
-        boxSuggestionsElement.style.cssText = "margin-top: 0";
+        hideSuggestionsBar();
     }
-
 }
+
+/**
+ * @method trendingTermsMarkup
+ * @description writes an returns the HTML body of a new term in trending 
+ * @param {String, Integer} 
+ * @returns {String}
+ */
 
 const trendingTermsMarkup = (trendingTerm, index) => {
     return `<a class="infoTrending" id="trendingTerm${index}">${trendingTerm}</a>`
 }
 
-const SuggestedWordsMarkup = (suggestedWord) => {
+/**
+ * @method suggestedWordMarkup
+ * @description writes an returns the HTML body of a new suggestion 
+ * @param {String} 
+ * @returns {String}
+ */
+const suggestedWordMarkup = (suggestedWord, index) => {
     return (`<li class="itemSuggestion"><i class="icon-icon-search subIcon"></i>
-    <div class="boxSuggestion"><label for="" class="suggestion">${suggestedWord}</label></div>
+    <div class="boxSuggestion"><a class="suggestion" id="suggestion${index}">${suggestedWord}</a></div>
     </li>`);
+}
+
+/**
+ * @method assignEventsTrendingTerms
+ * @description Assigns the events for each trending term created 
+ * @param {Array, Array} 
+ * @returns {}
+ */
+const assignEventsTrendingTerms = (arrayElements, arrayTerms) => {
+    arrayElements.map((term, index) => {
+        term.addEventListener("click", function() {
+            getAnchorValue(arrayTerms[index]);
+        });
+    });
+}
+
+/**
+ * @method getAnchorValue
+ * @description Recieves a term to make a request to obtain new gifs associated with that term   
+ * @param {String} 
+ * @returns {}
+ */
+const getAnchorValue = (term) => {
+    inputSearchElement.value = "";
+    inputSearchElement.value = term;
+    hideSuggestionsBar();
+    getGifsByWord(term)
+}
+
+
+const hideSuggestionsBar = () => {
+    containerSuggestedList.innerHTML = "";
+    seperatorElement.style.visibility = "hidden";
+    boxSuggestionsElement.style.cssText = "margin-top: 0";
+}
+const showSuggestionBar = () => {
+    boxSuggestionsElement.style.cssText = "margin-top: 20px";
+    seperatorElement.style.visibility = "visible";
 }
