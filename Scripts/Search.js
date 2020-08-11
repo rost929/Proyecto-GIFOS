@@ -5,6 +5,7 @@ import { searchData, suggestData } from "./Requests.js";
 import { prepareGifCardsBySearch } from './Card-Markup.js';
 import { iterateSuggestedArray } from "./Suggestions.js";
 import { endpointSearch, endpointSuggestions, limit } from "./Constants.js";
+import { prepareNoResultInfo } from "./No-Findings.js";
 
 /*
 Consts
@@ -12,6 +13,8 @@ Consts
 
 const btnElementSearch = document.querySelector(".btnBuscar");
 const containerBoxParent = document.querySelector('.boxBtnShowMore');
+const containerNoResults = document.querySelector('.boxWithoutResults');
+
 
 // Variables
 let word = document.getElementById('buscador');
@@ -32,13 +35,18 @@ export function getGifsByWord(idEvent) {
     const title = word.value;
     searchData(endpointSearch, word.value, limit, offset)
         .then(response => {
-            console.log(response.data)
-            const gifsArray = response.data;
-            prepareGifCardsBySearch(gifsArray, title);
-            containerBoxParent.innerHTML = createMoreGifsButton();
-            getElementShowMore();
+            if (response.data.length > 0) {
+                containerNoResults.innerHTML = "";
+                const gifsArray = response.data;
+                prepareGifCardsBySearch(gifsArray, title);
+                containerBoxParent.innerHTML = createMoreGifsButton();
+                getElementShowMore();
+            } else {
+                prepareNoResultInfo(title);
+            }
         })
         .catch((error) => {
+            prepareNoResultInfo(title);
             console.log(error)
         });
 }

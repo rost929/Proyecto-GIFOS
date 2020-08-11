@@ -139,6 +139,7 @@
     left: 38.3%;
     opacity: 0.5;
     border: 1px solid #9CAFC3;
+    opacity: 0.5;
     visibility: hidden;
 }
 
@@ -151,6 +152,25 @@
     font-size: 35px;
     font-family: 'ProximaNova-Bold';
     color: #572EE5;
+}
+
+.boxWithoutResults {
+    text-align: center;
+    //visibility: hidden;
+}
+
+.imgWithoutResults {
+    width: 150px;
+    height: 150px;
+    margin-top: 54px;
+    margin-bottom: 29px;
+}
+
+.tryAgainMessage {
+    font-family: 'ProximaNova-Bold';
+    font-size: 22px;
+    color: #50E3C2;
+    line-height: 25px;
 }
 
 .boxTrending {
