@@ -32,6 +32,7 @@ export function getGifsByWord(idEvent) {
     const title = word.value;
     searchData(endpointSearch, word.value, limit, offset)
         .then(response => {
+            console.log(response.data)
             const gifsArray = response.data;
             prepareGifCardsBySearch(gifsArray, title);
             containerBoxParent.innerHTML = createMoreGifsButton();

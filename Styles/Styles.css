@@ -148,16 +148,30 @@
 }
 
 .boxBusquedas {
-  margin-top: 136px;
+  position: relative;
+  margin-top: 55px;
+}
+
+.boxSeparatorSearch {
+  padding-bottom: 81.9px;
+}
+
+.separatorSearch {
+  position: absolute;
+  width: 23.5%;
+  left: 38.3%;
+  opacity: 0.5;
+  border: 1px solid #9CAFC3;
+  visibility: hidden;
 }
 
 .boxTitleBusqueda {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 59px;
 }
 
 .titleBusqueda {
-  font-size: 30px;
+  font-size: 35px;
   font-family: 'ProximaNova-Bold';
   color: #572EE5;
 }
@@ -179,13 +193,8 @@
 }
 
 .boxWordsTrending {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 50%;
   margin-left: 25%;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .infoTrending {
@@ -193,6 +202,10 @@
   font-family: ProximaNova-Regular;
   font-size: 18px;
   line-height: 25px;
+}
+
+.infoTrending:hover {
+  text-decoration: underline;
 }
 
 @media (min-width: 375px) and (max-width: 768px) {

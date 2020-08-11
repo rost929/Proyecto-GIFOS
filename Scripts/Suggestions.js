@@ -1,12 +1,11 @@
 import { suggestTermsData } from "./Requests.js";
 import { enpointTermsTrending } from "./Constants.js";
 import { getGifsByWord } from "./Search.js";
+import { showSuggestionBar, hideSuggestionsBar } from "./CSS-Controller.js";
 
 //Consts
 const containerSuggestedList = document.querySelector('.listSuggestions');
 const conatinerTrendingTerms = document.querySelector('.boxWordsTrending');
-const seperatorElement = document.querySelector('.separator');
-const boxSuggestionsElement = document.querySelector('.boxSuggestions');
 const inputSearchElement = document.querySelector('#buscador');
 
 //Functions
@@ -45,8 +44,6 @@ const prepareTrendingTermsElements = (arrayTerms) => {
     });
     assignEventsTrendingTerms(arrayTermsElements, arrayTerms);
 }
-
-
 
 /**
  * @method iterateSuggestedArray
@@ -118,15 +115,4 @@ const getAnchorValue = (term) => {
     inputSearchElement.value = term;
     hideSuggestionsBar();
     getGifsByWord(term)
-}
-
-
-const hideSuggestionsBar = () => {
-    containerSuggestedList.innerHTML = "";
-    seperatorElement.style.visibility = "hidden";
-    boxSuggestionsElement.style.cssText = "margin-top: 0";
-}
-const showSuggestionBar = () => {
-    boxSuggestionsElement.style.cssText = "margin-top: 20px";
-    seperatorElement.style.visibility = "visible";
 }

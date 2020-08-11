@@ -1,9 +1,11 @@
 import { assignDownloadEvent } from "./Download.js";
+import { showSeparatorSearchBar } from "./CSS-Controller.js";
 
 //Consts
 const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
+
 
 //Variables
 let arrayGifsTrending = [];
@@ -23,6 +25,7 @@ let arrayDownloadButtons = [];
 export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     arrayGifsFound = validateEmptyFields(gifs);
     const cards = arrayGifsFound.map((gif, index) => cardMarkup(gif.title, gif.user, gif.gif, index + 12)); //allCardsMarkup(gif, index + 12));
+    showSeparatorSearchBar();
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
     arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
