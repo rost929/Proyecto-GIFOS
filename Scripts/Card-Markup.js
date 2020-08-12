@@ -1,6 +1,6 @@
 import { assignDownloadEvent } from "./Download.js";
 import { showSeparatorSearchBar, hideSuggestionsBar } from "./CSS-Controller.js";
-
+import { assignFavoriteEvent } from "./Favorites.js";
 //Consts
 const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
@@ -11,6 +11,8 @@ const containerCardsTrending = document.querySelector('.boxGIFOS');
 let arrayGifsTrending = [];
 let arrayGifsFound = [];
 let arrayDownloadButtons = [];
+let arrayFavoriteButtons = [];
+//let arrayActiveFavoriteButtons = [];
 
 /**
  * Functions
@@ -29,7 +31,10 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     showSeparatorSearchBar();
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
-    arrayDownloadButtons = gifs.map((gif, index) => { return document.getElementById('btnDow' + (index + 12)) });
+    arrayDownloadButtons = gifs.map((gif, index) => { return document.querySelector('#btnDow' + (index + 12)) });
+    arrayFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFav' + (index + 12)) });
+    //  arrayActiveFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFavAct' + (index + 12)) });
+    assignFavoriteEvent(arrayFavoriteButtons);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
 };
 
@@ -47,7 +52,11 @@ export const prepareTrendingGifCards = (gifs) => {
     arrayDownloadButtons = gifs.map((gif, index) => {
         return document.getElementById('btnDow' + index)
     });
+    arrayFavoriteButtons = gifs.map((gif, index) => {
+        return document.querySelector('#btnFav' + (index))
+    });
 
+    assignFavoriteEvent(arrayFavoriteButtons);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
 };
 
@@ -58,9 +67,9 @@ export const prepareTrendingGifCards = (gifs) => {
  * @returns {String}
  */
 
-const cardMarkup = (title, username, img, index) => {
+export const cardMarkup = (title, username, img, index) => {
     return (
-        `<div class="cardGifo">
+        `<div class="cardGifo" id=cardGifo${index}>
     <div class="boxBtnFavorite">
         <button class=" btn btnFavoriteGif" id="btnFav${index}"> <img src="./assets/icon-fav-hover.svg" alt="favorito" class="imgFavorite"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActive" id="btnFavAct${index}"></button>
     </div>
