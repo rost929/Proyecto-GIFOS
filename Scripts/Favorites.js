@@ -1,4 +1,4 @@
-import { cardMarkup } from "./Card-Markup.js";
+//import { cardMarkup } from "./Card-Markup.js";
 //import { loadFavoriteCard } from "./Render-Favorite.js";
 let arrayFavoriteCards = [];
 let arrayFavorites = [];
