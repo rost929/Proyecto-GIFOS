@@ -34,7 +34,7 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     arrayDownloadButtons = gifs.map((gif, index) => { return document.querySelector('#btnDow' + (index + 12)) });
     arrayFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFav' + (index + 12)) });
     //  arrayActiveFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFavAct' + (index + 12)) });
-    assignFavoriteEvent(arrayFavoriteButtons);
+    assignFavoriteEvent(arrayFavoriteButtons, 12);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
 };
 
@@ -56,7 +56,7 @@ export const prepareTrendingGifCards = (gifs) => {
         return document.querySelector('#btnFav' + (index))
     });
 
-    assignFavoriteEvent(arrayFavoriteButtons);
+    assignFavoriteEvent(arrayFavoriteButtons, 0);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
 };
 
