@@ -114,5 +114,5 @@ const getAnchorValue = (term) => {
     inputSearchElement.value = "";
     inputSearchElement.value = term;
     hideSuggestionsBar();
-    getGifsByWord(term)
+    getGifsByWord(1)
 }

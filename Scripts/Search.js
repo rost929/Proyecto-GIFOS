@@ -14,14 +14,12 @@ Consts
 const btnElementSearch = document.querySelector(".btnBuscar");
 const containerBoxParent = document.querySelector('.boxBtnShowMore');
 const containerNoResults = document.querySelector('.boxWithoutResults');
+const word = document.getElementById('buscador');
 
 
 // Variables
-let word = document.getElementById('buscador');
 let offset = 0;
-/**
- * functions
- */
+
 
 /**
  * @method getGifsByWord
@@ -31,14 +29,13 @@ let offset = 0;
  */
 
 export function getGifsByWord(idEvent) {
-    (idEvent == 1) ? offset += 12: offset = 0;
+    (idEvent == 1) ? offset = 0: offset += 12;
     const title = word.value;
     searchData(endpointSearch, word.value, limit, offset)
         .then(response => {
             if (response.data.length > 0) {
                 containerNoResults.innerHTML = "";
-                const gifsArray = response.data;
-                prepareGifCardsBySearch(gifsArray, title);
+                prepareGifCardsBySearch(response.data, title);
                 containerBoxParent.innerHTML = createMoreGifsButton();
                 getElementShowMore();
             } else {
@@ -60,16 +57,11 @@ export function getGifsByWord(idEvent) {
 const createMoreGifsButton = () => { return (`<button class="btnShowMore">ver mas</button>`); }
 
 
-const getElementShowMore = () => {
-    const btnElementShowMore = document.querySelector('.btnShowMore');
-    btnElementShowMore.addEventListener('click', function() { getGifsByWord(1) });
-}
-
 /**
  * Events
  */
 
-btnElementSearch.addEventListener('click', function() { getGifsByWord(2) });
+btnElementSearch.addEventListener('click', function() { getGifsByWord(1) });
 
 word.oninput = () => {
     suggestData(endpointSuggestions, word.value)
@@ -78,4 +70,9 @@ word.oninput = () => {
         }).catch((error) => {
             console.log(error)
         });;
+}
+
+const getElementShowMore = () => {
+    const btnElementShowMore = document.querySelector('.btnShowMore');
+    btnElementShowMore.addEventListener('click', function() { getGifsByWord(2) });
 }

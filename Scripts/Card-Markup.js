@@ -7,13 +7,6 @@ const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
 
 
-//Variables
-let arrayGifsTrending = [];
-let arrayGifsFound = [];
-let arrayDownloadButtons = [];
-let arrayFavoriteButtons = [];
-//let arrayActiveFavoriteButtons = [];
-
 /**
  * Functions
  */
@@ -25,17 +18,20 @@ let arrayFavoriteButtons = [];
  */
 
 export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
-    arrayGifsFound = validateEmptyFields(gifs);
-    const cards = arrayGifsFound.map((gif, index) => cardMarkup(gif.title, gif.user, gif.gif, index + 12)); //allCardsMarkup(gif, index + 12));
+    let idCounter = parseInt(localStorage.getItem("ID-COUNTER"));
+    console.log("ID counter " + idCounter);
+    const arrayGifsFound = validateEmptyFields(gifs);
+    const cards = arrayGifsFound.map((gif, index) => cardMarkup(gif.title, gif.user, gif.gif, (index + idCounter)));
     hideSuggestionsBar();
     showSeparatorSearchBar();
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
-    arrayDownloadButtons = gifs.map((gif, index) => { return document.querySelector('#btnDow' + (index + 12)) });
-    arrayFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFav' + (index + 12)) });
-    //  arrayActiveFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFavAct' + (index + 12)) });
-    assignFavoriteEvent(arrayFavoriteButtons, 12);
+    let arrayDownloadButtons = gifs.map((gif, index) => { return document.querySelector('#btnDow' + (index + idCounter)) });
+    let arrayFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFav' + (index + idCounter)) });
+    assignFavoriteEvent(arrayFavoriteButtons, cards);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
+    idCounter += 12;
+    localStorage.setItem("ID-COUNTER", idCounter);
 };
 
 /**
@@ -46,18 +42,14 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
  */
 
 export const prepareTrendingGifCards = (gifs) => {
-    arrayGifsTrending = validateEmptyFields(gifs);
+    let arrayGifsTrending = validateEmptyFields(gifs);
     const cards = arrayGifsTrending.map((gif, index) => cardMarkup(gif.title, gif.user, gif.gif, index)); //allCardsMarkup(gif, index));
     containerCardsTrending.innerHTML = cards.join("\n");
-    arrayDownloadButtons = gifs.map((gif, index) => {
-        return document.getElementById('btnDow' + index)
-    });
-    arrayFavoriteButtons = gifs.map((gif, index) => {
-        return document.querySelector('#btnFav' + (index))
-    });
-
-    assignFavoriteEvent(arrayFavoriteButtons, 0);
+    const arrayDownloadButtons = gifs.map((gif, index) => { return document.querySelector('#btnDow' + index) });
+    const arrayFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFav' + index) });
+    assignFavoriteEvent(arrayFavoriteButtons, cards);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
+    localStorage.setItem("ID-COUNTER", 12);
 };
 
 /**
@@ -103,4 +95,10 @@ function validateEmptyFields(arrayToValid) {
     });
     const existingGifsArray = validatedArray.filter(gif => !!(gif.gif));
     return existingGifsArray;
+}
+
+
+const resetArrayEvents = () => {
+    arrayDownloadButtons = []
+    arrayFavoriteButtons = []
 }
