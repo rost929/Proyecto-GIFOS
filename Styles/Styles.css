@@ -1403,4 +1403,170 @@ footer {
   width: 127px;
   height: 50px;
 }
+
+.modalWindow {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  z-index: 9;
+  display: none;
+}
+
+.boxCloseModal {
+  width: 100%;
+}
+
+.btnCloseMax {
+  margin-top: 66.4px;
+  margin-left: 80%;
+  margin-bottom: 78.4px;
+  border: none;
+  background-color: white;
+  width: 15.2px;
+  height: 15.2px;
+}
+
+.contentModal {
+  width: 695px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: 25%;
+  -webkit-animation-name: modal;
+          animation-name: modal;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes modal {
+  from {
+    top: -330px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes modal {
+  from {
+    top: -330px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.imageMax {
+  width: 695px;
+  height: 385px;
+}
+
+.userMax {
+  font-size: 15px;
+  font-family: 'ProximaNova-Regular';
+  margin-top: 27px;
+  margin-bottom: 6px;
+}
+
+.titleMax {
+  font-size: 16px;
+  font-family: 'ProximaNova-Bold';
+}
+
+.boxIcons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 93px;
+  margin-top: 27px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-left: 480px;
+}
+
+.boxBtnFavoriteMax {
+  position: relative;
+  background-color: white;
+  border-radius: 6px;
+  opacity: 0.7;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+}
+
+.btnFavoriteGifMax {
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #9CAFC3;
+  width: 32px;
+  height: 32px;
+}
+
+.imgFavoriteMax {
+  border: none;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 4px;
+}
+
+.boxBtnFavoriteMax:hover {
+  background: white;
+  opacity: 1;
+}
+
+.boxBtnFavoriteMax:hover .imgFavoriteActiveMax {
+  visibility: visible;
+}
+
+.boxBtnFavoriteMax:hover .imgFavoriteMax {
+  visibility: hidden;
+}
+
+.imgFavoriteActiveMax {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  visibility: hidden;
+  width: 18px;
+  height: 18px;
+}
+
+.boxBtnDownloadMax {
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #9CAFC3;
+  opacity: 0.7;
+  width: 32px;
+  text-align: center;
+  height: 32px;
+  z-index: 2;
+}
+
+.boxBtnDownloadMax:hover {
+  background: white;
+  opacity: 1;
+}
+
+.btnDownloadGifMax {
+  border-radius: 6px;
+  border: none;
+  width: 32px;
+  height: 32px;
+}
+
+.imgDownloadMax {
+  border: none;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 4px;
+}
 /*# sourceMappingURL=Styles.css.map */

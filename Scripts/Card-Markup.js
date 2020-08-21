@@ -6,7 +6,6 @@ const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
 
-
 /**
  * Functions
  */

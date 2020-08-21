@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Windows</title>
+    <link rel="stylesheet" href="./Styles/Styles.css">
+    <link rel="stylesheet" href="./Fonts/icomoon/style-fonts.css">
+</head>
+
+<body>
+    <a href="#" class="openModalWindow">Abrir Ventana modal</a>
+
+    <div class="modalWindow">
+        <div class="boxCloseModal">
+            <button class="btnCloseMax"><i class="icon-button-close"></i></button>
+        </div>
+        <div class="contentModal">
+            <div class="boxImageMax">
+                <img class="imageMax" src="./assets/GFV1.gif" alt="Maximized Image">
+            </div>
+            <div class="boxImageInfo">
+                <div class="boxUserMax">
+                    <h3 class="userMax">Reptilia</h3>
+                </div>
+                <div class="boxTitleMax">
+                    <h3 class="titleMax">Patricio Malvado</h3>
+                </div>
+            </div>
+            <div class="boxIcons">
+                <div class="boxBtnFavoriteMax">
+                    <button class=" btn btnFavoriteGifMax" id="btnFav${index}"> <img src="./assets/icon-fav-hover.svg" alt="favorito" class="imgFavoriteMax"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActiveMax" id="btnFavAct${index}"></button>
+                </div>
+                <div class="boxBtnDownloadMax">
+                    <a class=" btn btnDownloadGifMax" id="btnDow${index}"> <img src="./assets/icon-download.svg" alt="Descargar" class="imgDownloadMax"></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script type="module" src="./Scripts/Modal-Windows.js"></script>
+
+</html>
