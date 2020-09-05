@@ -46,3 +46,9 @@ export const showSeparatorSearchBar = () => {
 export const hideSeparatorSearchBar = () => {
     separatorSearch.style.visibility = "hidden";
 }
+
+
+export const showFavoriteIcon = (htmlElement, index) => {
+
+    //.style.cssText = "visibility: visible";
+}

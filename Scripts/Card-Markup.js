@@ -1,10 +1,12 @@
 import { assignDownloadEvent } from "./Download.js";
 import { showSeparatorSearchBar, hideSuggestionsBar } from "./CSS-Controller.js";
-import { assignFavoriteEvent } from "./Favorites.js";
+import { assignFavoriteEvent, removeFavorite } from "./Favorites.js";
+import { assignMaxEvent } from "./Modal-Windows.js";
 //Consts
 const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
 const containerCardsSearch = document.querySelector('.boxCardsBusquedas');
 const containerCardsTrending = document.querySelector('.boxGIFOS');
+const containerFavoriteCards = document.querySelector(".boxCardsFavoritas");
 
 /**
  * Functions
@@ -25,10 +27,13 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
     showSeparatorSearchBar();
     containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
     containerCardsSearch.innerHTML = cards.join("\n");
-    let arrayDownloadButtons = gifs.map((gif, index) => { return document.querySelector('#btnDow' + (index + idCounter)) });
-    let arrayFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFav' + (index + idCounter)) });
-    assignFavoriteEvent(arrayFavoriteButtons, cards);
+    let arrayDownloadButtons = arrayGifsFound.map((gif, index) => { return document.querySelector('#btnDow' + (index + idCounter)) });
+    let arrayFavoriteButtons = arrayGifsFound.map((gif, index) => { return document.querySelector('#btnFav' + (index + idCounter)) });
+    let arrayMaxButtons = arrayGifsFound.map((gif, index) => { return document.querySelector('#btnMax' + (index + idCounter)) });
+    console.log(arrayMaxButtons);
+    assignFavoriteEvent(arrayFavoriteButtons, arrayGifsFound, idCounter);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsFound);
+    assignMaxEvent(arrayMaxButtons, arrayGifsFound);
     idCounter += 12;
     localStorage.setItem("ID-COUNTER", idCounter);
 };
@@ -44,11 +49,26 @@ export const prepareTrendingGifCards = (gifs) => {
     let arrayGifsTrending = validateEmptyFields(gifs);
     const cards = arrayGifsTrending.map((gif, index) => cardMarkup(gif.title, gif.user, gif.gif, index)); //allCardsMarkup(gif, index));
     containerCardsTrending.innerHTML = cards.join("\n");
-    const arrayDownloadButtons = gifs.map((gif, index) => { return document.querySelector('#btnDow' + index) });
-    const arrayFavoriteButtons = gifs.map((gif, index) => { return document.querySelector('#btnFav' + index) });
-    assignFavoriteEvent(arrayFavoriteButtons, cards);
+    const arrayDownloadButtons = arrayGifsTrending.map((gif, index) => { return document.querySelector('#btnDow' + index) });
+    const arrayFavoriteButtons = arrayGifsTrending.map((gif, index) => { return document.querySelector('#btnFav' + index) });
+    const arrayMaxButtons = arrayGifsTrending.map((gif, index) => { return document.querySelector('#btnMax' + index) });
+    assignFavoriteEvent(arrayFavoriteButtons, arrayGifsTrending);
     assignDownloadEvent(arrayDownloadButtons, arrayGifsTrending);
+    assignMaxEvent(arrayMaxButtons, arrayGifsTrending);
     localStorage.setItem("ID-COUNTER", 12);
+};
+
+
+export const prepareFavoriteGifs = (arrayFavoriteGifs) => {
+    const cards = arrayFavoriteGifs.map((gif, index) => cardFavoriteMarkup(gif.title, gif.user, gif.gif, index)); //allCardsMarkup(gif, index));
+    containerFavoriteCards.innerHTML = cards.join("\n");
+    const arrayDownloadButtons = arrayFavoriteGifs.map((gif, index) => { return document.querySelector('#btnDowA' + index) });
+    const arrayFavoriteButtons = arrayFavoriteGifs.map((gif, index) => { return document.querySelector('#btnFavA' + index) });
+    const arrayMaxButtons = arrayFavoriteGifs.map((gif, index) => { return document.querySelector('#btnMaxA' + index) });
+    removeFavorite(arrayFavoriteButtons);
+    assignDownloadEvent(arrayDownloadButtons, arrayFavoriteGifs);
+    assignMaxEvent(arrayMaxButtons, arrayFavoriteGifs);
+    //localStorage.setItem("ID-COUNTER", 12);
 };
 
 /**
@@ -69,6 +89,32 @@ export const cardMarkup = (title, username, img, index) => {
     </div>
     <div class="boxBtnMaximize">
         <button class=" btn btnMaximizeGif" id="btnMax${index}"> <img src="./assets/icon-max.svg" alt="Maximizar" class="imgMaximize"></button>
+    </div>
+    <h3 class="userGif">User: ${username}</h3>
+    <h3 class="tituloGif">${title}</h3>
+    <img class="gifo" src=${img} alt="Gif trending">  
+    </div>`
+    );
+};
+
+/**
+ * @method cardFavoriteMarkup
+ * @description Write the favorite  gifs cards   
+ * @param {Object} 
+ * @returns {String}
+ */
+
+export const cardFavoriteMarkup = (title, username, img, index) => {
+    return (
+        `<div class="cardGifo" id=cardGifoFav${index}>
+    <div class="boxBtnFavorite">
+        <button class=" btn btnFavoriteGif" id="btnFavA${index}"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActive" id="btnFavAct${index}" Style="visibility:visible;"></button>
+    </div>
+    <div class="boxBtnDownload">
+        <a class=" btn btnDownloadGif" id="btnDowA${index}"> <img src="./assets/icon-download.svg" alt="Descargar" class="imgDownload"></a>
+    </div>
+    <div class="boxBtnMaximize">
+        <button class=" btn btnMaximizeGif" id="btnMaxA${index}"> <img src="./assets/icon-max.svg" alt="Maximizar" class="imgMaximize"></button>
     </div>
     <h3 class="userGif">User: ${username}</h3>
     <h3 class="tituloGif">${title}</h3>

@@ -179,6 +179,7 @@
 
 .boxWithoutResults {
   text-align: center;
+  margin-bottom: 137px;
 }
 
 .imgWithoutResults {
@@ -944,6 +945,16 @@ footer {
   .cardGifo:hover .tituloGif {
     visibility: visible;
   }
+  /*   .cardGifoFavAct:hover {
+        background-color: #572EE5;
+        .boxBtnFavorite,
+        .boxBtnDownload,
+        .boxBtnMaximize,
+        .userGif,
+        .tituloGif {
+            visibility: visible;
+        }
+    } */
   .cardGifo:hover > .gifo {
     opacity: 60%;
   }
@@ -988,7 +999,7 @@ footer {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-left: 7%;
+    margin-left: 10%;
     margin-top: 36px;
   }
   .cardGifo,
@@ -1058,7 +1069,7 @@ footer {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-left: 7%;
+    margin-left: 10%;
     margin-top: 36px;
     text-align: center;
   }
@@ -1136,6 +1147,7 @@ footer {
 }
 
 .btnFavoriteGif {
+  position: relative;
   border-radius: 6px;
   border: none;
   width: 32px;
@@ -1167,6 +1179,9 @@ footer {
   position: absolute;
   top: 7px;
   left: 7px;
+  /*    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 4px; */
   visibility: hidden;
   width: 18px;
   height: 18px;
@@ -1406,9 +1421,10 @@ footer {
 
 .modalWindow {
   width: 100%;
-  height: 100%;
+  height: 2000px;
   background-color: white;
   position: fixed;
+  top: 0;
   z-index: 9;
   display: none;
 }
@@ -1481,6 +1497,9 @@ footer {
 }
 
 .boxIcons {
+  position: absolute;
+  top: 27.5%;
+  left: 65%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1488,7 +1507,6 @@ footer {
   margin-top: 27px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin-left: 480px;
 }
 
 .boxBtnFavoriteMax {
@@ -1568,5 +1586,179 @@ footer {
   padding-left: 3px;
   padding-right: 3px;
   padding-top: 4px;
+}
+
+.darkMode {
+  background-color: #37383C;
+}
+
+.darkMode .barraSuperior {
+  background: #37383C;
+}
+
+.darkMode header {
+  background-color: #37383C;
+}
+
+.darkMode #mensajeInicio {
+  color: white;
+}
+
+.darkMode #logo {
+  content: url("../assets/logo-desktop-modo-noc.svg");
+}
+
+.darkMode .anchorMenu {
+  color: white;
+}
+
+.darkMode .anchorMenu:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #5ED7C6;
+          text-decoration-color: #5ED7C6;
+  -webkit-text-decoration-line: 6px;
+          text-decoration-line: 6px;
+  color: white;
+}
+
+.darkMode #anchorCrearGif {
+  width: 60px;
+  height: 100%;
+  color: white;
+}
+
+.darkMode .boxBtnMas {
+  border: solid white;
+}
+
+.darkMode .icon-button-crear-gifo {
+  color: white;
+}
+
+.darkMode .boxBtnMas:hover {
+  background-color: white;
+}
+
+.darkMode .boxBtnMas:hover .icon-button-crear-gifo {
+  color: #37383C;
+}
+
+.darkMode #buscador {
+  background-color: #37383C;
+  color: white;
+}
+
+.darkMode .btnBuscar {
+  background-color: #37383C;
+  color: white;
+}
+
+.darkMode .boxBuscador {
+  border: 1px solid white;
+}
+
+.darkMode .boxTrending,
+.darkMode .boxBusquedas,
+.darkMode .titleBusqueda {
+  color: white;
+}
+
+.darkMode .btnShowMore {
+  color: white;
+  border: 1px solid white;
+  background: #37383C;
+}
+
+.darkMode .btnShowMore:hover {
+  color: #37383C;
+  border: 1px solid white;
+  background: white;
+}
+
+.darkMode .trendingGIFOS {
+  background: #222326;
+  color: white;
+}
+
+.darkMode .trendingGIFOS #tituloTrendingGIFOS {
+  color: white;
+}
+
+.darkMode .boxBtnAtras,
+.darkMode .boxBtnSiguiente {
+  border: none;
+}
+
+.darkMode .btnAtras,
+.darkMode .btnSiguiente {
+  background: #222326;
+  color: white;
+  border: 1px solid white;
+}
+
+.darkMode .btnAtras:hover,
+.darkMode .btnSiguiente:hover {
+  background: white;
+  color: #222326;
+}
+
+.darkMode .btnAtras:hover .icon-button-left,
+.darkMode .btnAtras:hover .icon-button-right,
+.darkMode .btnSiguiente:hover .icon-button-left,
+.darkMode .btnSiguiente:hover .icon-button-right {
+  color: #37383C;
+}
+
+.darkMode footer {
+  color: white;
+}
+
+.darkMode .titleGifos,
+.darkMode .tituloCrear {
+  color: white;
+}
+
+.darkMode .boxScreen {
+  border: 1px solid white;
+  color: white;
+}
+
+.darkMode .camara {
+  content: url("../assets/camara-modo-noc.svg");
+}
+
+.darkMode .imgCinta {
+  content: url("../assets/pelicula-modo-noc.svg");
+}
+
+.darkMode .btnComenzar {
+  color: white;
+  border: 1px solid white;
+  background: #37383C;
+}
+
+.darkMode .btnComenzar:hover {
+  background: white;
+  color: #37383C;
+}
+
+.darkMode #barraInferior {
+  background: white;
+}
+
+.darkMode .boxPaso {
+  border: 1px solid white;
+}
+
+.darkMode .boxPaso:hover {
+  background: white;
+}
+
+.darkMode .boxPaso:hover .paso {
+  color: #37383C;
+}
+
+.darkMode .paso {
+  color: white;
 }
 /*# sourceMappingURL=Styles.css.map */

@@ -19,7 +19,7 @@
         <img src="./assets/close.svg" alt="Icono Close" class="imgClose">
         <nav rol=navegacion class="nav">
             <ul class="navegacion">
-                <li><a class="anchorMenu" href="">Modo Nocturno</a></li>
+                <li><a class="anchorMenu" id="darkMode" href="#modoNocturno">Modo Nocturno</a></li>
                 <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
                 <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
                 <li>
@@ -36,6 +36,11 @@
         <div class="boxImgGifos">
             <img src="./assets/icon-favoritos.svg" alt="favoritos" class="imgHeadGifos">
             <h2 class="titleGifos">Favoritos</h2>
+        </div>
+        <div class="boxWithoutResults" id="noFavorites">
+            <!--     <img src="./assets/icon-busqueda-sin-resultado.svg" alt="Sin resultados" class="imgWithoutResults">
+            <p class="tryAgainMessage">"¡ Guarda tu primer GIFO en Favoritos</p>
+            <p class="tryAgainMessage">para que se muestre aquí !"</p> -->
         </div>
         <div class="boxCardsFavoritas">
             <!--
@@ -68,6 +73,34 @@
         <!-- <div class="boxBtnVerMas">
             <button class="btnVerMas">ver mas</button>
         </div>-->
+    </section>
+    <section id="modal">
+        <div class="modalWindow">
+            <div class="boxCloseModal">
+                <button class="btnCloseMax"><i class="icon-button-close"></i></button>
+            </div>
+            <div class="contentModal">
+                <div class="boxImageMax">
+                    <img class="imageMax" src="./assets/GFV1.gif" alt="Maximized Image">
+                </div>
+                <div class="boxImageInfo">
+                    <div class="boxUserMax">
+                        <h3 class="userMax">Reptilia</h3>
+                    </div>
+                    <div class="boxTitleMax">
+                        <h3 class="titleMax">Patricio Malvado</h3>
+                    </div>
+                </div>
+                <div class="boxIcons">
+                    <div class="boxBtnFavoriteMax">
+                        <button class=" btn btnFavoriteGifMax" id="btnFavMax"> <img src="./assets/icon-fav-hover.svg" alt="favorito" class="imgFavoriteMax"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActiveMax" id="btnFavAct${index}"></button>
+                    </div>
+                    <div class="boxBtnDownloadMax">
+                        <a class=" btn btnDownloadGifMax" id="btnDowMax"> <img src="./assets/icon-download.svg" alt="Descargar" class="imgDownloadMax"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="trendingGIFOS">
@@ -106,5 +139,7 @@
 <script type="module" src="./Scripts/Trending-Gifos.js"></script>
 <script type="module" src="./Scripts/Favorites.js"></script>
 <script type="module" src="./Scripts/Render-Favorite.js"></script>
+<script type="module" src="./Scripts/Modal-Windows.js"></script>
+<script type="module" src="./Scripts/Dark-Mode.js"></script>
 
 </html>

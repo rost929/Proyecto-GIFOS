@@ -1,0 +1,134 @@
+.darkMode {
+    .barraSuperior {
+        background: #37383C;
+    }
+    background-color: #37383C;
+    header {
+        background-color: #37383C;
+    }
+    #mensajeInicio {
+        color: white;
+    }
+    #logo {
+        content: url("../assets/logo-desktop-modo-noc.svg");
+    }
+    .anchorMenu {
+        color: white;
+    }
+    .anchorMenu:hover {
+        text-decoration: underline;
+        text-decoration-color: #5ED7C6;
+        text-decoration-line: 6px;
+        color: white;
+    }
+    #anchorCrearGif {
+        width: 60px;
+        height: 100%;
+        color: white;
+    }
+    .boxBtnMas {
+        border: solid white;
+    }
+    .icon-button-crear-gifo {
+        color: white;
+    }
+    .boxBtnMas:hover {
+        background-color: white;
+        .icon-button-crear-gifo {
+            color: #37383C;
+        }
+    }
+    #buscador {
+        background-color: #37383C;
+        color: white;
+    }
+    .btnBuscar {
+        background-color: #37383C;
+        color: white;
+    }
+    .boxBuscador {
+        border: 1px solid white;
+    }
+    .boxTrending,
+    .boxBusquedas,
+    .titleBusqueda {
+        color: white;
+    }
+    .btnShowMore {
+        color: white;
+        border: 1px solid white;
+        background: #37383C;
+    }
+    .btnShowMore:hover {
+        color: #37383C;
+        border: 1px solid white;
+        background: white;
+    }
+    .trendingGIFOS {
+        background: #222326;
+        color: white;
+        #tituloTrendingGIFOS {
+            color: white;
+        }
+    }
+    .boxBtnAtras,
+    .boxBtnSiguiente {
+        border: none;
+    }
+    .btnAtras,
+    .btnSiguiente {
+        background: #222326;
+        color: white;
+        border: 1px solid white;
+    }
+    .btnAtras:hover,
+    .btnSiguiente:hover {
+        background: white;
+        color: #222326;
+        .icon-button-left,
+        .icon-button-right {
+            color: #37383C;
+        }
+    }
+    footer {
+        color: white;
+    }
+    .titleGifos,
+    .tituloCrear {
+        color: white;
+    }
+    .boxScreen {
+        border: 1px solid white;
+        color: white;
+    }
+    .camara {
+        content: url("../assets/camara-modo-noc.svg");
+    }
+    .imgCinta {
+        content: url("../assets/pelicula-modo-noc.svg");
+    }
+    .btnComenzar {
+        color: white;
+        border: 1px solid white;
+        background: #37383C;
+    }
+    .btnComenzar:hover {
+        background: white;
+        color: #37383C;
+    }
+    #barraInferior {
+        background: white;
+    }
+    .boxPaso {
+        border: 1px solid white;
+    }
+    .boxPaso:hover {
+        background: white;
+        .paso {
+            color: #37383C;
+        }
+    }
+    .paso {
+        color: white;
+    }
+}

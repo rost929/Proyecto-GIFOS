@@ -21,7 +21,7 @@ export const assignDownloadEvent = (arrayDownloadButtons, arrayGifs) => {
  * @returns {}
  */
 
-const downloadGifo = (imageURL, /** @type {HTMLAnchorElement} */ elementAnchorDown, title) => {
+export const downloadGifo = (imageURL, /** @type {HTMLAnchorElement} */ elementAnchorDown, title) => {
     // const newAnchor = document.createElement("a");
     const myRequest = new Request(imageURL);
     if (!elementAnchorDown.getAttribute("href")) {

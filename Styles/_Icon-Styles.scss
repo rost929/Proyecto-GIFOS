@@ -23,6 +23,7 @@
 }
 
 .btnFavoriteGif {
+    position: relative;
     border-radius: 6px;
     border: none;
     width: 32px;
@@ -52,6 +53,9 @@
     position: absolute;
     top: 7px;
     left: 7px;
+    /*    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 4px; */
     visibility: hidden;
     width: 18px;
     height: 18px;
