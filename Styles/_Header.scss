@@ -23,17 +23,16 @@
     background: #572EE5;
 }
 
-.imgBurger,
-.imgClose {
+.icon-burger,
+.icon-button-close {
     position: absolute;
 }
 
-.imgClose {
+.icon-button-close {
     visibility: hidden;
 }
 
 #anchorCrearGif {
-    // margin-top: 25px;
     width: 60px;
     height: 100%;
     color: white;
@@ -53,6 +52,7 @@
         position: relative;
         //width: 100%;
         height: 7.9%;
+        color: #37383C;
     }
     #logo {
         //width: 13%;
@@ -81,6 +81,7 @@
         color: #494c5f;
     }
     .hamburguesa {
+        color: white;
         width: 30px;
         height: 30px;
         position: absolute;
@@ -129,21 +130,27 @@
         font-family: 'ProximaNova-Bold';
         font-weight: 300;
         border-bottom: 1px solid white;
-        //opacity: 0.5;
     }
-    .imgBurger {
+    /*  .icon-burger {
         top: 55px;
-        left: 91%;
-    }
-    .imgClose {
+        left: 93%;
+    } */
+    .icon-button-close,
+    .icon-burger {
         top: 55px;
-        left: 91%;
+        left: 93.5%;
     }
-    .hamburguesa:checked~.imgBurger {
+    .hamburguesa:checked~.icon-burger {
         visibility: hidden;
     }
-    .hamburguesa:checked~.imgClose {
+    .hamburguesa:checked~.icon-button-close {
         visibility: visible;
+    }
+    /*   .icon-button-crear-gifo {
+        display: none;
+    } */
+    .boxBtnMas {
+        display: none;
     }
 }
 
@@ -243,7 +250,7 @@
     }
 }
 
-.imgBurger {
+.icon-burger {
     z-index: -1;
 }
 

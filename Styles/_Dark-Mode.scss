@@ -6,6 +6,20 @@
     header {
         background-color: #37383C;
     }
+    .hamburguesa:checked~.nav .navegacion {
+        background: black;
+    }
+    .hamburguesa:checked~.nav .navegacion a {
+        border-bottom: none;
+    }
+    .icon-button-close,
+    .icon-burger {
+        background: white;
+        color: white;
+    }
+    .icon-icon-search {
+        color: white;
+    }
     #mensajeInicio {
         color: white;
     }
@@ -130,5 +144,10 @@
     }
     .paso {
         color: white;
+    }
+    @media (max-width: 768px) {
+        .icon-button-crear-gifo {
+            display: none;
+        }
     }
 }

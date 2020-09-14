@@ -16,8 +16,9 @@
     <header>
         <img id="logo" src="./assets/logo-mobile.svg">
         <input type="checkbox" class="hamburguesa">
-        <img src="./assets/burger.svg" alt="Icono Burger" class="imgBurger">
-        <img src="./assets/close.svg" alt="Icono Close" class="imgClose">
+        <i class="icon-burger"></i>
+        <i class="icon-button-close"></i>
+
         <nav rol=navegacion class="nav">
             <ul class="navegacion">
                 <li><a class="anchorMenu" id="darkMode" href="#modoNocturno">Modo Nocturno</a></li>
@@ -43,9 +44,9 @@
         </div>
         <div class="boxBuscador">
             <div class="boxGlobalSearch">
-                <i class="icon-icon-search"></i>
+                <i class="icon-icon-search" id="leftSearchIcon"></i>
                 <input type="text" id="buscador" placeholder="Busca GIFOS y más">
-                <button class="btnBuscar"></button>
+                <button class="btnBuscar"><i class="icon-icon-search" id="rightSearchIcon"></i></button>
             </div>
             <span class="separator"></span>
             <div class="boxSuggestions">

@@ -50,13 +50,17 @@
     display: flex;
 }
 
+#leftSearchIcon {
+    margin-left: 15px;
+}
+
 .icon-icon-search {
     width: 20px;
     height: 20px;
     font-size: 25px;
     margin-top: 7.6px;
     margin-bottom: 7.6px;
-    margin-left: 23.6px;
+    margin-left: 15px;
     margin-right: 16px;
     margin-top: 12px;
     color: #9CAFC3;
@@ -106,10 +110,12 @@
     height: 30px;
     margin-top: 9px;
     background-size: 25px 25px;
-    background-repeat: no-repeat;
-    background-image: url(../assets/icon-search.svg);
     border: none;
     background-color: white;
+}
+
+.icon-icon-search {
+    color: #572EE5;
 }
 
 #imgLupa {

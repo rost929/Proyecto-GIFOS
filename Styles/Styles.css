@@ -63,13 +63,17 @@
   display: flex;
 }
 
+#leftSearchIcon {
+  margin-left: 15px;
+}
+
 .icon-icon-search {
   width: 20px;
   height: 20px;
   font-size: 25px;
   margin-top: 7.6px;
   margin-bottom: 7.6px;
-  margin-left: 23.6px;
+  margin-left: 15px;
   margin-right: 16px;
   margin-top: 12px;
   color: #9CAFC3;
@@ -129,10 +133,12 @@
   height: 30px;
   margin-top: 9px;
   background-size: 25px 25px;
-  background-repeat: no-repeat;
-  background-image: url(../assets/icon-search.svg);
   border: none;
   background-color: white;
+}
+
+.icon-icon-search {
+  color: #572EE5;
 }
 
 #imgLupa {
@@ -340,12 +346,12 @@
   background: #572EE5;
 }
 
-.imgBurger,
-.imgClose {
+.icon-burger,
+.icon-button-close {
   position: absolute;
 }
 
-.imgClose {
+.icon-button-close {
   visibility: hidden;
 }
 
@@ -367,6 +373,7 @@
   header {
     position: relative;
     height: 7.9%;
+    color: #37383C;
   }
   #logo {
     width: 48.8px;
@@ -393,6 +400,7 @@
     color: #494c5f;
   }
   .hamburguesa {
+    color: white;
     width: 30px;
     height: 30px;
     position: absolute;
@@ -442,19 +450,26 @@
     font-weight: 300;
     border-bottom: 1px solid white;
   }
-  .imgBurger {
+  /*  .icon-burger {
+        top: 55px;
+        left: 93%;
+    } */
+  .icon-button-close,
+  .icon-burger {
     top: 55px;
-    left: 91%;
+    left: 93.5%;
   }
-  .imgClose {
-    top: 55px;
-    left: 91%;
-  }
-  .hamburguesa:checked ~ .imgBurger {
+  .hamburguesa:checked ~ .icon-burger {
     visibility: hidden;
   }
-  .hamburguesa:checked ~ .imgClose {
+  .hamburguesa:checked ~ .icon-button-close {
     visibility: visible;
+  }
+  /*   .icon-button-crear-gifo {
+        display: none;
+    } */
+  .boxBtnMas {
+    display: none;
   }
 }
 
@@ -554,7 +569,7 @@
   }
 }
 
-.imgBurger {
+.icon-burger {
   z-index: -1;
 }
 
@@ -788,7 +803,6 @@ footer {
     color: #572EE5;
     padding-top: 8px;
     font-size: 25px;
-    text-shadow: black 0.1em 0.1em 0.2em;
   }
   .boxCardsFavoritas,
   .boxCardsBusquedas,
@@ -849,7 +863,6 @@ footer {
     color: #572EE5;
     padding-top: 8px;
     font-size: 25px;
-    text-shadow: black 0.1em 0.1em 0.2em;
   }
   .boxCardsFavoritas,
   .boxCardsBusquedas,
@@ -860,7 +873,7 @@ footer {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-top: 36px;
-    margin-left: 10.8%;
+    margin-left: 5%;
   }
   .cardGifo,
   .gifo {
@@ -909,7 +922,6 @@ footer {
     color: #572EE5;
     padding-top: 8px;
     font-size: 25px;
-    text-shadow: black 0.1em 0.1em 0.2em;
   }
   .boxCardsFavoritas,
   .boxCardsBusquedas,
@@ -920,7 +932,7 @@ footer {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin-top: 36px;
-    margin-left: 10.8%;
+    margin-left: 5%;
   }
   .cardGifo,
   .gifo {
@@ -999,7 +1011,7 @@ footer {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 36px;
   }
   .cardGifo,
@@ -1069,7 +1081,7 @@ footer {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 36px;
     text-align: center;
   }
@@ -1429,6 +1441,10 @@ footer {
   display: none;
 }
 
+.boxCloseModal .icon-button-close {
+  visibility: visible;
+}
+
 .boxCloseModal {
   width: 100%;
 }
@@ -1600,6 +1616,24 @@ footer {
   background-color: #37383C;
 }
 
+.darkMode .hamburguesa:checked ~ .nav .navegacion {
+  background: black;
+}
+
+.darkMode .hamburguesa:checked ~ .nav .navegacion a {
+  border-bottom: none;
+}
+
+.darkMode .icon-button-close,
+.darkMode .icon-burger {
+  background: white;
+  color: white;
+}
+
+.darkMode .icon-icon-search {
+  color: white;
+}
+
 .darkMode #mensajeInicio {
   color: white;
 }
@@ -1760,5 +1794,11 @@ footer {
 
 .darkMode .paso {
   color: white;
+}
+
+@media (max-width: 768px) {
+  .darkMode .icon-button-crear-gifo {
+    display: none;
+  }
 }
 /*# sourceMappingURL=Styles.css.map */
