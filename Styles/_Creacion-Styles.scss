@@ -2,20 +2,20 @@
     text-align: center;
 }
 
-.camara,
-.luzCamara,
-.imgCinta {
+.camera,
+.cameraLight,
+.imgTape {
     position: absolute;
 }
 
-.camara {
+.camera {
     width: 160px;
     height: 160px;
     top: 240px;
     left: 145px
 }
 
-.luzCamara {
+.cameraLight {
     top: 267px;
     left: 275px;
     width: 91px;
@@ -32,37 +32,62 @@
     margin-right: auto;
 }
 
-.saltoLinea {
+#videoScreen {
+    width: 480px;
+    height: 320px;
+    border: solid 1px black;
+    top: 150px;
+    left: 32%;
+    z-index: 1;
+    position: absolute;
+}
+
+.boxBtnCreate {
+    text-align: center;
+}
+
+.boxFirstMessage,
+.boxSecondMessage {
+    top: 250px;
+    left: 37.5%;
+    position: absolute;
+}
+
+.boxSecondMessage {
+    display: none;
+}
+
+.lineBreak {
     font-size: 0;
     display: block;
 }
 
-.tituloCrear {
+.createTitle {
     font-size: 25px;
     color: #572EE5;
     font-family: 'ProximaNova-Bold';
     line-height: 15px;
-    margin-top: 138px;
+    // margin-top: 138px;
 }
 
 #Gifos {
     color: #00F3BB;
 }
 
-.descripcion {
+.description {
     margin-top: 20px;
     font-size: 16px;
     font-family: 'ProximaNova-Regular';
     line-height: 10px;
 }
 
-.boxPasos {
+.boxSteps {
     display: flex;
     margin-top: 24px;
     margin-left: 43%;
 }
 
-.boxPaso {
+.boxStep {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,13 +99,13 @@
     margin-right: 13px;
 }
 
-.paso {
+.step {
     font-size: 18px;
     color: #572EE5;
     font-family: 'ProximaNova-Bold';
 }
 
-.imgCinta {
+.imgTape {
     top: 517px;
     left: 81%;
     width: 100px;
@@ -98,7 +123,8 @@
     height: 6.5px;
 }
 
-.btnComenzar {
+.btnCreate,
+.btnRecord {
     margin-top: 46px;
     text-transform: uppercase;
     font-family: 'ProximaNova-Bold';
@@ -109,4 +135,14 @@
     background: white;
     width: 127px;
     height: 50px;
+}
+
+.btnRecord {
+    display: none;
+}
+
+.btnCreate:hover,
+.btnRecord:hover {
+    background: #572EE5;
+    color: white;
 }

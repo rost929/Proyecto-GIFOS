@@ -108,41 +108,41 @@
         color: white;
     }
     .titleGifos,
-    .tituloCrear {
+    .createTitle {
         color: white;
     }
     .boxScreen {
         border: 1px solid white;
         color: white;
     }
-    .camara {
+    .camera {
         content: url("../assets/camara-modo-noc.svg");
     }
-    .imgCinta {
+    .imgTape {
         content: url("../assets/pelicula-modo-noc.svg");
     }
-    .btnComenzar {
+    .btnCreate {
         color: white;
         border: 1px solid white;
         background: #37383C;
     }
-    .btnComenzar:hover {
+    .btnCreate:hover {
         background: white;
         color: #37383C;
     }
     #barraInferior {
         background: white;
     }
-    .boxPaso {
+    .boxStep {
         border: 1px solid white;
     }
-    .boxPaso:hover {
+    .boxStep:hover {
         background: white;
-        .paso {
+        .step {
             color: #37383C;
         }
     }
-    .paso {
+    .step {
         color: white;
     }
     @media (max-width: 768px) {

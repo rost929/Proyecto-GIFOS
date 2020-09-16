@@ -1315,20 +1315,20 @@ footer {
   text-align: center;
 }
 
-.camara,
-.luzCamara,
-.imgCinta {
+.camera,
+.cameraLight,
+.imgTape {
   position: absolute;
 }
 
-.camara {
+.camera {
   width: 160px;
   height: 160px;
   top: 240px;
   left: 145px;
 }
 
-.luzCamara {
+.cameraLight {
   top: 267px;
   left: 275px;
   width: 91px;
@@ -1344,31 +1344,55 @@ footer {
   margin-right: auto;
 }
 
-.saltoLinea {
+#videoScreen {
+  width: 480px;
+  height: 320px;
+  border: solid 1px black;
+  top: 150px;
+  left: 32%;
+  z-index: 1;
+  position: absolute;
+}
+
+.boxBtnCreate {
+  text-align: center;
+}
+
+.boxFirstMessage,
+.boxSecondMessage {
+  top: 250px;
+  left: 37.5%;
+  position: absolute;
+}
+
+.boxSecondMessage {
+  display: none;
+}
+
+.lineBreak {
   font-size: 0;
   display: block;
 }
 
-.tituloCrear {
+.createTitle {
   font-size: 25px;
   color: #572EE5;
   font-family: 'ProximaNova-Bold';
   line-height: 15px;
-  margin-top: 138px;
 }
 
 #Gifos {
   color: #00F3BB;
 }
 
-.descripcion {
+.description {
   margin-top: 20px;
   font-size: 16px;
   font-family: 'ProximaNova-Regular';
   line-height: 10px;
 }
 
-.boxPasos {
+.boxSteps {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1376,7 +1400,7 @@ footer {
   margin-left: 43%;
 }
 
-.boxPaso {
+.boxStep {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1394,13 +1418,13 @@ footer {
   margin-right: 13px;
 }
 
-.paso {
+.step {
   font-size: 18px;
   color: #572EE5;
   font-family: 'ProximaNova-Bold';
 }
 
-.imgCinta {
+.imgTape {
   top: 517px;
   left: 81%;
   width: 100px;
@@ -1418,7 +1442,8 @@ footer {
   height: 6.5px;
 }
 
-.btnComenzar {
+.btnCreate,
+.btnRecord {
   margin-top: 46px;
   text-transform: uppercase;
   font-family: 'ProximaNova-Bold';
@@ -1429,6 +1454,16 @@ footer {
   background: white;
   width: 127px;
   height: 50px;
+}
+
+.btnRecord {
+  display: none;
+}
+
+.btnCreate:hover,
+.btnRecord:hover {
+  background: #572EE5;
+  color: white;
 }
 
 .modalWindow {
@@ -1748,7 +1783,7 @@ footer {
 }
 
 .darkMode .titleGifos,
-.darkMode .tituloCrear {
+.darkMode .createTitle {
   color: white;
 }
 
@@ -1757,21 +1792,21 @@ footer {
   color: white;
 }
 
-.darkMode .camara {
+.darkMode .camera {
   content: url("../assets/camara-modo-noc.svg");
 }
 
-.darkMode .imgCinta {
+.darkMode .imgTape {
   content: url("../assets/pelicula-modo-noc.svg");
 }
 
-.darkMode .btnComenzar {
+.darkMode .btnCreate {
   color: white;
   border: 1px solid white;
   background: #37383C;
 }
 
-.darkMode .btnComenzar:hover {
+.darkMode .btnCreate:hover {
   background: white;
   color: #37383C;
 }
@@ -1780,19 +1815,19 @@ footer {
   background: white;
 }
 
-.darkMode .boxPaso {
+.darkMode .boxStep {
   border: 1px solid white;
 }
 
-.darkMode .boxPaso:hover {
+.darkMode .boxStep:hover {
   background: white;
 }
 
-.darkMode .boxPaso:hover .paso {
+.darkMode .boxStep:hover .step {
   color: #37383C;
 }
 
-.darkMode .paso {
+.darkMode .step {
   color: white;
 }
 
