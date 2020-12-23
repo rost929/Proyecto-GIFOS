@@ -1336,7 +1336,7 @@ footer {
 }
 
 .boxScreen {
-  border: 1px solid #572EE5;
+  border: 1px solid #572ee5;
   width: 47.8%;
   height: 390px;
   margin-top: 18px;
@@ -1355,7 +1355,9 @@ footer {
 }
 
 .boxBtnCreate {
+  width: 127px;
   text-align: center;
+  margin-left: 45%;
 }
 
 .boxFirstMessage,
@@ -1376,19 +1378,19 @@ footer {
 
 .createTitle {
   font-size: 25px;
-  color: #572EE5;
-  font-family: 'ProximaNova-Bold';
+  color: #572ee5;
+  font-family: "ProximaNova-Bold";
   line-height: 15px;
 }
 
 #Gifos {
-  color: #00F3BB;
+  color: #00f3bb;
 }
 
 .description {
   margin-top: 20px;
   font-size: 16px;
-  font-family: 'ProximaNova-Regular';
+  font-family: "ProximaNova-Regular";
   line-height: 10px;
 }
 
@@ -1412,7 +1414,7 @@ footer {
           justify-content: center;
   width: 32px;
   height: 32px;
-  border: 1px solid #572EE5;
+  border: 1px solid #572ee5;
   border-radius: 30px;
   margin-left: 13px;
   margin-right: 13px;
@@ -1420,8 +1422,21 @@ footer {
 
 .step {
   font-size: 18px;
-  color: #572EE5;
-  font-family: 'ProximaNova-Bold';
+  color: #572ee5;
+  font-family: "ProximaNova-Bold";
+}
+
+.boxTimer {
+  margin-left: 196px;
+  font-family: "ProximaNova-Bold";
+  color: #572ee5;
+}
+
+.repeatCapture {
+  text-transform: uppercase;
+  border-bottom: solid 2px #00f3bb;
+  color: #572ee5;
+  display: none;
 }
 
 .imgTape {
@@ -1435,7 +1450,7 @@ footer {
   position: absolute;
   left: 21%;
   margin-top: 19px;
-  background: #572EE5;
+  background: #572ee5;
   font-size: 2px;
   width: 795px;
   border-radius: 30px;
@@ -1443,26 +1458,32 @@ footer {
 }
 
 .btnCreate,
-.btnRecord {
+.btnRecord,
+.btnStop,
+.btnUpload {
   margin-top: 46px;
   text-transform: uppercase;
-  font-family: 'ProximaNova-Bold';
+  font-family: "ProximaNova-Bold";
   font-size: 13px;
-  color: #572EE5;
+  color: #572ee5;
   border-radius: 25px;
-  border: 1px solid #572EE5;
+  border: 1px solid #572ee5;
   background: white;
   width: 127px;
   height: 50px;
 }
 
-.btnRecord {
+.btnRecord,
+.btnStop,
+.btnUpload {
   display: none;
 }
 
 .btnCreate:hover,
-.btnRecord:hover {
-  background: #572EE5;
+.btnRecord:hover,
+.btnStop:hover,
+.btnUpload:hover {
+  background: #572ee5;
   color: white;
 }
 
