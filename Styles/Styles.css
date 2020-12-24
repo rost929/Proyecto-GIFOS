@@ -1344,14 +1344,22 @@ footer {
   margin-right: auto;
 }
 
+.boxVideo {
+  width: 480px;
+  height: 320px;
+  position: relative;
+  margin-left: 20%;
+  margin-top: 3%;
+}
+
 #videoScreen {
   width: 480px;
   height: 320px;
   border: solid 1px black;
-  top: 150px;
+  /* top: 150px;
   left: 32%;
-  z-index: 1;
-  position: absolute;
+  z-index: 0;
+  position: absolute; */
 }
 
 .boxBtnCreate {
@@ -1361,13 +1369,24 @@ footer {
 }
 
 .boxFirstMessage,
-.boxSecondMessage {
-  top: 250px;
-  left: 37.5%;
+.boxSecondMessage,
+.boxUploadingGif,
+.boxUploadingSuccess {
+  top: 100px;
+  left: 18%;
   position: absolute;
 }
 
-.boxSecondMessage {
+.boxUploadingGif,
+.boxUploadingSuccess {
+  width: 200px;
+  top: 120px;
+  left: 35%;
+}
+
+.boxSecondMessage,
+.boxUploadingGif,
+.boxUploadingSuccess {
   display: none;
 }
 
@@ -1392,6 +1411,16 @@ footer {
   font-size: 16px;
   font-family: "ProximaNova-Regular";
   line-height: 10px;
+}
+
+.uploadingMessage,
+.successMessage {
+  font-family: "ProximaNova-Bold";
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  z-index: 3;
+  padding-top: 15px;
 }
 
 .boxSteps {

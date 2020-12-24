@@ -46,27 +46,37 @@
       />
       <img src="./assets/pelicula.svg" alt="Cinta" class="imgTape" />
       <div class="boxScreen">
-        <video id="videoScreen" playsinline autoplay></video>
-        <div class="boxFirstMessage">
-          <h2 class="createTitle">
-            Aquí podrás <span class="lineBreak">-</span> crear tus propios
-            <span id="Gifos">GIFOS</span>
-          </h2>
-          <p class="description">
-            ¡Crea tu GIFO en sólo 3 pasos!
-            <span class="lineBreak">-</span> (sólo necesitas una cámara para
-            grabar un video)
-          </p>
-        </div>
-        <div class="boxSecondMessage">
-          <h2 class="createTitle">
-            ¿Nos das acceso <span class="lineBreak">-</span> a tu cámara?
-          </h2>
-          <p class="description">
-            El acceso a tu camara será válido sólo
-            <span class="lineBreak">-</span> por el tiempo en el que estés
-            creando el GIFO.
-          </p>
+        <div class="boxVideo">
+          <video id="videoScreen" playsinline autoplay></video>
+          <div class="boxFirstMessage">
+            <h2 class="createTitle">
+              Aquí podrás <span class="lineBreak">-</span> crear tus propios
+              <span id="Gifos">GIFOS</span>
+            </h2>
+            <p class="description">
+              ¡Crea tu GIFO en sólo 3 pasos!
+              <span class="lineBreak">-</span> (sólo necesitas una cámara para
+              grabar un video)
+            </p>
+          </div>
+          <div class="boxSecondMessage">
+            <h2 class="createTitle">
+              ¿Nos das acceso <span class="lineBreak">-</span> a tu cámara?
+            </h2>
+            <p class="description">
+              El acceso a tu camara será válido sólo
+              <span class="lineBreak">-</span> por el tiempo en el que estés
+              creando el GIFO.
+            </p>
+          </div>
+          <div class="boxUploadingGif">
+            <img src="./assets/loader.svg" alt="" class="loadingImage" />
+            <p class="uploadingMessage">Estamos subiendo tu GIFO</p>
+          </div>
+          <div class="boxUploadingSuccess">
+            <img src="./assets/check.svg" alt="" class="checkImage" />
+            <p class="successMessage">GIFO subido con éxito</p>
+          </div>
         </div>
       </div>
       <div class="boxSteps">

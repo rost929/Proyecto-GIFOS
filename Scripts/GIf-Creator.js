@@ -3,8 +3,11 @@ import {
   turnOnStep,
   turnOffStep,
   showElement,
-  hideElement
+  hideElement,
+  showLoadingScreen,
 } from "./CSS-Controller.js";
+
+import { refreshCounter, stopCounting } from "./Timer.js";
 
 const video = document.querySelector("#videoScreen");
 const btnCreate = document.querySelector(".btnCreate");
@@ -14,6 +17,8 @@ const btnupload = document.querySelector(".btnUpload");
 
 const boxFirstMessage = document.querySelector(".boxFirstMessage");
 const boxSecondMessage = document.querySelector(".boxSecondMessage");
+const boxUploadMessage = document.querySelector(".boxUploadingGif");
+const boxSuccessMessage = document.querySelector(".boxUploadingSuccess");
 const step1 = document.querySelector("#step1");
 const step2 = document.querySelector("#step2");
 const step3 = document.querySelector("#step3");
@@ -37,9 +42,8 @@ let chunks = [];
 let mediaRecorder;
 let initialTime;
 let idInterval;
-let seg = 0;
-let min = 0;
-let hour = 0;
+
+let blob = null;
 
 async function startGifCreation() {
   try {
@@ -48,6 +52,7 @@ async function startGifCreation() {
     showVideo(stream);
     turnOffStep(boxStep1, step1);
     hideElement(btnCreate);
+    hideElement(boxSecondMessage);
     turnOnStep(boxStep2, step2);
     showElement(btnRecord);
   } catch (e) {
@@ -71,7 +76,7 @@ function startRecording() {
 
   mediaRecorder.onstart = () => {
     initialTime = Date.now();
-    idInterval = setInterval(refreshCounter, 1000);
+    idInterval = setInterval(refreshCounter, 1000, initialTime);
   };
 
   mediaRecorder.ondataavailable = (e) => {
@@ -80,15 +85,13 @@ function startRecording() {
   };
 
   mediaRecorder.onstop = () => {
-    /* alert("Grabación finalizada");
-    let blob = new Blob(chunks, { type: "video/webm" });
+    blob = new Blob(chunks, { type: "video/webm" });
     chunks = [];
-    downloadGif(blob); */
   };
 }
 
 function stopRecording() {
-  stopCounting();
+  stopCounting(initialTime, idInterval);
   mediaRecorder.stop();
   hideElement(duration);
   hideElement(btnStop);
@@ -96,29 +99,39 @@ function stopRecording() {
   showElement(btnupload);
 }
 
-const refreshCounter = () => {
-  duration.innerHTML = secondsAtTime((Date.now() - initialTime) / 1000);
-  console.log(duration.textContent);
+const recordAgain = () => {
+  hideElement(btnRepeat);
+  hideElement(btnupload);
+  showElement(btnRecord);
+  showElement(duration);
 };
 
-const secondsAtTime = (seconds) => {
-  let hours = Math.floor(seconds / 60 / 60);
-  seconds -= hours * 60 * 60;
-  let minutes = Math.floor(seconds / 60);
-  seconds -= minutes * 60;
-  seconds = parseInt(seconds);
-  if (hours < 10) hours = "0" + hours;
-  if (minutes < 10) minutes = "0" + minutes;
-  if (seconds < 10) seconds = "0" + seconds;
+function uploadGif() {
+  hideElement(btnRepeat);
+  turnOffStep(boxStep2, step2);
+  turnOnStep(boxStep3, step3);
+  showLoadingScreen(video);
+  showElement(boxUploadMessage);
+  //downloadGif(blob);
+  buildGifFile();
+  setTimeout(() => {
+    hideElement(boxUploadMessage);
+    showElement(boxSuccessMessage);
+  }, 2000);
+}
 
-  return `${hours}:${minutes}:${seconds}`;
-};
 
-const stopCounting = () => {
-  clearInterval(idInterval);
-  initialTime = null;
-  duration.textContent = "00:00:00";
-};
+const buildGifFile = () => {
+  let form = new FormData();
+  form.append('file', blob, 'myGif.gif');
+  console.log(form.get('file'));
+}
+
+btnCreate.addEventListener("click", startGifCreation);
+btnRecord.addEventListener("click", startRecording);
+btnStop.addEventListener("click", stopRecording);
+btnRepeat.addEventListener("click", recordAgain);
+btnupload.addEventListener("click", uploadGif);
 
 function downloadGif(blob) {
   let link = document.createElement("a");
@@ -129,23 +142,3 @@ function downloadGif(blob) {
   link.click();
   link.remove();
 }
-
-function uploadGif () {
-  hideElement(btnRepeat)
-  turnOffStep(boxStep2, step2);
-  turnOnStep(boxStep3,step3);
-}
-
-const recordAgain = () => {
-  hideElement(btnRepeat);
-  hideElement(btnupload);
-  showElement(btnRecord);
-  showElement(duration);
-}
-
-
-btnCreate.addEventListener("click", startGifCreation);
-btnRecord.addEventListener("click", startRecording);
-btnStop.addEventListener("click", stopRecording);
-btnupload.addEventListener("click",uploadGif);
-btnRepeat.addEventListener("click", recordAgain);

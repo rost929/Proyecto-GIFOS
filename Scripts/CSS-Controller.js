@@ -81,3 +81,7 @@ export const hideElement = (element) => {
     element.style.display = "none";
 }
 
+export const showLoadingScreen = (element) => {
+    element.style.opacity = "0.6";
+    element.style.background = "#572ee5";
+}
