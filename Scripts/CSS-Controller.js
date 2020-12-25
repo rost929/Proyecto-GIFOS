@@ -67,11 +67,6 @@ export const turnOffStep = (boxStep, step) => {
     boxStep.style.background = "white";
     step.style.color = "#572EE5"
 }
-/* 
-export const turnOnButton = (HtmlButton) => {
-    HtmlButton.style.display = "block";
-    HtmlButton.style.marginLeft = "45%";
-} */
 
 export const showElement = (element) => {
     element.style.display = "block";

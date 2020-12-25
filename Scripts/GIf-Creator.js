@@ -8,6 +8,10 @@ import {
 } from "./CSS-Controller.js";
 
 import { refreshCounter, stopCounting } from "./Timer.js";
+import { addMyNewGifToLocalStorage } from "./MyGifos.js";
+import { uploadGifo } from "./UploadGif.js";
+import {endpointUpload  } from "./Constants.js";
+
 
 const video = document.querySelector("#videoScreen");
 const btnCreate = document.querySelector(".btnCreate");
@@ -28,6 +32,10 @@ const boxStep2 = document.querySelector("#boxStep2");
 const boxStep3 = document.querySelector("#boxStep3");
 const duration = document.querySelector(".timer");
 const btnRepeat = document.querySelector(".repeatCapture");
+const anchorDownload = document.querySelector("#downloadGifCreated");
+
+const btnDownload = document.querySelector("#boxDownloadCreated");
+const btnLink = document.querySelector("#boxLinkCreated");
 
 const constraints = {
   audio: false,
@@ -97,6 +105,7 @@ function stopRecording() {
   hideElement(btnStop);
   showElement(btnRepeat);
   showElement(btnupload);
+  console.log(blob);
 }
 
 const recordAgain = () => {
@@ -108,24 +117,30 @@ const recordAgain = () => {
 
 function uploadGif() {
   hideElement(btnRepeat);
+  hideElement(btnupload);
   turnOffStep(boxStep2, step2);
   turnOnStep(boxStep3, step3);
   showLoadingScreen(video);
   showElement(boxUploadMessage);
-  //downloadGif(blob);
-  buildGifFile();
+  let gifo = buildGifFile();
   setTimeout(() => {
     hideElement(boxUploadMessage);
+    addMyNewGifToLocalStorage(gifo);
+    downloadGif(gifo);
+   // uploadGifo(endpointUpload, gifoFile);
     showElement(boxSuccessMessage);
+    showElement(btnDownload);
+    showElement(btnLink);
   }, 2000);
 }
 
-
 const buildGifFile = () => {
   let form = new FormData();
-  form.append('file', blob, 'myGif.gif');
-  console.log(form.get('file'));
-}
+  form.append("file", blob, "myGif.gif");
+  console.log(form.get("file"));
+  let gifCreated = form.get("file");
+  return gifCreated;
+};
 
 btnCreate.addEventListener("click", startGifCreation);
 btnRecord.addEventListener("click", startRecording);
@@ -133,12 +148,12 @@ btnStop.addEventListener("click", stopRecording);
 btnRepeat.addEventListener("click", recordAgain);
 btnupload.addEventListener("click", uploadGif);
 
-function downloadGif(blob) {
-  let link = document.createElement("a");
-  link.href = window.URL.createObjectURL(blob);
-  link.setAttribute("download", "video.webm");
-  link.style.display = "none";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
+function downloadGif(gifo) {
+  //let link = document.createElement("a");
+  anchorDownload.href = window.URL.createObjectURL(gifo);
+  anchorDownload.setAttribute("download", "");
+  //link.style.display = "none";
+  //document.body.appendChild(link);
+  //link.click();
+  //link.remove();
 }

@@ -1,149 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gifos Web Site</title>
-    <link rel="stylesheet" href="./Styles/Styles.css">
-    <link rel="stylesheet" href="./Fonts/icomoon/style-fonts.css">
+    <link rel="stylesheet" href="./Styles/Styles.css" />
+    <link rel="stylesheet" href="./Fonts/icomoon/style-fonts.css" />
     <!-- <link rel="import" href="Favoritos.html"> -->
     <script src="https://kit.fontawesome.com/801ab9999d.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <span class="barraSuperior"></span>
     <header>
-        <img id="logo" src="./assets/logo-mobile.svg">
-        <input type="checkbox" class="hamburguesa">
-        <i class="icon-burger"></i>
-        <i class="icon-button-close"></i>
+      <img id="logo" src="./assets/logo-mobile.svg" />
+      <input type="checkbox" class="hamburguesa" />
+      <i class="icon-burger"></i>
+      <i class="icon-button-close"></i>
 
-        <nav rol=navegacion class="nav">
-            <ul class="navegacion">
-                <li><a class="anchorMenu" id="darkMode" href="#modoNocturno">Modo Nocturno</a></li>
-                <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
-                <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
-                <li>
-                    <div class="boxBtnMas">
-                        <a id="anchorCrearGif" href="Creacion.html"><i class="icon-button-crear-gifo"></i></a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+      <nav rol="navegacion" class="nav">
+        <ul class="navegacion">
+          <li>
+            <a class="anchorMenu" id="darkMode" href="#modoNocturno"
+              >Modo Nocturno</a
+            >
+          </li>
+          <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
+          <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
+          <li>
+            <div class="boxBtnMas">
+              <a id="anchorCrearGif" href="Creacion.html"
+                ><i class="icon-button-crear-gifo"></i
+              ></a>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <section class="home">
-        <div class="boxMensajeInicio">
-            <h1 id="mensajeInicio">
-                Inspírate, busca, guarda, y crea los mejores <span id="gifosWord">GIFOS</span>
-            </h1>
+      <div class="boxMensajeInicio">
+        <h1 id="mensajeInicio">
+          Inspírate, busca, guarda, y crea los mejores
+          <span id="gifosWord">GIFOS</span>
+        </h1>
+      </div>
+      <div class="boxImgHome">
+        <img
+          src="./assets/ilustra_header.svg"
+          alt="Imagen de Inicio"
+          id="imgHome"
+        />
+      </div>
+      <div class="boxBuscador">
+        <div class="boxGlobalSearch">
+          <i class="icon-icon-search" id="leftSearchIcon"></i>
+          <input type="text" id="buscador" placeholder="Busca GIFOS y más" />
+          <button class="btnBuscar">
+            <i class="icon-icon-search" id="rightSearchIcon"></i>
+          </button>
         </div>
-        <div class="boxImgHome">
-            <img src="./assets/ilustra_header.svg" alt="Imagen de Inicio" id="imgHome">
+        <span class="separator"></span>
+        <div class="boxSuggestions">
+          <ul class="listSuggestions"></ul>
         </div>
-        <div class="boxBuscador">
-            <div class="boxGlobalSearch">
-                <i class="icon-icon-search" id="leftSearchIcon"></i>
-                <input type="text" id="buscador" placeholder="Busca GIFOS y más">
-                <button class="btnBuscar"><i class="icon-icon-search" id="rightSearchIcon"></i></button>
-            </div>
-            <span class="separator"></span>
-            <div class="boxSuggestions">
-                <ul class="listSuggestions">
-
-                </ul>
-            </div>
+      </div>
+      <div class="boxTrending">
+        <div class="boxTitleTrending">
+          <h3 id="tituloTrending">Trending:</h3>
         </div>
-        <div class="boxTrending">
-            <div class="boxTitleTrending">
-                <h3 id="tituloTrending">Trending:</h3>
-            </div>
-            <div class="boxWordsTrending">
-
-            </div>
+        <div class="boxWordsTrending"></div>
+      </div>
+      <div class="boxBusquedas">
+        <div class="boxSeparatorSearch">
+          <span class="separatorSearch"></span>
         </div>
-        <div class="boxBusquedas">
-            <div class="boxSeparatorSearch"><span class="separatorSearch"></span></div>
-            <div class="boxTitleBusqueda"></div>
-            <div class="boxWithoutResults">
-                <!--  <img src="./assets/icon-busqueda-sin-resultado.svg" alt="Sin resultados" class="imgWithoutResults">
+        <div class="boxTitleBusqueda"></div>
+        <div class="boxWithoutResults">
+          <!--  <img src="./assets/icon-busqueda-sin-resultado.svg" alt="Sin resultados" class="imgWithoutResults">
                 <p class="tryAgainMessage">Intenta con otra busqueda.</p> -->
-            </div>
-            <div class="boxCardsBusquedas">
-
-            </div>
-            <div class="boxBtnShowMore"></div>
         </div>
-
+        <div class="boxCardsBusquedas"></div>
+        <div class="boxBtnShowMore"></div>
+      </div>
     </section>
 
     <section id="modal">
-        <div class="modalWindow">
-            <div class="boxCloseModal">
-                <button class="btnCloseMax"><i class="icon-button-close"></i></button>
-            </div>
-            <div class="contentModal">
-                <div class="boxImageMax">
-                    <img class="imageMax" src="./assets/GFV1.gif" alt="Maximized Image">
-                </div>
-                <div class="boxImageInfo">
-                    <div class="boxUserMax">
-                        <h3 class="userMax">Reptilia</h3>
-                    </div>
-                    <div class="boxTitleMax">
-                        <h3 class="titleMax">Patricio Malvado</h3>
-                    </div>
-                </div>
-                <div class="boxIcons">
-                    <div class="boxBtnFavoriteMax">
-                        <button class=" btn btnFavoriteGifMax" id="btnFavMax"> <img src="./assets/icon-fav-hover.svg" alt="favorito" class="imgFavoriteMax"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActiveMax" id="btnFavAct${index}"></button>
-                    </div>
-                    <div class="boxBtnDownloadMax">
-                        <a class=" btn btnDownloadGifMax" id="btnDowMax"> <img src="./assets/icon-download.svg" alt="Descargar" class="imgDownloadMax"></a>
-                    </div>
-                </div>
-            </div>
+      <div class="modalWindow">
+        <div class="boxCloseModal">
+          <button class="btnCloseMax"><i class="icon-button-close"></i></button>
         </div>
+        <div class="contentModal">
+          <div class="boxImageMax">
+            <img
+              class="imageMax"
+              src="./assets/GFV1.gif"
+              alt="Maximized Image"
+            />
+          </div>
+          <div class="boxImageInfo">
+            <div class="boxUserMax">
+              <h3 class="userMax">Reptilia</h3>
+            </div>
+            <div class="boxTitleMax">
+              <h3 class="titleMax">Patricio Malvado</h3>
+            </div>
+          </div>
+          <div class="boxIcons">
+            <div class="boxBtnFavoriteMax">
+              <button class="btn btnFavoriteGifMax" id="btnFavMax">
+                <img
+                  src="./assets/icon-fav-hover.svg"
+                  alt="favorito"
+                  class="imgFavoriteMax"
+                /><img
+                  src="./assets/icon-fav-active.svg"
+                  alt="favorito Activo"
+                  class="imgFavoriteActiveMax"
+                  id="btnFavAct${index}"
+                />
+              </button>
+            </div>
+            <div class="boxBtnDownloadMax">
+              <a class="btn btnDownloadGifMax" id="btnDowMax">
+                <img
+                  src="./assets/icon-download.svg"
+                  alt="Descargar"
+                  class="imgDownloadMax"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="trendingGIFOS">
-        <div class="boxTrendingGIFOS">
-            <h2 id="tituloTrendingGIFOS">Trending GIFOS</h2>
-            <p class="info">Mira las ultimas GIFO de nuestra comunidad </p>
+      <div class="boxTrendingGIFOS">
+        <h2 id="tituloTrendingGIFOS">Trending GIFOS</h2>
+        <p class="info">Mira las ultimas GIFO de nuestra comunidad</p>
+      </div>
+      <div class="carrusel">
+        <div class="boxBtnAtras">
+          <button class="btnAtras"><i class="icon-button-left"></i></button>
         </div>
-        <div class="carrusel">
-            <div class="boxBtnAtras">
-                <button class="btnAtras"><i class="icon-button-left"></i>
-                </button>
-            </div>
-            <div class="boxGIFOS">
-
-            </div>
-            <div class="boxBtnSiguiente">
-                <button class="btnSiguiente"><i class="icon-button-right"></i></button>
-            </div>
+        <div class="boxGIFOS"></div>
+        <div class="boxBtnSiguiente">
+          <button class="btnSiguiente">
+            <i class="icon-button-right"></i>
+          </button>
         </div>
+      </div>
     </section>
 
     <footer>
-        <p class="textoCompartir">Compartir en:</p>
-        <div class="boxIconosRedes">
-            <a class="iconoFooter" href="https://www.facebook.com/" target="Facebook"><img src="./assets/icon_facebook.svg" alt="Icono facebook" class="icono"></a>
-            <a class="iconoFooter" href="https://twitter.com/explore" target="Twitter"><img src="./assets/icon-twitter.svg" alt="Icono Twitter" class="iconoTwitter"></a>
-            <a class="iconoFooter" href="https://www.instagram.com/?hl=es-la" target="Instagram"><img src="./assets/icon_instagram.svg" alt="Icono Instagram" class="icono"></a>
-        </div>
-        <p class="textoDerechos">© GIFOS 2020 All Rights Reserved.</p>
+      <p class="textoCompartir">Compartir en:</p>
+      <div class="boxIconosRedes">
+        <a
+          class="iconoFooter"
+          href="https://www.facebook.com/"
+          target="Facebook"
+          ><img
+            src="./assets/icon_facebook.svg"
+            alt="Icono facebook"
+            class="icono"
+        /></a>
+        <a
+          class="iconoFooter"
+          href="https://twitter.com/explore"
+          target="Twitter"
+          ><img
+            src="./assets/icon-twitter.svg"
+            alt="Icono Twitter"
+            class="iconoTwitter"
+        /></a>
+        <a
+          class="iconoFooter"
+          href="https://www.instagram.com/?hl=es-la"
+          target="Instagram"
+          ><img
+            src="./assets/icon_instagram.svg"
+            alt="Icono Instagram"
+            class="icono"
+        /></a>
+      </div>
+      <p class="textoDerechos">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <span class="barraSuperior"></span>
+  </body>
 
-</body>
-
-<script type="module" src="./Scripts/Search.js"></script>
-<script type="module" src="./Scripts/Suggestions.js"></script>
-<script type="module" src="./Scripts/Trending-Gifos.js"></script>
-<script type="module" src="./Scripts/Favorites.js"></script>
-<script type="module" src="./Scripts/Modal-Windows.js"></script>
-<script type="module" src="./Scripts/Dark-Mode.js"></script>
-
+  <script type="module" src="./Scripts/Search.js"></script>
+  <script type="module" src="./Scripts/Suggestions.js"></script>
+  <script type="module" src="./Scripts/Trending-Gifos.js"></script>
+  <script type="module" src="./Scripts/Favorites.js"></script>
+  <script type="module" src="./Scripts/Modal-Windows.js"></script>
+  <script type="module" src="./Scripts/Dark-Mode.js"></script>
 </html>

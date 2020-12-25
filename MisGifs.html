@@ -1,106 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mis GIFOS</title>
-    <link rel="stylesheet" href="./Styles/Styles.css">
-    <link rel="stylesheet" href="./Fonts/icomoon/style-fonts.css">
-    <script src="https://kit.fontawesome.com/801ab9999d.js " crossorigin="anonymous "></script>
-</head>
+    <link rel="stylesheet" href="./Styles/Styles.css" />
+    <link rel="stylesheet" href="./Fonts/icomoon/style-fonts.css" />
+    <script
+      src="https://kit.fontawesome.com/801ab9999d.js "
+      crossorigin="anonymous "
+    ></script>
+  </head>
 
-<body>
+  <body>
     <span class="barraSuperior"></span>
     <header>
-        <a id="anchorInicio" href="Index.html"> <img id="logo" src="./assets/logo-mobile.svg"></a>
-        <input type="checkbox" class="hamburguesa">
-        <i class="icon-burger"></i>
-        <i class="icon-button-close"></i>
+      <a id="anchorInicio" href="Index.html">
+        <img id="logo" src="./assets/logo-mobile.svg"
+      /></a>
+      <input type="checkbox" class="hamburguesa" />
+      <i class="icon-burger"></i>
+      <i class="icon-button-close"></i>
 
-        <nav rol=navegacion class="nav">
-            <ul class="navegacion">
-                <li><a class="anchorMenu" id="darkMode" href="#modoNocturno">Modo Nocturno</a></li>
-                <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
-                <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
-                <li>
-                    <div class="boxBtnMas">
-                        <a id="anchorCrearGif" href="Creacion.html"><i class="icon-button-crear-gifo"></i></a>
-                    </div>
-                </li>
-            </ul>
-
-        </nav>
+      <nav rol="navegacion" class="nav">
+        <ul class="navegacion">
+          <li>
+            <a class="anchorMenu" id="darkMode" href="#modoNocturno"
+              >Modo Nocturno</a
+            >
+          </li>
+          <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
+          <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
+          <li>
+            <div class="boxBtnMas">
+              <a id="anchorCrearGif" href="Creacion.html"
+                ><i class="icon-button-crear-gifo"></i
+              ></a>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <section class="home">
-        <div class="boxImgGifos">
-            <img src="./assets/icon-mis-gifos.svg" alt="favoritos" class="imgHeadGifos">
-            <h2 class="titleGifos">Mis GIFOS</h2>
+      <div class="boxImgGifos">
+        <img
+          src="./assets/icon-mis-gifos.svg"
+          alt="favoritos"
+          class="imgHeadGifos"
+        />
+        <h2 class="titleGifos">Mis GIFOS</h2>
+      </div>
+      <div class="boxCardsMisGifs">
+        <div class="cardGifo">
+          <img src="./assets/GFV1.gif" alt="MI GIF" class="gifo" />
         </div>
-        <div class="boxCardsMisGifs">
-            <div class="cardGifo">
-                <img src="./assets/GFV1.gif" alt="MI GIF" class="gifo">
-            </div>
-            <div class="cardGifo">
-                <img src="./assets/GFV2.gif" alt="MI GIF" class="gifo">
-            </div>
-            <div class="cardGifo">
-                <img src="./assets/GFV3.gif" alt="MI GIF" class="gifo">
-            </div>
-            <div class="cardGifo">
-                <img src="./assets/GFV4.gif" alt="MI GIF" class="gifo">
-            </div>
-            <div class="cardGifo">
-                <img src="./assets/GFV5.gif" alt="MI GIF" class="gifo">
-            </div>
-            <div class="cardGifo">
-                <img src="./assets/GFV6.gif" alt="MI GIF" class="gifo">
-            </div>
-            <div class="cardGifo">
-                <img src="./assets/GFV7.gif" alt="MI GIF" class="gifo">
-            </div>
-            <div class="cardGifo">
-                <img src="./assets/GFV8.gif" alt="MI GIF" class="gifo">
-            </div>
+        <div class="cardGifo">
+          <img src="./assets/GFV2.gif" alt="MI GIF" class="gifo" />
         </div>
-        <div class="boxBtnVerMas">
-            <button class="btnVerMas">ver mas</button>
+        <div class="cardGifo">
+          <img src="./assets/GFV3.gif" alt="MI GIF" class="gifo" />
         </div>
+        <div class="cardGifo">
+          <img src="./assets/GFV4.gif" alt="MI GIF" class="gifo" />
+        </div>
+        <div class="cardGifo">
+          <img src="./assets/GFV5.gif" alt="MI GIF" class="gifo" />
+        </div>
+        <div class="cardGifo">
+          <img src="./assets/GFV6.gif" alt="MI GIF" class="gifo" />
+        </div>
+        <div class="cardGifo">
+          <img src="./assets/GFV7.gif" alt="MI GIF" class="gifo" />
+        </div>
+        <div class="cardGifo">
+          <img src="./assets/GFV8.gif" alt="MI GIF" class="gifo" />
+        </div>
+      </div>
+      <div class="boxBtnVerMas">
+        <button class="btnVerMas">ver mas</button>
+      </div>
     </section>
 
     <section class="trendingGIFOS">
-        <div class="boxTrendingGIFOS">
-            <h2 id="tituloTrendingGIFOS">Trending GIFOS</h2>
-            <p class="info">Mira las ultimas GIFO de nuestra comunidad </p>
+      <div class="boxTrendingGIFOS">
+        <h2 id="tituloTrendingGIFOS">Trending GIFOS</h2>
+        <p class="info">Mira las ultimas GIFO de nuestra comunidad</p>
+      </div>
+      <div class="carrusel">
+        <div class="boxBtnAtras">
+          <button class="btnAtras"><i class="icon-button-left"></i></button>
         </div>
-        <div class="carrusel">
-            <div class="boxBtnAtras">
-                <button class="btnAtras"><i class="icon-button-left"></i></button>
-            </div>
-            <div class="boxGIFOS">
-
-            </div>
-            <div class="boxBtnSiguiente">
-                <button class="btnSiguiente"> <i class="icon-button-right"></i> </button>
-            </div>
-
+        <div class="boxGIFOS"></div>
+        <div class="boxBtnSiguiente">
+          <button class="btnSiguiente">
+            <i class="icon-button-right"></i>
+          </button>
         </div>
+      </div>
     </section>
 
     <footer>
-        <p class="textoCompartir">Compartir en:</p>
-        <div class="boxIconosRedes">
-            <a class="iconoFooter" href="https://www.facebook.com/" target="Facebook"><img src="./assets/icon_facebook.svg" alt="Icono facebook" class="icono"></a>
-            <a class="iconoFooter" href="https://twitter.com/explore" target="Twitter"><img src="./assets/icon-twitter.svg" alt="Icono Twitter" class="iconoTwitter"></a>
-            <a class="iconoFooter" href="https://www.instagram.com/?hl=es-la" target="Instagram"><img src="./assets/icon_instagram.svg" alt="Icono Instagram" class="icono"></a>
-        </div>
-        <p class="textoDerechos">© GIFOS 2020 All Rights Reserved.</p>
+      <p class="textoCompartir">Compartir en:</p>
+      <div class="boxIconosRedes">
+        <a
+          class="iconoFooter"
+          href="https://www.facebook.com/"
+          target="Facebook"
+          ><img
+            src="./assets/icon_facebook.svg"
+            alt="Icono facebook"
+            class="icono"
+        /></a>
+        <a
+          class="iconoFooter"
+          href="https://twitter.com/explore"
+          target="Twitter"
+          ><img
+            src="./assets/icon-twitter.svg"
+            alt="Icono Twitter"
+            class="iconoTwitter"
+        /></a>
+        <a
+          class="iconoFooter"
+          href="https://www.instagram.com/?hl=es-la"
+          target="Instagram"
+          ><img
+            src="./assets/icon_instagram.svg"
+            alt="Icono Instagram"
+            class="icono"
+        /></a>
+      </div>
+      <p class="textoDerechos">© GIFOS 2020 All Rights Reserved.</p>
     </footer>
     <span class="barraSuperior"></span>
-
-</body>
-<script type="module" src="./Scripts/Trending-Gifos.js"></script>
-<script type="module" src="./Scripts/Dark-Mode.js"></script>
-
+  </body>
+  <script type="module" src="./Scripts/Trending-Gifos.js"></script>
+  <script type="module" src="./Scripts/Dark-Mode.js"></script>
 </html>
