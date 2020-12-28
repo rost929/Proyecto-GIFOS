@@ -30,7 +30,7 @@ export const downloadGifo = (imageURL, /** @type {HTMLAnchorElement} */ elementA
             .then(function(myBlob) {
                 const objectURL = URL.createObjectURL(myBlob);
                 elementAnchorDown.href = objectURL;
-                elementAnchorDown.download = title + ".gif";
+                elementAnchorDown.download = title + ".webm";
                 elementAnchorDown.click();
             }).catch((error) =>
                 console.log(error)

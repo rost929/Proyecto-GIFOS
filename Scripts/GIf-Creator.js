@@ -9,9 +9,10 @@ import {
 
 import { refreshCounter, stopCounting } from "./Timer.js";
 import { addMyNewGifToLocalStorage } from "./MyGifos.js";
+import { downloadGif } from "./MyGifos.js";
 import { uploadGifo } from "./UploadGif.js";
-import {endpointUpload  } from "./Constants.js";
-
+import { endpointUpload } from "./Constants.js";
+import { toBase64 } from "./Requests.js";
 
 const video = document.querySelector("#videoScreen");
 const btnCreate = document.querySelector(".btnCreate");
@@ -88,7 +89,6 @@ function startRecording() {
   };
 
   mediaRecorder.ondataavailable = (e) => {
-    console.log(e.data);
     chunks.push(e.data);
   };
 
@@ -105,7 +105,6 @@ function stopRecording() {
   hideElement(btnStop);
   showElement(btnRepeat);
   showElement(btnupload);
-  console.log(blob);
 }
 
 const recordAgain = () => {
@@ -123,11 +122,14 @@ function uploadGif() {
   showLoadingScreen(video);
   showElement(boxUploadMessage);
   let gifo = buildGifFile();
+  console.log(gifo);
+  let fileConverted = toBase64(gifo);
+  console.log(fileConverted);
   setTimeout(() => {
     hideElement(boxUploadMessage);
-    addMyNewGifToLocalStorage(gifo);
-    downloadGif(gifo);
-   // uploadGifo(endpointUpload, gifoFile);
+    addMyNewGifToLocalStorage(fileConverted);
+    downloadGif(anchorDownload, gifo);
+    // uploadGifo(endpointUpload, gifoFile);
     showElement(boxSuccessMessage);
     showElement(btnDownload);
     showElement(btnLink);
@@ -136,8 +138,7 @@ function uploadGif() {
 
 const buildGifFile = () => {
   let form = new FormData();
-  form.append("file", blob, "myGif.gif");
-  console.log(form.get("file"));
+  form.append("file", blob, "myGif.webm");
   let gifCreated = form.get("file");
   return gifCreated;
 };
@@ -147,13 +148,3 @@ btnRecord.addEventListener("click", startRecording);
 btnStop.addEventListener("click", stopRecording);
 btnRepeat.addEventListener("click", recordAgain);
 btnupload.addEventListener("click", uploadGif);
-
-function downloadGif(gifo) {
-  //let link = document.createElement("a");
-  anchorDownload.href = window.URL.createObjectURL(gifo);
-  anchorDownload.setAttribute("download", "");
-  //link.style.display = "none";
-  //document.body.appendChild(link);
-  //link.click();
-  //link.remove();
-}
