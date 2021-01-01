@@ -1,4 +1,4 @@
-
+/* 
 import { uploadData } from "./Requests.js";
 
 export const uploadGifo = (endpointUpload, file) => {
@@ -10,3 +10,4 @@ export const uploadGifo = (endpointUpload, file) => {
       console.log(error);
     });
 };
+ */

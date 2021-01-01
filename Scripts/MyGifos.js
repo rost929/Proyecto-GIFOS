@@ -4,13 +4,10 @@
  * @param {object}
  * @returns {}
  */
-export const addMyNewGifToLocalStorage = (gif) => {
-  const newGif = { title: "Gif perzonalizado", user: "juamps16", gif: gif };
-  console.log("1. File a insertar");
-  console.log(newGif);
+export const addMyNewGifToLocalStorage = (newGif) => {
+ // const newGif = { title: "Gif perzonalizado", user: "juamps16", gif: gif };
+  const gifoId = newGif.id;
   const resultsFound = JSON.parse(localStorage.getItem("MYGIFOS"));
-  console.log("2. Contenido del LS antes de insertar");
-  console.log(resultsFound);
   if (resultsFound == null) {
     let myGifos = [];
     myGifos.push(newGif);
@@ -19,10 +16,6 @@ export const addMyNewGifToLocalStorage = (gif) => {
     resultsFound.push(newGif);
     localStorage.setItem("MYGIFOS", JSON.stringify(resultsFound));
   }
-
-  let newResultsFound = JSON.parse(localStorage.getItem("MYGIFOS"));
-  console.log("3. Nuevo contenido en LS");
-  console.log(newResultsFound);
 };
 
 /**

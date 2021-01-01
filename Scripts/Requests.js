@@ -1,4 +1,4 @@
-import { API_Key } from "./Constants.js";
+import { API_Key, username } from "./Constants.js";
 
 /**
  * @method searchData
@@ -6,7 +6,7 @@ import { API_Key } from "./Constants.js";
  * @param {String, Integer}
  * @returns {Promise}
  */
-export const trendingData = (URL, limit = 12) => {
+const trendingData = (URL, limit = 12) => {
   const myLimit2 = limit ? `&limit=${limit}` : "";
   return new Promise((resolve, reject) => {
     fetch(`${URL}&api_key=${API_Key}&limit=${myLimit2}`)
@@ -22,7 +22,7 @@ export const trendingData = (URL, limit = 12) => {
  * @returns {Promise}
  */
 
-export const searchData = (URL, word, limit = 12, offset) => {
+const searchData = (URL, word, limit = 12, offset) => {
   const myLimit = limit ? `&limit=${limit}` : "";
   return new Promise((resolve, reject) => {
     fetch(`${URL}&api_key=${API_Key}&q=${word}${myLimit}&offset=${offset}`)
@@ -38,7 +38,7 @@ export const searchData = (URL, word, limit = 12, offset) => {
  * @returns {Promise}
  */
 
-export const suggestData = (URL, word) => {
+const suggestData = (URL, word) => {
   return new Promise((resolve, reject) => {
     fetch(`${URL}&api_key=${API_Key}&q=${word}`)
       .then((response) => resolve(response.json()))
@@ -53,7 +53,7 @@ export const suggestData = (URL, word) => {
  * @returns {Promise}
  */
 
-export const suggestTermsData = (URL) => {
+const suggestTermsData = (URL) => {
   return new Promise((resolve, reject) => {
     fetch(`${URL}&api_key=${API_Key}`)
       .then((response) => resolve(response.json()))
@@ -68,24 +68,60 @@ export const suggestTermsData = (URL) => {
  * @returns {Promise}
  */
 
-export const uploadData = (URL, file) => {
+/* const uploadData = (URL, gifo) => {
   return new Promise((resolve, reject) => {
-    fetch(`${URL}&api_key=${API_Key}&file=${file}`, {
-      headers: {
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Origin": "https://www.example.com",
-        "Access-Control-Allow-Methods": "POST",
-      },
+    fetch(`${URL}$api_key=${API_Key}`, {
+      method: "POST",
+      body: gifo
     })
       .then((response) => resolve(response.json()))
       .catch((error) => reject(error));
   });
-};
+}; */
 
-export const toBase64 = (file) =>
+/**
+ * @description Upload Gifos created by user
+ * @param {string} URL
+ * @param {string} gifoData
+ * @returns {promise}
+ */
+function uploadData(URL, gifoData) {
+  return new Promise((resolve, reject) => {
+    fetch(URL, { method: "POST", body: gifoData })
+      .then((response) => {
+        resolve(response.json());
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+function gifData(URL, gifoId) {
+  return new Promise((resolve, reject) => {
+    fetch(`${URL}${gifoId}?api_key=${API_Key}`)
+      .then((response) => {
+        resolve(response.json());
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+}
+
+const toBase64 = (file) =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
     reader.onerror = (error) => reject(error);
   });
+
+export {
+  searchData,
+  suggestData,
+  suggestTermsData,
+  trendingData,
+  uploadData,
+  gifData,
+};

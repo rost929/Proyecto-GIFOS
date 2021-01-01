@@ -10,9 +10,9 @@ import {
 import { refreshCounter, stopCounting } from "./Timer.js";
 import { addMyNewGifToLocalStorage } from "./MyGifos.js";
 import { downloadGif } from "./MyGifos.js";
-import { uploadGifo } from "./UploadGif.js";
-import { endpointUpload } from "./Constants.js";
-import { toBase64 } from "./Requests.js";
+//import { uploadGifo } from "./UploadGif.js";
+import { endpointUpload, endpointGifById, constant } from "./Constants.js";
+import { gifData, uploadData } from "./Requests.js";
 
 const video = document.querySelector("#videoScreen");
 const btnCreate = document.querySelector(".btnCreate");
@@ -38,6 +38,8 @@ const anchorDownload = document.querySelector("#downloadGifCreated");
 const btnDownload = document.querySelector("#boxDownloadCreated");
 const btnLink = document.querySelector("#boxLinkCreated");
 
+const uploadGifoURL = constant.UPLOAD_URL + "gifs" + constant.API_KEY;
+
 const constraints = {
   audio: false,
   video: {
@@ -51,6 +53,7 @@ let chunks = [];
 let mediaRecorder;
 let initialTime;
 let idInterval;
+let gifoURL;
 
 let blob = null;
 
@@ -123,24 +126,44 @@ function uploadGif() {
   showElement(boxUploadMessage);
   let gifo = buildGifFile();
   console.log(gifo);
-  let fileConverted = toBase64(gifo);
-  console.log(fileConverted);
-  setTimeout(() => {
-    hideElement(boxUploadMessage);
-    addMyNewGifToLocalStorage(fileConverted);
-    downloadGif(anchorDownload, gifo);
-    // uploadGifo(endpointUpload, gifoFile);
-    showElement(boxSuccessMessage);
-    showElement(btnDownload);
-    showElement(btnLink);
-  }, 2000);
+  //setTimeout(() => {
+  hideElement(boxUploadMessage);
+  const uploadResult = uploadData(uploadGifoURL, gifo);
+  console.log(uploadResult);
+  uploadResult
+    .then((response) => {
+      const gifoInfo = response.data;
+      const GifoID = gifoInfo.id;
+      addMyNewGifToLocalStorage(gifoInfo);
+      return gifData(endpointGifById, GifoID);
+    })
+    .then((response) => {
+      gifoURL = response.data.images.original.url;
+      console.log(gifoURL);
+    })
+    .catch((error) => console.log(error));
+  downloadGif(anchorDownload, gifo.get("file"));
+  showElement(boxSuccessMessage);
+  showElement(btnDownload);
+  showElement(btnLink);
+  // }, 2000);
 }
 
 const buildGifFile = () => {
   let form = new FormData();
-  form.append("file", blob, "myGif.webm");
-  let gifCreated = form.get("file");
-  return gifCreated;
+  form.append("file", blob, "myGif.gif");
+  console.log(form.get("file"));
+  //let gifCreated = form.get("file");
+  return form;
+};
+
+const copyLinkGifo = () => {
+  const aux = document.createElement("input");
+  aux.setAttribute("value", gifoURL);
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
 };
 
 btnCreate.addEventListener("click", startGifCreation);
@@ -148,3 +171,4 @@ btnRecord.addEventListener("click", startRecording);
 btnStop.addEventListener("click", stopRecording);
 btnRepeat.addEventListener("click", recordAgain);
 btnupload.addEventListener("click", uploadGif);
+btnLink.addEventListener("click", copyLinkGifo);
