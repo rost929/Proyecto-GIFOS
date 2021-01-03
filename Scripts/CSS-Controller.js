@@ -14,6 +14,7 @@ export const hideSuggestionsBar = () => {
     containerSuggestedList.innerHTML = "";
     seperatorElement.style.visibility = "hidden";
     boxSuggestionsElement.style.cssText = "margin-top: 0";
+    boxSuggestionsElement.style.display = "none";
 }
 
 /**
@@ -25,6 +26,7 @@ export const hideSuggestionsBar = () => {
 export const showSuggestionBar = () => {
     boxSuggestionsElement.style.cssText = "margin-top: 20px";
     seperatorElement.style.visibility = "visible";
+    boxSuggestionsElement.style.display = "block";
 }
 
 /**

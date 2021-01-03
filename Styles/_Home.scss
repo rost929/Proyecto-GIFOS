@@ -48,6 +48,7 @@
 
 .boxGlobalSearch {
     display: flex;
+    height: 50px;
 }
 
 #leftSearchIcon {
@@ -78,7 +79,7 @@
 }
 
 .boxSuggestions {
-    display: flex;
+    display: none;
 }
 
 .listSuggestions {

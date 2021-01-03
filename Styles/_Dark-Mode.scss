@@ -16,9 +16,9 @@ body {
   .hamburguesa:checked ~ .nav .navegacion a {
     border-bottom: none;
   }
-  .icon-button-close,
-  .icon-burger {
-    background: white;
+   
+  .icon-button-close:before,
+  .icon-burger:before {
     color: white;
   }
   .icon-icon-search {

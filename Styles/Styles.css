@@ -61,6 +61,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 50px;
 }
 
 #leftSearchIcon {
@@ -90,9 +91,7 @@
 }
 
 .boxSuggestions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
 }
 
 .listSuggestions {
@@ -324,12 +323,12 @@
 
 @media (min-width: 768.1px) and (max-width: 869px) {}*/
 @font-face {
-  font-family: 'ProximaNova-Bold';
+  font-family: "ProximaNova-Bold";
   src: url("../Fonts/FontsFree-Net-Proxima-Nova-Bold.otf");
 }
 
 @font-face {
-  font-family: 'ProximaNova-Regular';
+  font-family: "ProximaNova-Regular";
   src: url("../Fonts/FontsFree-Net-proxima_nova_reg-webfont.ttf");
 }
 
@@ -343,7 +342,7 @@
   position: absolute;
   width: 100%;
   height: 10px;
-  background: #572EE5;
+  background: #572ee5;
 }
 
 .icon-burger,
@@ -366,10 +365,7 @@
 }
 
 #lightMode {
-  position: absolute;
-  top: 56%;
-  left: 2%;
-  visibility: hidden;
+  display: none;
 }
 
 .icon-button-crear-gifo {
@@ -380,11 +376,15 @@
   color: white;
 }
 
+.icon-burger {
+  visibility: hidden;
+}
+
 @media (max-width: 768px) {
   header {
     position: relative;
     height: 7.9%;
-    color: #37383C;
+    color: #37383c;
   }
   #logo {
     width: 48.8px;
@@ -394,7 +394,7 @@
     padding-top: 34px;
     padding-bottom: 10px;
     z-index: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
   }
   #anchorInicio {
     padding-left: 10.8%;
@@ -406,6 +406,9 @@
     color: white;
     padding: 0 0 1em 0;
     line-height: 28px;
+  }
+  .icon-burger:before {
+    color: white;
   }
   .navegacion a:hover {
     color: #494c5f;
@@ -444,7 +447,7 @@
     position: static;
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
-    background: #572EE5 100%;
+    background: #572ee5 100%;
     -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
@@ -457,7 +460,7 @@
     padding-top: 16px;
     padding-bottom: 9px;
     line-height: 30px;
-    font-family: 'ProximaNova-Bold';
+    font-family: "ProximaNova-Bold";
     font-weight: 300;
     border-bottom: 1px solid white;
   }
@@ -465,9 +468,6 @@
         top: 55px;
         left: 93%;
     } */
-  .icon-burger {
-    color: yellow;
-  }
   .icon-button-close,
   .icon-burger {
     top: 55px;
@@ -487,12 +487,15 @@
   }
 }
 
-@media (min-width: 375px) and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .hamburguesa {
     left: 93%;
   }
   .linea {
     left: 93%;
+  }
+  .icon-burger {
+    visibility: visible;
   }
 }
 
@@ -543,16 +546,16 @@
     font-family: ProximaNova-Bold;
     text-transform: uppercase;
     font-size: 14px;
-    color: #572EE5;
+    color: #572ee5;
     margin-left: 48px;
     line-height: 28px;
   }
   .navegacion a:active {
     text-decoration: line-through;
-    color: #060A24 56%;
+    color: #060a24 56%;
   }
   .navegacion a:hover {
-    color: #9CAFC3;
+    color: #9cafc3;
   }
   .boxBtnMas {
     position: relative;
@@ -563,15 +566,15 @@
     height: 54px;
     margin-left: 64px;
     text-align: center;
-    border: solid #572EE5;
+    border: solid #572ee5;
     border-radius: 30px;
     border-width: thin;
   }
   .boxBtnMas:hover {
-    background-color: #572EE5;
+    background-color: #572ee5;
   }
   .boxBtnMas:hover #anchorCrearGif {
-    color: #572EE5;
+    color: #572ee5;
   }
   .boxBtnMas:hover .icon-button-crear-gifo {
     color: white;
@@ -579,12 +582,8 @@
   .icon-button-crear-gifo {
     line-height: 500px;
     font-size: 18px;
-    color: #572EE5;
+    color: #572ee5;
   }
-}
-
-.icon-burger {
-  z-index: -1;
 }
 
 @media (min-width: 1200px) {
@@ -1766,9 +1765,8 @@ body {
   border-bottom: none;
 }
 
-.darkMode .icon-button-close,
-.darkMode .icon-burger {
-  background: white;
+.darkMode .icon-button-close:before,
+.darkMode .icon-burger:before {
   color: white;
 }
 

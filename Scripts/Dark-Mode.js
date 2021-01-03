@@ -14,13 +14,13 @@ function changeTheme (e) {
     const body = document.body;
     if(e.target.innerHTML === "Modo Nocturno"){
         localStorage.setItem("DARK-MODE", JSON.stringify(true));
-        darkModeAnchor.style.visibility = "hidden";
-        lightModeAnchor.style.visibility = "visible";
+        darkModeAnchor.style.display = "none";
+        lightModeAnchor.style.display = "block";
         body.classList.toggle("darkMode");
     }else{
         localStorage.setItem("DARK-MODE", JSON.stringify(false));
-        darkModeAnchor.style.visibility = "visible";
-        lightModeAnchor.style.visibility = "hidden";
+        darkModeAnchor.style.display = "block";
+        lightModeAnchor.style.display = "none";
         body.classList.toggle("darkMode");
     }
 }
@@ -40,8 +40,9 @@ function darkThemeCheck() {
     if (localStorage.getItem("DARK-MODE") === "true") {
         console.log("entré");
         body.classList.add("darkMode");
-        darkModeAnchor.style.visibility = "hidden";
-        lightModeAnchor.style.visibility = "visible";
+        darkModeAnchor.style.display = "none";
+        lightModeAnchor.style.display = "block";
+  
     };
 };
 
