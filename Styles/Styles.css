@@ -361,6 +361,17 @@
   color: white;
 }
 
+.navegacion {
+  position: relative;
+}
+
+#lightMode {
+  position: absolute;
+  top: 56%;
+  left: 2%;
+  visibility: hidden;
+}
+
 .icon-button-crear-gifo {
   position: absolute;
   top: 16px;
@@ -454,6 +465,9 @@
         top: 55px;
         left: 93%;
     } */
+  .icon-burger {
+    color: yellow;
+  }
   .icon-button-close,
   .icon-burger {
     top: 55px;
@@ -1515,11 +1529,11 @@ footer {
 
 #barraInferior {
   position: absolute;
-  left: 24%;
+  left: 23%;
   margin-top: 19px;
   background: #572ee5;
   font-size: 2px;
-  width: 795px;
+  width: 796px;
   border-radius: 30px;
   height: 6.5px;
 }
@@ -1727,16 +1741,21 @@ footer {
   padding-top: 4px;
 }
 
+body {
+  -webkit-transition: all 0.01s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: all 0.01s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
 .darkMode {
-  background-color: #37383C;
+  background-color: #37383c;
 }
 
 .darkMode .barraSuperior {
-  background: #37383C;
+  background: #37383c;
 }
 
 .darkMode header {
-  background-color: #37383C;
+  background-color: #37383c;
 }
 
 .darkMode .hamburguesa:checked ~ .nav .navegacion {
@@ -1762,7 +1781,7 @@ footer {
 }
 
 .darkMode #logo {
-  content: url("../assets/logo-desktop-modo-noc.svg");
+  content: url("../assets/logo-mobile_nigh.svg");
 }
 
 .darkMode .anchorMenu {
@@ -1771,8 +1790,8 @@ footer {
 
 .darkMode .anchorMenu:hover {
   text-decoration: underline;
-  -webkit-text-decoration-color: #5ED7C6;
-          text-decoration-color: #5ED7C6;
+  -webkit-text-decoration-color: #5ed7c6;
+          text-decoration-color: #5ed7c6;
   -webkit-text-decoration-line: 6px;
           text-decoration-line: 6px;
   color: white;
@@ -1797,16 +1816,16 @@ footer {
 }
 
 .darkMode .boxBtnMas:hover .icon-button-crear-gifo {
-  color: #37383C;
+  color: #37383c;
 }
 
 .darkMode #buscador {
-  background-color: #37383C;
+  background-color: #37383c;
   color: white;
 }
 
 .darkMode .btnBuscar {
-  background-color: #37383C;
+  background-color: #37383c;
   color: white;
 }
 
@@ -1823,11 +1842,11 @@ footer {
 .darkMode .btnShowMore {
   color: white;
   border: 1px solid white;
-  background: #37383C;
+  background: #37383c;
 }
 
 .darkMode .btnShowMore:hover {
-  color: #37383C;
+  color: #37383c;
   border: 1px solid white;
   background: white;
 }
@@ -1863,7 +1882,7 @@ footer {
 .darkMode .btnAtras:hover .icon-button-right,
 .darkMode .btnSiguiente:hover .icon-button-left,
 .darkMode .btnSiguiente:hover .icon-button-right {
-  color: #37383C;
+  color: #37383c;
 }
 
 .darkMode footer {
@@ -1888,15 +1907,21 @@ footer {
   content: url("../assets/pelicula-modo-noc.svg");
 }
 
-.darkMode .btnCreate {
+.darkMode .btnCreate,
+.darkMode .btnRecord,
+.darkMode .btnStop,
+.darkMode .btnUpload {
   color: white;
   border: 1px solid white;
-  background: #37383C;
+  background: #37383c;
 }
 
-.darkMode .btnCreate:hover {
+.darkMode .btnCreate:hover,
+.darkMode .btnRecord:hover,
+.darkMode .btnStop:hover,
+.darkMode .btnUpload:hover {
   background: white;
-  color: #37383C;
+  color: #37383c;
 }
 
 .darkMode #barraInferior {
@@ -1907,16 +1932,14 @@ footer {
   border: 1px solid white;
 }
 
-.darkMode .boxStep:hover {
-  background: white;
-}
-
-.darkMode .boxStep:hover .step {
-  color: #37383C;
-}
-
-.darkMode .step {
+.darkMode .step,
+.darkMode .timer,
+.darkMode .repeatCapture {
   color: white;
+}
+
+.darkMode .imgWithoutResults {
+  color: #50E3C2;
 }
 
 @media (max-width: 768px) {

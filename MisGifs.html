@@ -30,6 +30,11 @@
               >Modo Nocturno</a
             >
           </li>
+          <li>
+            <a class="anchorMenu" id="lightMode" href="#"
+              >Modo diurno</a
+            >
+          </li>
           <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
           <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
           <li>
@@ -52,8 +57,13 @@
         />
         <h2 class="titleGifos">Mis GIFOS</h2>
       </div>
+
+      <div class="boxWithoutResults" id="noFavorites">
+             <img src="./assets/icon-mis-gifos-sin-contenido.svg" alt="Sin resultados" class="imgWithoutResults">
+            <p class="tryAgainMessage">¡Anímate a crear tu primer GIFO!</p>
+      </div>
       <div class="boxCardsMisGifs">
-        <div class="cardGifo">
+ <!--        <div class="cardGifo">
           <img src="./assets/GFV1.gif" alt="MI GIF" class="gifo" />
         </div>
         <div class="cardGifo">
@@ -76,7 +86,7 @@
         </div>
         <div class="cardGifo">
           <img src="./assets/GFV8.gif" alt="MI GIF" class="gifo" />
-        </div>
+        </div> -->
       </div>
       <div class="boxBtnVerMas">
         <button class="btnVerMas">ver mas</button>
@@ -187,8 +197,8 @@
     <span class="barraSuperior"></span>
   </body>
   <!-- <script type="module" src="./Scripts/Favorites.js"></script> -->
+  <script type="module" src="./Scripts/Dark-Mode.js"></script>
   <script type="module" src="./Scripts/Render-MyGifos.js"></script>
   <script type="module" src="./Scripts/Trending-Gifos.js"></script>
   <script type="module" src="./Scripts/Modal-Windows.js"></script>
-  <script type="module" src="./Scripts/Dark-Mode.js"></script>
 </html>

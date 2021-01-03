@@ -36,7 +36,7 @@ export const assignDownloadEventMyGifos = (arrayDownloadButtons, arrayGifs) => {
 export function downloadGif(HTMLElement, gifo) {
   //let link = document.createElement("a");
   HTMLElement.href = window.URL.createObjectURL(gifo);
-  HTMLElement.setAttribute("download", "");
+  HTMLElement.download = "MyGif.webm";
   //link.style.display = "none";
   //document.body.appendChild(link);
   //link.click();

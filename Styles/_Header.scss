@@ -38,6 +38,17 @@
     color: white;
 }
 
+.navegacion{
+    position: relative;
+}
+
+#lightMode { 
+    position: absolute;
+    top: 56%;
+    left: 2%;
+    visibility: hidden;
+}
+
 .icon-button-crear-gifo {
     position: absolute;
     top: 16px;
@@ -77,6 +88,7 @@
         padding: 0 0 1em 0;
         line-height: 28px;
     }
+
     .navegacion a:hover {
         color: #494c5f;
     }
@@ -135,6 +147,10 @@
         top: 55px;
         left: 93%;
     } */
+.icon-burger{
+    color: yellow;
+}
+
     .icon-button-close,
     .icon-burger {
         top: 55px;

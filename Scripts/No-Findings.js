@@ -20,12 +20,24 @@ export const prepareNoResultInfo = (wordTitle = "Any search") => {
 
 /**
  * @method prepareNoFavouriteResults
- * @description build the elements to notify the user no results during the search
+ * @description builds the elements to notify there are no favourites
  * @param {String}
  * @return {}
  */
 export const prepareNoFavouriteResults = () => {
-    containerWithoutResults.innerHTML = `<img src="./assets/FavoritesNoResults.jpeg" alt="Sin resultados" class="imgWithoutResults">
-                                        <p class="tryAgainMessage">"¡ Guarda tu primer GIFO en Favoritos</p>
-                                        <p class="tryAgainMessage">para que se muestre aquí !"</p>`;
+    containerWithoutResults.innerHTML = `<img src="./assets/icon-fav-sin-contenido.svg" alt="Sin resultados" class="imgWithoutResults">
+                                        <p class="tryAgainMessage">"¡Guarda tu primer GIFO en Favoritos</p>
+                                        <p class="tryAgainMessage">para que se muestre aquí!"</p>`;
+}
+
+/**
+ * @method prepareNoFavouriteResults
+ * @description builds the elements to notify there are no favourites
+ * @param {String}
+ * @return {}
+ */
+export const prepareNoMyGifosResults = () => {
+    containerWithoutResults.innerHTML = `<img src="./assets/icon-fav-sin-contenido.svg" alt="Sin resultados" class="imgWithoutResults">
+                                        <p class="tryAgainMessage">"¡Guarda tu primer GIFO en Favoritos</p>
+                                        <p class="tryAgainMessage">para que se muestre aquí!"</p>`;
 }
