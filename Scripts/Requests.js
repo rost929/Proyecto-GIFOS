@@ -87,7 +87,10 @@ const suggestTermsData = (URL) => {
  */
 function uploadData(URL, gifoData) {
   return new Promise((resolve, reject) => {
-    fetch(URL, { method: "POST", body: gifoData })
+    fetch(URL, {
+      method: "POST",
+      body: gifoData,
+    })
       .then((response) => {
         resolve(response.json());
       })

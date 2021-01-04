@@ -128,7 +128,7 @@ function uploadGif() {
   console.log(gifo);
   //setTimeout(() => {
   hideElement(boxUploadMessage);
-  /* const uploadResult = uploadData(uploadGifoURL, gifo);
+  const uploadResult = uploadData(uploadGifoURL, gifo);
   console.log(uploadResult);
   uploadResult
     .then((response) => {
@@ -141,7 +141,7 @@ function uploadGif() {
       gifoURL = response.data.images.original.url;
       console.log(gifoURL);
     })
-    .catch((error) => console.log(error)); */
+    .catch((error) => console.log(error));
   downloadGif(anchorDownload, gifo.get("file"));
   showElement(boxSuccessMessage);
   showElement(btnDownload);
