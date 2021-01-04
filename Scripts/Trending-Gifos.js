@@ -42,7 +42,7 @@ function desplazarALaIzquierda() {
  */
 
 function getTrendingGifs() {
-    trendingData(endpointTrending, limit)
+    trendingData(endpointTrending, 12)
         .then(response => {
             const gifsArray = response.data;
             prepareTrendingGifCards(gifsArray);

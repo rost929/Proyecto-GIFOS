@@ -6,6 +6,13 @@ import { prepareGifCardsBySearch } from "./Card-Markup.js";
 import { iterateSuggestedArray } from "./Suggestions.js";
 import { endpointSearch, endpointSuggestions, limit } from "./Constants.js";
 import { prepareNoResultInfo } from "./No-Findings.js";
+import {
+  enableElement,
+  disableElement,
+  showElement,
+  hideElement,
+  hideSuggestionsBar,
+} from "./CSS-Controller.js";
 
 /*
 Consts
@@ -15,7 +22,8 @@ const containerBoxParent = document.querySelector(".boxBtnShowMore");
 const containerNoResults = document.querySelector(".boxWithoutResults");
 const word = document.getElementById("buscador");
 const containerSuggestions = document.querySelector(".boxSuggestions");
-
+const searchLeftIcon = document.querySelector("#leftSearchIcon");
+const btnCloseRight = document.querySelector(".btnCloseRight");
 // Variables
 let offset = 0;
 
@@ -63,19 +71,19 @@ const createMoreGifsButton = () => {
  * @returns {String}
  */
 const searchByEtner = (e) => {
-    const isEnterKey = e.keyCode === 13;
-    console.log(isEnterKey);
-    if (isEnterKey === true){
-        getGifsByWord(1);
-    }
-}
+  const isEnterKey = e.keyCode === 13;
+  console.log(isEnterKey);
+  if (isEnterKey === true) {
+    getGifsByWord(1);
+  }
+};
 
 const getElementShowMore = () => {
-    const btnElementShowMore = document.querySelector(".btnShowMore");
-    btnElementShowMore.addEventListener("click", function () {
-      getGifsByWord(2);
-    });
-  };
+  const btnElementShowMore = document.querySelector(".btnShowMore");
+  btnElementShowMore.addEventListener("click", function () {
+    getGifsByWord(2);
+  });
+};
 
 /**
  * Events
@@ -87,6 +95,15 @@ btnElementSearch.addEventListener("click", function () {
 word.addEventListener("keyup", searchByEtner);
 
 word.oninput = () => {
+  if (word.value !== "") {
+    enableElement(searchLeftIcon);
+    showElement(btnCloseRight);
+    hideElement(btnElementSearch);
+  } else {
+    disableElement(searchLeftIcon);
+    showElement(btnElementSearch);
+    hideElement(btnCloseRight);
+  }
   suggestData(endpointSuggestions, word.value)
     .then((response) => {
       iterateSuggestedArray(response.data);
@@ -96,4 +113,10 @@ word.oninput = () => {
     });
 };
 
-
+btnCloseRight.addEventListener("click", function() {
+    word.value = "";
+    disableElement(searchLeftIcon);
+    showElement(btnElementSearch);
+    hideElement(btnCloseRight);
+    hideSuggestionsBar(containerSuggestions);
+})

@@ -1,84 +1,109 @@
-const containerSuggestedList = document.querySelector('.listSuggestions');
-const separatorSearch = document.querySelector('.separatorSearch');
-const seperatorElement = document.querySelector('.separator');
-const boxSuggestionsElement = document.querySelector('.boxSuggestions');
-
+const containerSuggestedList = document.querySelector(".listSuggestions");
+const separatorSearch = document.querySelector(".separatorSearch");
+const seperatorElement = document.querySelector(".separator");
+const boxSuggestionsElement = document.querySelector(".boxSuggestions");
 
 /**
  * @method hideSuggestionsBar
- * @description Hide the suggestions separator 
- * @param {} 
+ * @description Hide the suggestions separator
+ * @param {}
  * @returns {}
  */
-export const hideSuggestionsBar = () => {
-    containerSuggestedList.innerHTML = "";
-    seperatorElement.style.visibility = "hidden";
-    boxSuggestionsElement.style.cssText = "margin-top: 0";
-    boxSuggestionsElement.style.display = "none";
-}
+const hideSuggestionsBar = () => {
+  containerSuggestedList.innerHTML = "";
+  seperatorElement.style.visibility = "hidden";
+  boxSuggestionsElement.style.cssText = "margin-top: 0";
+  boxSuggestionsElement.style.display = "none";
+};
 
 /**
  * @method showSuggestionsBar
- * @description show the suggestions separator 
- * @param {} 
+ * @description show the suggestions separator
+ * @param {}
  * @returns {}
  */
-export const showSuggestionBar = () => {
-    boxSuggestionsElement.style.cssText = "margin-top: 20px";
-    seperatorElement.style.visibility = "visible";
-    boxSuggestionsElement.style.display = "block";
-}
+const showSuggestionBar = () => {
+  boxSuggestionsElement.style.cssText = "margin-top: 20px";
+  seperatorElement.style.visibility = "visible";
+  boxSuggestionsElement.style.display = "block";
+};
 
 /**
  * @method showSeparatorSearchBar
- * @description show the search separator 
- * @param {} 
+ * @description show the search separator
+ * @param {}
  * @returns {}
  */
-export const showSeparatorSearchBar = () => {
-    separatorSearch.style.visibility = "visible";
-}
+const showSeparatorSearchBar = () => {
+  separatorSearch.style.visibility = "visible";
+};
 
 /**
  * @method hideSeparatorSearchBar
- * @description hide the search separator 
- * @param {} 
+ * @description hide the search separator
+ * @param {}
  * @returns {}
  */
-export const hideSeparatorSearchBar = () => {
-    separatorSearch.style.visibility = "hidden";
-}
+const hideSeparatorSearchBar = () => {
+  separatorSearch.style.visibility = "hidden";
+};
 
+const showFavoriteIcon = (htmlElement, index) => {
+  //.style.cssText = "visibility: visible";
+};
 
-export const showFavoriteIcon = (htmlElement, index) => {
-    //.style.cssText = "visibility: visible";
-}
+const changeMessageCreation = (
+  firstHtmlElement,
+  secondHtmlElement,
+  boxStep1,
+  step1
+) => {
+  firstHtmlElement.style.display = "none";
+  secondHtmlElement.style.display = "block";
+  turnOnStep(boxStep1, step1);
+};
 
-export const changeMessageCreation = (firstHtmlElement, secondHtmlElement, boxStep1, step1) => {
-    firstHtmlElement.style.display = "none";
-    secondHtmlElement.style.display = "block";
-    turnOnStep(boxStep1, step1);
-}
+const turnOnStep = (boxStep, step) => {
+  boxStep.style.background = "#572EE5";
+  step.style.color = "white";
+};
 
-export const turnOnStep = (boxStep, step) => {
-    boxStep.style.background = "#572EE5";
-    step.style.color = "white"
-}
+const turnOffStep = (boxStep, step) => {
+  boxStep.style.background = "white";
+  step.style.color = "#572EE5";
+};
 
-export const turnOffStep = (boxStep, step) => {
-    boxStep.style.background = "white";
-    step.style.color = "#572EE5"
-}
+const showElement = (element) => {
+  element.style.display = "block";
+};
 
-export const showElement = (element) => {
-    element.style.display = "block";
-}
+const hideElement = (element) => {
+  element.style.display = "none";
+};
 
-export const hideElement = (element) => {
-    element.style.display = "none";
+const enableElement = (element) =>{
+    element.style.visibility = "visible";
 }
+const disableElement = (element) => {
+    element.style.visibility = "hidden";
+}
+const showLoadingScreen = (element) => {
+  element.style.opacity = "0.6";
+  element.style.background = "#572ee5";
+};
 
-export const showLoadingScreen = (element) => {
-    element.style.opacity = "0.6";
-    element.style.background = "#572ee5";
-}
+export {
+  showElement,
+  hideElement,
+  enableElement,
+  disableElement,
+  turnOnStep,
+  turnOffStep,
+  showLoadingScreen,
+  changeMessageCreation,
+  showSuggestionBar,
+  hideSuggestionsBar,
+  showSeparatorSearchBar,
+  hideSeparatorSearchBar,
+  showFavoriteIcon,
+};

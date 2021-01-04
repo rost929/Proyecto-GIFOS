@@ -24,6 +24,7 @@
 }
 
 .boxScreen {
+  position: relative;
   border: 1px solid #572ee5;
   width: 47.8%;
   height: 390px;
@@ -46,7 +47,7 @@
 #videoScreen {
   width: 480px;
   height: 320px;
-  border: solid 1px black;
+  border: none;
   /* top: 150px;
   left: 32%;
   z-index: 0;
@@ -64,7 +65,7 @@
 .boxUploadingGif,
 .boxUploadingSuccess {
   top: 100px;
-  left: 18%;
+  left: 15%;
   position: absolute;
 }
 
@@ -126,12 +127,12 @@
   opacity: 1;
 }
 
-#boxDownloadCreated{
+#boxDownloadCreated {
   left: 370px;
 }
 
-#boxLinkCreated{
-  left: 415px
+#boxLinkCreated {
+  left: 415px;
 }
 
 .imgLink {
@@ -141,8 +142,6 @@
   padding-right: 3px;
   padding-top: 10px;
 }
-
-
 
 .uploadingMessage,
 .successMessage {
@@ -180,9 +179,15 @@
 }
 
 .boxTimer {
-  margin-left: 196px;
+  width: 200px;
+  margin-left: 150px;
   font-family: "ProximaNova-Bold";
   color: #572ee5;
+}
+
+.boxRepeatCapture {
+  margin-left: 150px;
+  font-family: "ProximaNova-Bold";
 }
 .repeatCapture {
   text-transform: uppercase;
@@ -237,4 +242,42 @@
 .btnUpload:hover {
   background: #572ee5;
   color: white;
+}
+
+.screen {
+  width: 688px;
+  min-height: 390px;
+  border: 1px solid #572ee5;
+  position: relative;
+  &-decoration {
+    width: 20px;
+    height: 20px;
+    //width: vw(20, 1440);
+    //height: vw(20, 1440);
+    position: absolute;
+  }
+}
+.deco1 {
+  border-top: solid #50e3c2 1px;
+  border-left: solid #50e3c2 1px;
+  left: 20px;
+  top: 20px;
+}
+.deco2 {
+  border-top: solid #50e3c2 1px;
+  border-right: solid #50e3c2 1px;
+  right: 20px;
+  top: 20px;
+}
+.deco3 {
+  border-bottom: solid #50e3c2 1px;
+  border-left: solid #50e3c2 1px;
+  left: 20px;
+  bottom: 20px;
+}
+.deco4 {
+  border-bottom: solid #50e3c2 1px;
+  border-right: solid #50e3c2 1px;
+  right: 20px;
+  bottom: 20px;
 }

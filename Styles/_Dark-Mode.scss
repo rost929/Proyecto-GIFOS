@@ -34,8 +34,6 @@ body {
     color: white;
   }
   .anchorMenu:hover {
-    text-decoration: underline;
-    text-decoration-color: #5ed7c6;
     text-decoration-line: 6px;
     color: white;
   }
@@ -156,6 +154,11 @@ body {
   .imgWithoutResults{
     color: #50E3C2;
   }
+
+  #rightSearchIcon::before{
+    color: white;
+}
+
   @media (max-width: 768px) {
     .icon-button-crear-gifo {
       display: none;

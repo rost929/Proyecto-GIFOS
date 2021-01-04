@@ -15,7 +15,9 @@
   padding: 0;
   list-style: none;
 }
-
+/* .current-page {
+  color: aqua;
+} */
 .barraSuperior {
   position: absolute;
   width: 100%;
@@ -84,17 +86,25 @@
     display: inline-block;
     text-decoration: none;
     font-size: 16px;
-    color: white;
+    //color: white;
+    color: #572ee5;
     padding: 0 0 1em 0;
-    line-height: 28px;
+    &.current-page {
+      color:#9CAFC3;
+    }
+    &.current-page-create-gicos{
+      background:  #9CAFC3;
+    }
   }
+ 
+
   .icon-burger:before {
     color: white;
   }
 
-  .navegacion a:hover {
+  /*   .navegacion a:hover {
     color: #494c5f;
-  }
+  } */
   .hamburguesa {
     color: white;
     width: 30px;
@@ -224,23 +234,32 @@
   .nav {
     width: 100%;
   }
+
   .navegacion .anchorMenu {
     display: inline-block;
     text-decoration: none;
     font-family: ProximaNova-Bold;
     text-transform: uppercase;
     font-size: 14px;
-    color: #572ee5;
     margin-left: 48px;
-    line-height: 28px;
+    color: #572ee5;
+    &.current-page {
+      color: #9CAFC3;
+    }
+  
   }
+
   .navegacion a:active {
-    text-decoration: line-through;
+    // text-decoration: line-through;
     color: #060a24 56%;
   }
   .navegacion a:hover {
-    color: #9cafc3;
+    border-bottom: solid 2px #00f3bb;
+    &#anchorCrearGif {
+      border-bottom: none;
+    }
   }
+
   .boxBtnMas {
     position: relative;
     display: flex;
@@ -252,7 +271,17 @@
     border-radius: 30px;
     border-width: thin;
     //border: 1px;
+    &.current-page-create-gifos{
+      background-color:  #9CAFC3;
+      border: #9CAFC3;
+      .icon-button-crear-gifo::before{
+        color: white;
+      }
+    }
+    
   }
+
+
   .boxBtnMas:hover {
     background-color: #572ee5;
     #anchorCrearGif {

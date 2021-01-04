@@ -31,7 +31,7 @@ const step3 = document.querySelector("#step3");
 const boxStep1 = document.querySelector("#boxStep1");
 const boxStep2 = document.querySelector("#boxStep2");
 const boxStep3 = document.querySelector("#boxStep3");
-const duration = document.querySelector(".timer");
+const boxTimer = document.querySelector(".boxTimer");
 const btnRepeat = document.querySelector(".repeatCapture");
 const anchorDownload = document.querySelector("#downloadGifCreated");
 
@@ -104,7 +104,7 @@ function startRecording() {
 function stopRecording() {
   stopCounting(initialTime, idInterval);
   mediaRecorder.stop();
-  hideElement(duration);
+  hideElement(boxTimer);
   hideElement(btnStop);
   showElement(btnRepeat);
   showElement(btnupload);
@@ -114,7 +114,7 @@ const recordAgain = () => {
   hideElement(btnRepeat);
   hideElement(btnupload);
   showElement(btnRecord);
-  showElement(duration);
+  showElement(boxTimer);
 };
 
 function uploadGif() {
