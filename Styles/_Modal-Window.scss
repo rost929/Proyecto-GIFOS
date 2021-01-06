@@ -1,160 +1,170 @@
 .modalWindow {
-    width: 100%;
-    height: 2000px;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    z-index: 9;
-    display: none;
+  width: 100%;
+  height: 2000px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  display: none;
 }
 
 .boxCloseModal .icon-button-close {
-    visibility: visible;
+  visibility: visible;
 }
 
 .boxCloseModal {
-    width: 100%;
+  width: 100%;
 }
 
 .btnCloseMax {
-    margin-top: 66.4px;
-    margin-left: 72%;
-    margin-bottom: 78.4px;
-    border: none;
-    background-color: white;
-    width: 15.2px;
-    height: 15.2px;
+  margin-top: 66.4px;
+  margin-left: 72%;
+  margin-bottom: 78.4px;
+  border: none;
+  background-color: white;
+  width: 15.2px;
+  height: 15.2px;
 }
 
-#closeModal::before{
-    color: #572ee5;
-    font-size: 15px;
-  }
+#closeModal::before {
+  color: #572ee5;
+  font-size: 15px;
+}
 
 .contentModal {
-    width: 695px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 25%;
-    animation-name: modal;
-    animation-duration: 1s;
-    // margin-bottom: 153px;
+  width: 695px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 25%;
+  animation-name: modal;
+  animation-duration: 1s;
+  // margin-bottom: 153px;
 }
 
 @keyframes modal {
-    from {
-        top: -330px;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
+  from {
+    top: -330px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .imageMax {
-    width: 695px;
-    height: 385px;
+  width: 695px;
+  height: 385px;
 }
 
 .userMax {
-    font-size: 15px;
-    font-family: 'ProximaNova-Regular';
-    margin-top: 27px;
-    margin-bottom: 6px;
+  font-size: 15px;
+  font-family: "ProximaNova-Regular";
+  margin-top: 27px;
+  margin-bottom: 6px;
 }
 
 .titleMax {
-    font-size: 16px;
-    font-family: 'ProximaNova-Bold';
+  font-size: 16px;
+  font-family: "ProximaNova-Bold";
 }
 
 .boxIcons {
-    position: absolute;
-    top: 27.5%;
-    left: 65%;
-    display: flex;
-    width: 93px;
-    margin-top: 27px;
-    justify-content: space-around;
-    //margin-left: 300px;
+  position: absolute;
+  top: 27.5%;
+  left: 65%;
+  display: flex;
+  width: 93px;
+  margin-top: 27px;
+  justify-content: space-around;
+  //margin-left: 300px;
 }
 
-.boxBtnFavoriteMax {
-    position: relative;
-    background-color: white;
-    border-radius: 6px;
-    opacity: 0.7;
-    width: 32px;
-    height: 32px;
-    z-index: 2;
-    // visibility: hidden;
+.boxBtnFavoriteMax,
+.boxBtnDeleteMax {
+  position: relative;
+  background-color: white;
+  border-radius: 6px;
+  opacity: 0.7;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+   visibility: visible;
+  
 }
 
-.btnFavoriteGifMax {
-    background-color: white;
-    border-radius: 6px;
-    border: 1px solid #9CAFC3;
-    width: 32px;
-    height: 32px;
+.btnFavoriteGifMax,
+.btnDeleteGifMax {
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #9cafc3;
+  width: 32px;
+  height: 32px;
 }
 
 .imgFavoriteMax {
-    border: none;
-    border-radius: 6px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 4px;
+  border: none;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 4px;
 }
 
+#btnFavActSaved{
+  visibility: visible;
+}
+.boxBtnDeleteMax:hover {
+  background: white;
+  opacity: 1;
+}
 .boxBtnFavoriteMax:hover {
-    background: white;
-    opacity: 1;
-    .imgFavoriteActiveMax {
-        visibility: visible;
-    }
-    .imgFavoriteMax {
-        visibility: hidden;
-    }
+  background: white;
+  opacity: 1;
+  .imgFavoriteActiveMax {
+    visibility: visible;
+  }
+  .imgFavoriteMax {
+    visibility: hidden;
+  }
 }
 
 .imgFavoriteActiveMax {
-    position: absolute;
-    top: 7px;
-    left: 7px;
-    visibility: hidden;
-    width: 18px;
-    height: 18px;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  visibility: hidden;
+  width: 18px;
+  height: 18px;
 }
 
 .boxBtnDownloadMax {
-    background-color: white;
-    border-radius: 6px;
-    border: 1px solid #9CAFC3;
-    opacity: 0.7;
-    width: 32px;
-    text-align: center;
-    height: 32px;
-    z-index: 2;
-    //  visibility: hidden;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #9cafc3;
+  opacity: 0.7;
+  width: 32px;
+  text-align: center;
+  height: 32px;
+  z-index: 2;
+  //  visibility: hidden;
 }
 
 .boxBtnDownloadMax:hover {
-    background: white;
-    opacity: 1;
+  background: white;
+  opacity: 1;
 }
 
 .btnDownloadGifMax {
-    border-radius: 6px;
-    border: none;
-    width: 32px;
-    height: 32px;
+  border-radius: 6px;
+  border: none;
+  width: 32px;
+  height: 32px;
 }
 
 .imgDownloadMax {
-    border: none;
-    border-radius: 6px;
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 4px;
+  border: none;
+  border-radius: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 4px;
 }

@@ -4,8 +4,9 @@ import {
   hideSuggestionsBar,
 } from "./CSS-Controller.js";
 import { assignFavoriteEvent, removeFavorite } from "./Favorites.js";
-import { assignMaxEvent } from "./Modal-Windows.js";
-import { assignDownloadEventMyGifos } from "./MyGifos.js";
+import { assignMaxEvent , assignMaxEventMyGifos} from "./Modal-Windows.js";
+import { assignDownloadEventMyGifos, removeGifo } from "./MyGifos.js";
+import { username } from "./Constants.js";
 //Consts
 const containerSearchTitle = document.querySelector(".boxTitleBusqueda");
 const containerCardsSearch = document.querySelector(".boxCardsBusquedas");
@@ -62,7 +63,7 @@ export const prepareTrendingGifCards = (gifs) => {
   let arrayGifsTrending = validateEmptyFields(gifs);
   const cards = arrayGifsTrending.map((gif, index) =>
     cardMarkup(gif.title, gif.user, gif.gif, index)
-  ); 
+  );
   containerCardsTrending.innerHTML = cards.join("\n");
   const arrayDownloadButtons = arrayGifsTrending.map((gif, index) => {
     return document.querySelector("#btnDow" + index);
@@ -82,7 +83,7 @@ export const prepareTrendingGifCards = (gifs) => {
 export const prepareFavoriteGifs = (arrayFavoriteGifs) => {
   const cards = arrayFavoriteGifs.map((gif, index) =>
     cardFavoriteMarkup(gif.title, gif.user, gif.gif, index)
-  ); 
+  );
   containerFavoriteCards.innerHTML = cards.join("\n");
   const arrayDownloadButtons = arrayFavoriteGifs.map((gif, index) => {
     return document.querySelector("#btnDowA" + index);
@@ -101,22 +102,21 @@ export const prepareFavoriteGifs = (arrayFavoriteGifs) => {
 
 export const prepareMyGifos = (arrayMyGifos) => {
   const cards = arrayMyGifos.map((gif, index) =>
-    cardMyGifosMarkup(gif.title, gif.user, gif.gif, index)
-  ); 
+    cardMyGifosMarkup("My Gif", username, gif.images.original.url, index)
+  );
   containerMyGifs.innerHTML = cards.join("\n");
   const arrayDownloadButtons = arrayMyGifos.map((gif, index) => {
     return document.querySelector("#btnDowM" + index);
   });
-  arrayMyGifos.forEach((element) => {
-    console.log(element.gif);
+  const arrayMaxButtons = arrayMyGifos.map((gif, index) => {
+    return document.querySelector("#btnMaxM" + index);
+  });
+  const arrayDeleteButtons = arrayMyGifos.map((gif, index) => {
+    return document.querySelector("#btnDelM" + index);
   });
   assignDownloadEventMyGifos(arrayDownloadButtons, arrayMyGifos);
-  /* 
-    const arrayFavoriteButtons = arrayMyGifos.map((gif, index) => { return document.querySelector('#btnFavA' + index) });
-    const arrayMaxButtons = arrayMyGifos.map((gif, index) => { return document.querySelector('#btnMaxA' + index) });
-    removeFavorite(arrayFavoriteButtons);
-   
-    assignMaxEvent(arrayMaxButtons, arrayMyGifos); */
+  assignMaxEventMyGifos(arrayMaxButtons, arrayMyGifos);
+  removeGifo(arrayDeleteButtons);
   //localStorage.setItem("ID-COUNTER", 12);
 };
 
@@ -154,7 +154,7 @@ export const cardMarkup = (title, username, img, index) => {
 export const cardFavoriteMarkup = (title, username, img, index) => {
   return `<div class="cardGifo" id=cardGifoFav${index}>
     <div class="boxBtnFavorite">
-        <button class=" btn btnFavoriteGif" id="btnFavA${index}"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActive" id="btnFavAct${index}" Style="visibility:visible;"></button>
+        <button class=" btn btnFavoriteGif" id="btnFavA${index}"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteSaved" id="btnFavAct${index}"></button>
     </div>
     <div class="boxBtnDownload">
         <a class=" btn btnDownloadGif" id="btnDowA${index}"> <img src="./assets/icon-download.svg" alt="Descargar" class="imgDownload"></a>
@@ -176,9 +176,9 @@ export const cardFavoriteMarkup = (title, username, img, index) => {
  */
 
 export const cardMyGifosMarkup = (title, username, img, index) => {
-  return `<div class="cardGifo" id=cardGifoFav${index}>
-    <div class="boxBtnFavorite">
-        <button class=" btn btnDeleteGif" id="btnDelM${index}"><img src="./assets/icon_trash.svg" alt="Eliminar" class="imgFavoriteActive" id="btnDelete${index}"></button>
+  return `<div class="cardGifo" id=cardMyGifo${index}>
+    <div class="boxBtnDelete">
+        <button class=" btn btnDeleteGif" id="btnDelM${index}"><img src="./assets/icon_trash.svg" alt="Eliminar" class="imgDeleteActive" id="btnDelete${index}"></button>
     </div>
     <div class="boxBtnDownload">
         <a class=" btn btnDownloadGif" id="btnDowM${index}"> <img src="./assets/icon-download.svg" alt="Descargar" class="imgDownload"></a>

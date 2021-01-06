@@ -1,4 +1,5 @@
 import { downloadGifo } from "./Download.js";
+import {  downloadGif} from "./MyGifos.js";
 const modalWindowElement = document.querySelector(".modalWindow");
 const closeBtnElement = document.querySelector(".btnCloseMax");
 const btnFavMax = document.querySelector("#btnFavMax");
@@ -16,7 +17,6 @@ let titleMax = document.querySelector(".titleMax");
  * @returns {}
  */
 export const assignMaxEvent = (arrayButtons, arrayGifs) => {
-    //console.log(arrayButtons);
     arrayButtons.forEach((element, index) => {
         element.addEventListener("click", function() {
             imageMax.setAttribute("src", arrayGifs[index].gif)
@@ -29,6 +29,20 @@ export const assignMaxEvent = (arrayButtons, arrayGifs) => {
         });
     });
 }
+
+export const assignMaxEventMyGifos = (arrayButtons, arrayGifs) => {
+    arrayButtons.forEach((element, index) => {
+        element.addEventListener("click", function() {
+            imageMax.setAttribute("src", arrayGifs[index].images.original.url)
+            userMax.innerHTML = "My Gifo";
+            titleMax.innerHTML = "juamps16";  
+            btnDowMax.addEventListener("click", function() {
+                downloadGif(element,arrayGifs[index].images.original.url)
+              })
+            modalWindowElement.style.display = "block";
+        });
+    });
+  }
 
 // Events 
 closeBtnElement.addEventListener("click", () => {

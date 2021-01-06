@@ -8,7 +8,7 @@
     }
 }
 
-.boxBtnFavorite {
+.boxBtnFavorite , .boxBtnDelete{
     position: absolute;
     background-color: white;
     border-radius: 6px;
@@ -20,6 +20,14 @@
     text-align: center;
     z-index: 2;
     visibility: hidden;
+}
+
+.boxBtnDelete:hover {
+    background: white;
+    opacity: 1;
+  /*   .imgDeleteActive {
+        visibility: visible;
+    } */
 }
 
 .btnFavoriteGif {
@@ -53,10 +61,16 @@
     position: absolute;
     top: 7px;
     left: 7px;
-    /*    padding-left: 3px;
-    padding-right: 3px;
-    padding-top: 4px; */
     visibility: hidden;
+    width: 18px;
+    height: 18px;
+}
+
+.imgDeleteActive{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    //visibility: visible;
     width: 18px;
     height: 18px;
 }
@@ -80,7 +94,7 @@
     opacity: 1;
 }
 
-.btnDownloadGif {
+.btnDownloadGif, .btnDeleteGif {
     border-radius: 6px;
     border: none;
     width: 32px;

@@ -9,8 +9,8 @@
 export const assignFavoriteEvent = (arrayFavoriteButtons, gifsArray, counter = 0) => {
     arrayFavoriteButtons.forEach((element, index) => {
         element.addEventListener("click", function() {
-            const favoriteActive = document.querySelector("#btnFavAct" + index);
-            favoriteActive.style.visibility = "visible";
+            //const favoriteActive = document.querySelector("#btnFavAct" + index);
+            //favoriteActive.style.visibility = "visible";
             const currentCard = document.querySelector("#cardGifo" + (index + counter));
             currentCard.remove();
             addFavoriteGifToLocalStorage(gifsArray[index]);

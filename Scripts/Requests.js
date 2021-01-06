@@ -111,14 +111,19 @@ function gifData(URL, gifoId) {
       });
   });
 }
-
-const toBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
+function getData(url) {
+  return new Promise((resolve, reject) => {
+    fetch(url)
+      .then((response) => {
+        resolve(response.json());
+      })
+      .catch((error) => {
+        reject(error);
+      });
   });
+}
+
+
 
 export {
   searchData,
@@ -127,4 +132,5 @@ export {
   trendingData,
   uploadData,
   gifData,
+  getData
 };

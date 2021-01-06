@@ -9,9 +9,8 @@ import {
 
 import { refreshCounter, stopCounting } from "./Timer.js";
 import { addMyNewGifToLocalStorage } from "./MyGifos.js";
-import { downloadGif } from "./MyGifos.js";
-//import { uploadGifo } from "./UploadGif.js";
-import { endpointUpload, endpointGifById, constant } from "./Constants.js";
+import { downloadGifGenerated } from "./MyGifos.js";
+import { endpointGifById, constant } from "./Constants.js";
 import { gifData, uploadData } from "./Requests.js";
 
 const video = document.querySelector("#videoScreen");
@@ -49,13 +48,10 @@ const constraints = {
 };
 
 let stream;
-let chunks = [];
-let mediaRecorder;
 let initialTime;
 let idInterval;
 let gifoURL;
-
-let blob = null;
+let gifo;
 
 async function startGifCreation() {
   try {
@@ -67,8 +63,11 @@ async function startGifCreation() {
     hideElement(boxSecondMessage);
     turnOnStep(boxStep2, step2);
     showElement(btnRecord);
+    const recorder = createRecorder(stream);
+    btnRecord.addEventListener("click", () => startRecording(recorder));
+    btnStop.addEventListener("click", () => stopRecording(recorder));
   } catch (e) {
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+    console.log(e);
   }
 }
 
@@ -77,38 +76,47 @@ function showVideo(stream) {
   video.srcObject = stream;
 }
 
-function startRecording() {
-  showElement(btnStop);
-  hideElement(btnRecord);
-
-  let format = { mimeType: "video/webm;codecs=h264" };
-  mediaRecorder = new MediaRecorder(stream, format);
-
-  mediaRecorder.start();
-
-  mediaRecorder.onstart = () => {
-    initialTime = Date.now();
-    idInterval = setInterval(refreshCounter, 1000, initialTime);
-  };
-
-  mediaRecorder.ondataavailable = (e) => {
-    chunks.push(e.data);
-  };
-
-  mediaRecorder.onstop = () => {
-    blob = new Blob(chunks, { type: "video/webm" });
-    chunks = [];
-  };
+function createRecorder(stream) {
+  const recorder = RecordRTC(stream, {
+    type: "gif",
+    frameRate: 1,
+    quality: 10,
+    width: 360,
+    hidden: 240,
+    onGifRecordingStarted: function () {
+      console.log("Record Starting");
+    },
+  });
+  recorder.camera = stream;
+  return recorder;
 }
 
-function stopRecording() {
+function startRecording(recorder) {
+  showElement(btnStop);
+  hideElement(btnRecord);
+  recorder.startRecording();
+  initialTime = Date.now();
+  idInterval = setInterval(refreshCounter, 1000, initialTime);
+}
+
+function stopRecording(recorder) {
   stopCounting(initialTime, idInterval);
-  mediaRecorder.stop();
   hideElement(boxTimer);
   hideElement(btnStop);
   showElement(btnRepeat);
   showElement(btnupload);
+  recorder.stopRecording(() => buildGifFile(recorder));
+  video.srcObject = null;
+  recorder.camera.stop();
+  recorder = null;
 }
+
+const buildGifFile = (recorder) => {
+  let form = new FormData();
+  form.append("file", recorder.getBlob(), "myGif.gif");
+  console.log(form.get("file"));
+  gifo = form;
+};
 
 const recordAgain = () => {
   hideElement(btnRepeat);
@@ -124,9 +132,6 @@ function uploadGif() {
   turnOnStep(boxStep3, step3);
   showLoadingScreen(video);
   showElement(boxUploadMessage);
-  let gifo = buildGifFile();
-  console.log(gifo);
-  //setTimeout(() => {
   hideElement(boxUploadMessage);
   const uploadResult = uploadData(uploadGifoURL, gifo);
   console.log(uploadResult);
@@ -142,20 +147,11 @@ function uploadGif() {
       console.log(gifoURL);
     })
     .catch((error) => console.log(error));
-  downloadGif(anchorDownload, gifo.get("file"));
+  downloadGifGenerated(anchorDownload, gifo.get("file"));
   showElement(boxSuccessMessage);
   showElement(btnDownload);
   showElement(btnLink);
-  // }, 2000);
 }
-
-const buildGifFile = () => {
-  let form = new FormData();
-  form.append("file", blob, "myGif.gif");
-  console.log(form.get("file"));
-  //let gifCreated = form.get("file");
-  return form;
-};
 
 const copyLinkGifo = () => {
   const aux = document.createElement("input");
@@ -167,8 +163,6 @@ const copyLinkGifo = () => {
 };
 
 btnCreate.addEventListener("click", startGifCreation);
-btnRecord.addEventListener("click", startRecording);
-btnStop.addEventListener("click", stopRecording);
 btnRepeat.addEventListener("click", recordAgain);
 btnupload.addEventListener("click", uploadGif);
 btnLink.addEventListener("click", copyLinkGifo);

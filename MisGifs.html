@@ -103,7 +103,7 @@
     <section id="modal">
       <div class="modalWindow">
         <div class="boxCloseModal">
-          <button class="btnCloseMax"><i class="icon-button-close"></i></button>
+          <button class="btnCloseMax"><i class="icon-button-close" id="closeModal"></i></button>
         </div>
         <div class="contentModal">
           <div class="boxImageMax">
@@ -122,17 +122,12 @@
             </div>
           </div>
           <div class="boxIcons">
-            <div class="boxBtnFavoriteMax">
-              <button class="btn btnFavoriteGifMax" id="btnFavMax">
+            <div class="boxBtnDeleteMax">
+              <button class="btn btnDeleteGifMax" id="btnDelMax">
                 <img
-                  src="./assets/icon-fav-hover.svg"
-                  alt="favorito"
+                  src="./assets/icon_trash.svg"
+                  alt="Delete"
                   class="imgFavoriteMax"
-                /><img
-                  src="./assets/icon-fav-active.svg"
-                  alt="favorito Activo"
-                  class="imgFavoriteActiveMax"
-                  id="btnFavAct${index}"
                 />
               </button>
             </div>
