@@ -4,7 +4,7 @@ import {
   hideSuggestionsBar,
 } from "./CSS-Controller.js";
 import { assignFavoriteEvent, removeFavorite } from "./Favorites.js";
-import { assignMaxEvent , assignMaxEventMyGifos} from "./Modal-Windows.js";
+import { assignMaxEvent, assignMaxEventMyGifos } from "./Modal-Windows.js";
 import { assignDownloadEventMyGifos, removeGifo } from "./MyGifos.js";
 import { username } from "./Constants.js";
 //Consts
@@ -24,7 +24,7 @@ const containerMyGifs = document.querySelector(".boxCardsMisGifs");
  * @returns {}
  */
 
-export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
+const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
   let idCounter = parseInt(localStorage.getItem("ID-COUNTER"));
   console.log("ID counter " + idCounter);
   const arrayGifsFound = validateEmptyFields(gifs);
@@ -59,7 +59,7 @@ export const prepareGifCardsBySearch = (gifs, wordTitle = "") => {
  * @returns {}
  */
 
-export const prepareTrendingGifCards = (gifs) => {
+const prepareTrendingGifCards = (gifs) => {
   let arrayGifsTrending = validateEmptyFields(gifs);
   const cards = arrayGifsTrending.map((gif, index) =>
     cardMarkup(gif.title, gif.user, gif.gif, index)
@@ -80,7 +80,7 @@ export const prepareTrendingGifCards = (gifs) => {
   localStorage.setItem("ID-COUNTER", 12);
 };
 
-export const prepareFavoriteGifs = (arrayFavoriteGifs) => {
+const prepareFavoriteGifs = (arrayFavoriteGifs) => {
   const cards = arrayFavoriteGifs.map((gif, index) =>
     cardFavoriteMarkup(gif.title, gif.user, gif.gif, index)
   );
@@ -100,7 +100,7 @@ export const prepareFavoriteGifs = (arrayFavoriteGifs) => {
   //localStorage.setItem("ID-COUNTER", 12);
 };
 
-export const prepareMyGifos = (arrayMyGifos) => {
+const prepareMyGifos = (arrayMyGifos) => {
   const cards = arrayMyGifos.map((gif, index) =>
     cardMyGifosMarkup("My Gif", username, gif.images.original.url, index)
   );
@@ -127,7 +127,7 @@ export const prepareMyGifos = (arrayMyGifos) => {
  * @returns {String}
  */
 
-export const cardMarkup = (title, username, img, index) => {
+const cardMarkup = (title, username, img, index) => {
   return `<div class="cardGifo" id=cardGifo${index}>
     <div class="boxBtnFavorite">
         <button class=" btn btnFavoriteGif" id="btnFav${index}"> <img src="./assets/icon-fav-hover.svg" alt="favorito" class="imgFavorite"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteActive" id="btnFavAct${index}"></button>
@@ -151,7 +151,7 @@ export const cardMarkup = (title, username, img, index) => {
  * @returns {String}
  */
 
-export const cardFavoriteMarkup = (title, username, img, index) => {
+ const cardFavoriteMarkup = (title, username, img, index) => {
   return `<div class="cardGifo" id=cardGifoFav${index}>
     <div class="boxBtnFavorite">
         <button class=" btn btnFavoriteGif" id="btnFavA${index}"><img src="./assets/icon-fav-active.svg" alt="favorito Activo" class="imgFavoriteSaved" id="btnFavAct${index}"></button>
@@ -175,7 +175,7 @@ export const cardFavoriteMarkup = (title, username, img, index) => {
  * @returns {String}
  */
 
-export const cardMyGifosMarkup = (title, username, img, index) => {
+const cardMyGifosMarkup = (title, username, img, index) => {
   return `<div class="cardGifo" id=cardMyGifo${index}>
     <div class="boxBtnDelete">
         <button class=" btn btnDeleteGif" id="btnDelM${index}"><img src="./assets/icon_trash.svg" alt="Eliminar" class="imgDeleteActive" id="btnDelete${index}"></button>
@@ -214,4 +214,14 @@ function validateEmptyFields(arrayToValid) {
 const resetArrayEvents = () => {
   arrayDownloadButtons = [];
   arrayFavoriteButtons = [];
+};
+
+export {
+  prepareGifCardsBySearch,
+  prepareTrendingGifCards,
+  prepareFavoriteGifs,
+  prepareMyGifos,
+  cardMarkup,
+  cardFavoriteMarkup,
+  cardMyGifosMarkup,
 };

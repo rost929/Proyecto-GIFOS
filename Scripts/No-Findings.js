@@ -1,8 +1,8 @@
 import { showSeparatorSearchBar } from "./CSS-Controller.js";
 
-const containerSearchTitle = document.querySelector('.boxTitleBusqueda');
-const containerWithoutResults = document.querySelector('.boxWithoutResults');
-const containerResults = document.querySelector('.boxCardsBusquedas');
+const containerSearchTitle = document.querySelector(".boxTitleBusqueda");
+const containerWithoutResults = document.querySelector(".boxWithoutResults");
+const containerResults = document.querySelector(".boxCardsBusquedas");
 
 /**
  * @method prepareNoResultInfo
@@ -10,13 +10,13 @@ const containerResults = document.querySelector('.boxCardsBusquedas');
  * @param {String}
  * @return {}
  */
-export const prepareNoResultInfo = (wordTitle = "Any search") => {
-    containerResults.innerHTML = "";
-    showSeparatorSearchBar();
-    containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
-    containerWithoutResults.innerHTML = `<img src="./assets/icon-busqueda-sin-resultado.svg" alt="Sin resultados" class="imgWithoutResults">
+const prepareNoResultInfo = (wordTitle = "Any search") => {
+  containerResults.innerHTML = "";
+  showSeparatorSearchBar();
+  containerSearchTitle.innerHTML = `<h2 class="titleBusqueda">${wordTitle}</h2>`;
+  containerWithoutResults.innerHTML = `<img src="./assets/icon-busqueda-sin-resultado.svg" alt="Sin resultados" class="imgWithoutResults">
                                         <p class="tryAgainMessage">Intenta con otra busqueda.</p>`;
-}
+};
 
 /**
  * @method prepareNoFavouriteResults
@@ -24,20 +24,25 @@ export const prepareNoResultInfo = (wordTitle = "Any search") => {
  * @param {String}
  * @return {}
  */
-export const prepareNoFavouriteResults = () => {
-    containerWithoutResults.innerHTML = `<img src="./assets/icon-fav-sin-contenido.svg" alt="Sin resultados" class="imgWithoutResults">
+const prepareNoFavouriteResults = () => {
+  containerWithoutResults.innerHTML = `<img src="./assets/icon-fav-sin-contenido.svg" alt="Sin resultados" class="imgWithoutResults">
                                         <p class="tryAgainMessage">"¡Guarda tu primer GIFO en Favoritos</p>
                                         <p class="tryAgainMessage">para que se muestre aquí!"</p>`;
-}
+};
 
 /**
- * @method prepareNoFavouriteResults
- * @description builds the elements to notify there are no favourites
+ * @method prepareNoMyGifosResults
+ * @description builds the elements to notify there are no gifos created
  * @param {String}
  * @return {}
  */
-export const prepareNoMyGifosResults = () => {
-    containerWithoutResults.innerHTML = `<img src="./assets/icon-fav-sin-contenido.svg" alt="Sin resultados" class="imgWithoutResults">
-                                        <p class="tryAgainMessage">"¡Guarda tu primer GIFO en Favoritos</p>
-                                        <p class="tryAgainMessage">para que se muestre aquí!"</p>`;
-}
+const prepareNoMyGifosResults = () => {
+  containerWithoutResults.innerHTML = ` <img src="./assets/icon-mis-gifos-sin-contenido.svg" alt="Sin resultados" class="imgWithoutResults"/>
+                                        <p class="tryAgainMessage">¡Anímate a crear tu primer GIFO!</p>`;
+};
+
+export {
+  prepareNoFavouriteResults,
+  prepareNoMyGifosResults,
+  prepareNoResultInfo,
+};

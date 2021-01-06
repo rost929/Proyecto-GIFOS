@@ -132,7 +132,6 @@ function uploadGif() {
   turnOnStep(boxStep3, step3);
   showLoadingScreen(video);
   showElement(boxUploadMessage);
-  hideElement(boxUploadMessage);
   const uploadResult = uploadData(uploadGifoURL, gifo);
   console.log(uploadResult);
   uploadResult
@@ -145,12 +144,13 @@ function uploadGif() {
     .then((response) => {
       gifoURL = response.data.images.original.url;
       console.log(gifoURL);
+      downloadGifGenerated(anchorDownload, gifo.get("file"));
+      hideElement(boxUploadMessage);
+      showElement(boxSuccessMessage);
+      showElement(btnDownload);
+      showElement(btnLink);
     })
     .catch((error) => console.log(error));
-  downloadGifGenerated(anchorDownload, gifo.get("file"));
-  showElement(boxSuccessMessage);
-  showElement(btnDownload);
-  showElement(btnLink);
 }
 
 const copyLinkGifo = () => {

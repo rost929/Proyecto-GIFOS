@@ -31,16 +31,16 @@
       <nav rol="navegacion" class="nav">
         <ul class="navegacion">
           <li>
-            <a class="anchorMenu" id="darkMode" href="#"
-              >Modo Nocturno</a
-            >
+            <a class="anchorMenu" id="darkMode" href="#">Modo Nocturno</a>
           </li>
           <li>
-            <a class="anchorMenu" id="lightMode" href="#"
-              >Modo diurno</a
+            <a class="anchorMenu" id="lightMode" href="#">Modo diurno</a>
+          </li>
+          <li>
+            <a class="anchorMenu current-page" href="Favoritos.html"
+              >Favoritos</a
             >
           </li>
-          <li><a class="anchorMenu current-page" href="Favoritos.html">Favoritos</a></li>
           <li><a class="anchorMenu" href="MisGifs.html">Mis GIFOS</a></li>
           <li>
             <div class="boxBtnMas">
@@ -102,7 +102,9 @@
     <section id="modal">
       <div class="modalWindow">
         <div class="boxCloseModal">
-          <button class="btnCloseMax"><i class="icon-button-close" id="closeModal"></i></button>
+          <button class="btnCloseMax">
+            <i class="icon-button-close" id="closeModal"></i>
+          </button>
         </div>
         <div class="contentModal">
           <div class="boxImageMax">
@@ -123,7 +125,7 @@
           <div class="boxIcons">
             <div class="boxBtnFavoriteMax">
               <button class="btn btnFavoriteGifMax" id="btnFavMax">
-             <!--    <img
+                <!--    <img
                   src="./assets/icon-fav-hover.svg"
                   alt="favorito"
                   class="imgFavoriteMax"
@@ -209,5 +211,4 @@
   <script type="module" src="./Scripts/Render-Favorite.js"></script>
   <script type="module" src="./Scripts/Modal-Windows.js"></script>
   <script type="module" src="./Scripts/MyGifos.js"></script>
- 
 </html>

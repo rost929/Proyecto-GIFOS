@@ -17,8 +17,6 @@ const constant = {
   UPLOAD_URL: "https://upload.giphy.com/v1/",
 };
 
-//const uploadingEndpoint = "https://upload.giphy.com/v1/gifs?api_key=cpG5KiG4E7yqmP5WTNd8nnWkzDfvFUWW"
-
 const limit = 12;
 
 export {

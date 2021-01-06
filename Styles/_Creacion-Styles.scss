@@ -63,7 +63,8 @@
 .boxFirstMessage,
 .boxSecondMessage,
 .boxUploadingGif,
-.boxUploadingSuccess {
+.boxUploadingSuccess
+ {
   top: 100px;
   left: 15%;
   position: absolute;
@@ -73,7 +74,7 @@
 .boxUploadingSuccess {
   width: 200px;
   top: 120px;
-  left: 35%;
+  left: 30%;
 }
 
 .boxSecondMessage,

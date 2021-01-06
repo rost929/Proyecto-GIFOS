@@ -1,20 +1,18 @@
-import { prepareNoFavouriteResults } from "./No-Findings.js";
+import { prepareNoMyGifosResults } from "./No-Findings.js";
 import { prepareMyGifos } from "./Card-Markup.js";
 import { constant } from "./Constants.js";
 import { getData } from "./Requests.js";
 
-const containerFavoriteCards = document.querySelector(".boxCardsFavoritas");
-//const containerNoResults = document.querySelector(".boxWithoutResults");
+const containerNoResults = document.querySelector(".boxWithoutResults");
 
 /**
  * @method getGifosIds
  * @description Get gifos IDs dfrom local storage
  * @returns {string} stringIds
  */
-function getGifosIds() {
+function getGifosIds(myGifos) {
   let stringIds = [];
-  const uploadedGifos = JSON.parse(localStorage.getItem("MYGIFOS")) || [];
-  uploadedGifos.forEach((gifo) => {
+  myGifos.forEach((gifo) => {
     stringIds.push(gifo.id);
   });
   stringIds = stringIds.join();
@@ -25,8 +23,8 @@ function getGifosIds() {
  * @method downloadMyGifos
  * @description Download Gifo Data from Giphy
  */
-function downloadMyGifos() {
-  const gifosIds = getGifosIds();
+function downloadMyGifos(myGifos) {
+  const gifosIds = getGifosIds(myGifos);
   const completeURL = `${constant.BASE_URL}gifs${constant.API_KEY}&ids=${gifosIds}`;
   console.log(completeURL);
   const downloadMyGifos = getData(completeURL);
@@ -42,4 +40,14 @@ function downloadMyGifos() {
     });
 }
 
-downloadMyGifos();
+function loadMyGifos () {
+  const myGifos = JSON.parse(localStorage.getItem("MYGIFOS"));
+  if (myGifos != null && (Object.keys(myGifos).length > 0)) {
+    downloadMyGifos(myGifos);
+      containerNoResults.style.margin = "0";
+  } else {
+    prepareNoMyGifosResults();
+  }
+}
+
+loadMyGifos();

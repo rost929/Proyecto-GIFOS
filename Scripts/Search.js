@@ -113,10 +113,10 @@ word.oninput = () => {
     });
 };
 
-btnCloseRight.addEventListener("click", function() {
-    word.value = "";
-    disableElement(searchLeftIcon);
-    showElement(btnElementSearch);
-    hideElement(btnCloseRight);
-    hideSuggestionsBar(containerSuggestions);
-})
+btnCloseRight.addEventListener("click", function () {
+  word.value = "";
+  disableElement(searchLeftIcon);
+  showElement(btnElementSearch);
+  hideElement(btnCloseRight);
+  hideSuggestionsBar(containerSuggestions);
+});

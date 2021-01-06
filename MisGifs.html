@@ -39,7 +39,9 @@
             <a class="anchorMenu" id="lightMode" href="#">Modo diurno</a>
           </li>
           <li><a class="anchorMenu" href="Favoritos.html">Favoritos</a></li>
-          <li><a class="anchorMenu current-page" href="MisGifs.html">Mis GIFOS</a></li>
+          <li>
+            <a class="anchorMenu current-page" href="MisGifs.html">Mis GIFOS</a>
+          </li>
           <li>
             <div class="boxBtnMas">
               <a id="anchorCrearGif" href="Creacion.html"
@@ -61,40 +63,8 @@
         <h2 class="titleGifos">Mis GIFOS</h2>
       </div>
 
-      <div class="boxWithoutResults" id="noFavorites">
-        <img
-          src="./assets/icon-mis-gifos-sin-contenido.svg"
-          alt="Sin resultados"
-          class="imgWithoutResults"
-        />
-        <p class="tryAgainMessage">¡Anímate a crear tu primer GIFO!</p>
-      </div>
-      <div class="boxCardsMisGifs">
-        <!--        <div class="cardGifo">
-          <img src="./assets/GFV1.gif" alt="MI GIF" class="gifo" />
-        </div>
-        <div class="cardGifo">
-          <img src="./assets/GFV2.gif" alt="MI GIF" class="gifo" />
-        </div>
-        <div class="cardGifo">
-          <img src="./assets/GFV3.gif" alt="MI GIF" class="gifo" />
-        </div>
-        <div class="cardGifo">
-          <img src="./assets/GFV4.gif" alt="MI GIF" class="gifo" />
-        </div>
-        <div class="cardGifo">
-          <img src="./assets/GFV5.gif" alt="MI GIF" class="gifo" />
-        </div>
-        <div class="cardGifo">
-          <img src="./assets/GFV6.gif" alt="MI GIF" class="gifo" />
-        </div>
-        <div class="cardGifo">
-          <img src="./assets/GFV7.gif" alt="MI GIF" class="gifo" />
-        </div>
-        <div class="cardGifo">
-          <img src="./assets/GFV8.gif" alt="MI GIF" class="gifo" />
-        </div> -->
-      </div>
+      <div class="boxWithoutResults" id="noMyGifos"></div>
+      <div class="boxCardsMisGifs"></div>
       <div class="boxBtnVerMas">
         <button class="btnVerMas">ver mas</button>
       </div>
@@ -103,7 +73,9 @@
     <section id="modal">
       <div class="modalWindow">
         <div class="boxCloseModal">
-          <button class="btnCloseMax"><i class="icon-button-close" id="closeModal"></i></button>
+          <button class="btnCloseMax">
+            <i class="icon-button-close" id="closeModal"></i>
+          </button>
         </div>
         <div class="contentModal">
           <div class="boxImageMax">

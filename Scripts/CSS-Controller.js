@@ -5,9 +5,7 @@ const boxSuggestionsElement = document.querySelector(".boxSuggestions");
 
 /**
  * @method hideSuggestionsBar
- * @description Hide the suggestions separator
- * @param {}
- * @returns {}
+ * @description Hides the suggestions separator
  */
 const hideSuggestionsBar = () => {
   containerSuggestedList.innerHTML = "";
@@ -18,9 +16,7 @@ const hideSuggestionsBar = () => {
 
 /**
  * @method showSuggestionsBar
- * @description show the suggestions separator
- * @param {}
- * @returns {}
+ * @description shows the suggestions separator
  */
 const showSuggestionBar = () => {
   boxSuggestionsElement.style.cssText = "margin-top: 20px";
@@ -30,9 +26,7 @@ const showSuggestionBar = () => {
 
 /**
  * @method showSeparatorSearchBar
- * @description show the search separator
- * @param {}
- * @returns {}
+ * @description shows the search separator
  */
 const showSeparatorSearchBar = () => {
   separatorSearch.style.visibility = "visible";
@@ -40,18 +34,16 @@ const showSeparatorSearchBar = () => {
 
 /**
  * @method hideSeparatorSearchBar
- * @description hide the search separator
- * @param {}
- * @returns {}
+ * @description hides the search separator
  */
 const hideSeparatorSearchBar = () => {
   separatorSearch.style.visibility = "hidden";
 };
 
-const showFavoriteIcon = (htmlElement, index) => {
-  //.style.cssText = "visibility: visible";
-};
-
+/**
+ * @method changeMessageCreation
+ * @description Triggers the visual elements of gifos creation
+ */
 const changeMessageCreation = (
   firstHtmlElement,
   secondHtmlElement,
@@ -63,30 +55,54 @@ const changeMessageCreation = (
   turnOnStep(boxStep1, step1);
 };
 
+/**
+ * @method turnOnStep
+ * @description Changes element background and color
+ */
 const turnOnStep = (boxStep, step) => {
   boxStep.style.background = "#572EE5";
   step.style.color = "white";
 };
-
+/**
+ * @method turnOffStep
+ * @description Changes element background and color
+ */
 const turnOffStep = (boxStep, step) => {
   boxStep.style.background = "white";
   step.style.color = "#572EE5";
 };
-
+/**
+ * @method showElement
+ * @description displays an element
+ */
 const showElement = (element) => {
   element.style.display = "block";
 };
-
+/**
+ * @method hideElement
+ * @description hides an element
+ */
 const hideElement = (element) => {
   element.style.display = "none";
 };
-
-const enableElement = (element) =>{
-    element.style.visibility = "visible";
-}
+/**
+ * @method enableElement
+ * @description changes element visibility
+ */
+const enableElement = (element) => {
+  element.style.visibility = "visible";
+};
+/**
+ * @method disableElement
+ * @description changes element visibility
+ */
 const disableElement = (element) => {
-    element.style.visibility = "hidden";
-}
+  element.style.visibility = "hidden";
+};
+/**
+ * @method showLoadingScreen
+ * @description shows loading Message
+ */
 const showLoadingScreen = (element) => {
   element.style.opacity = "0.6";
   element.style.background = "#572ee5";
@@ -105,5 +121,4 @@ export {
   hideSuggestionsBar,
   showSeparatorSearchBar,
   hideSeparatorSearchBar,
-  showFavoriteIcon,
 };

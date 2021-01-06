@@ -7,7 +7,6 @@ import { endpointTrending, limit } from "./Constants.js";
 const buttonSiguiente = document.querySelector(".btnSiguiente");
 const buttonAtras = document.querySelector(".btnAtras");
 
-
 /**
  * Functions
  */
@@ -15,41 +14,40 @@ const buttonAtras = document.querySelector(".btnAtras");
 /**
  * @method desplazarALaDerecha
  * @description desplazamiento de gifs en tendencia hacia la derecha
- * @param {} 
+ * @param {}
  * @returns {}
  */
 function desplazarALaDerecha() {
-    document.querySelector(".boxGIFOS").scrollLeft += 300;
+  document.querySelector(".boxGIFOS").scrollLeft += 300;
 }
 
 /**
  * @method desplazarALaIzquierda
  * @description desplazamiento de gifs en tendencia hacia la izquierda
- * @param {} 
+ * @param {}
  * @returns {}
  */
 
 function desplazarALaIzquierda() {
-    document.querySelector(".boxGIFOS").scrollLeft += -300;
+  document.querySelector(".boxGIFOS").scrollLeft += -300;
 }
-
 
 /**
  * @method getTrendingGifs
- * @description 
+ * @description
  * @param {array} Gifs
  * @returns {}
  */
 
 function getTrendingGifs() {
-    trendingData(endpointTrending, 12)
-        .then(response => {
-            const gifsArray = response.data;
-            prepareTrendingGifCards(gifsArray);
-        })
-        .catch((error) => {
-            console.log(error)
-        });
+  trendingData(endpointTrending, 12)
+    .then((response) => {
+      const gifsArray = response.data;
+      prepareTrendingGifCards(gifsArray);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
 getTrendingGifs();
@@ -57,4 +55,4 @@ getTrendingGifs();
 // Events
 
 buttonSiguiente.addEventListener("mousedown", desplazarALaDerecha);
-buttonAtras.addEventListener('mousedown', desplazarALaIzquierda);
+buttonAtras.addEventListener("mousedown", desplazarALaIzquierda);

@@ -62,24 +62,6 @@ const suggestTermsData = (URL) => {
 };
 
 /**
- * @method uploadData
- * @description Make a request
- * @param {String}
- * @returns {Promise}
- */
-
-/* const uploadData = (URL, gifo) => {
-  return new Promise((resolve, reject) => {
-    fetch(`${URL}$api_key=${API_Key}`, {
-      method: "POST",
-      body: gifo
-    })
-      .then((response) => resolve(response.json()))
-      .catch((error) => reject(error));
-  });
-}; */
-
-/**
  * @description Upload Gifos created by user
  * @param {string} URL
  * @param {string} gifoData
